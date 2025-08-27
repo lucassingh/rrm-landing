@@ -1,0 +1,37 @@
+{
+    "navbar": {
+        "news": "News",
+        "regions": "Regions",
+        "resources": "Resources",
+        "contact": "Contact",
+        "newsDescription": "Stay informed with the latest news.",
+        "regionsDescription": "Learn about our missionary work around the world",
+        "resourcesDescription": "Support material for your spiritual growth",
+        "contactDescription": "Contact us, we are here to serve you",
+        "close": "Close",
+        "lightMode": "Light Mode",
+        "darkMode": "Dark Mode",
+        "spanish": "Espanish",
+        "english": "English"
+    },
+    "home": {
+        "titleLine1": "RED DE",
+        "titleLine2": "MISIONES MUNDIALES",
+        "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
+        "scroll": "Scroll to discover"
+    },
+    "footer": {
+        "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
+        "usefulLinks": "USEFUL LINKS",
+        "news": "News",
+        "regions": "Regions",
+        "resources": "Resources",
+        "contact": "Contact",
+        "socialNetworks": "SOCIAL NETWORKS",
+        "newsletter": "Subscribe to our newsletter",
+        "emailPlaceholder": "Your email",
+        "send": "Send",
+        "whatsappTitle": "Follow the Red Misiones Mundiales channel",
+        "whatsappAction": "on WhatsApp"
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "navbar": {
+        "news": "Noticias",
+        "regions": "Regiones",
+        "resources": "Recursos",
+        "contact": "Contacto",
+        "newsDescription": "Mantente informado con las últimas novedades.",
+        "regionsDescription": "Conoce nuestro trabajo misionero alrededor del mundo",
+        "resourcesDescription": "Material de apoyo para tu crecimiento espiritual",
+        "contactDescription": "Comunícate con nosotros, estamos para servirte",
+        "close": "Cerrar",
+        "lightMode": "Modo Claro",
+        "darkMode": "Modo Oscuro",
+        "spanish": "Español",
+        "english": "Inglés"
+    },
+    "home": {
+        "titleLine1": "RED DE",
+        "titleLine2": "MISIONES MUNDIALES",
+        "description": "Un espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
+        "scroll": "Scroll para descubrir"
+    },
+    "footer": {
+        "description": "Espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
+        "usefulLinks": "LINKS ÚTILES",
+        "news": "Noticias",
+        "regions": "Regiones",
+        "resources": "Recursos",
+        "contact": "Contacto",
+        "socialNetworks": "REDES SOCIALES",
+        "newsletter": "Suscribite a nuestro newsletter",
+        "emailPlaceholder": "Tu email",
+        "send": "Enviar",
+        "whatsappTitle": "Sigue el canal de Red Misiones Mundiales",
+        "whatsappAction": "en WhatsApp"
+    }
+}

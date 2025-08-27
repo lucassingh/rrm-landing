@@ -1,0 +1,16 @@
+/* En tu archivo global de estilos */
+@font-face {
+    font-family: 'Coast Bold';
+    src: url('../assets/fonts/coast-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'REM Light';
+    src: url('../assets/fonts/rem-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
