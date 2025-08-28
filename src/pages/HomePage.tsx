@@ -3,7 +3,8 @@ import { Typography, Box, Container, useMediaQuery, useTheme } from '@mui/materi
 import { motion, type Variants } from 'framer-motion';
 import videoBg from '../assets/videos/video_bg.mp4';
 import { FaChevronDown } from 'react-icons/fa';
-import { LayoutContentComponent } from '../components';
+import { HeaderComponent, HeroComponent, LayoutContentComponent, RevealFromLeft, RevealFromRight, VideoComponent } from '../components';
+import { useEffect, useRef } from 'react';
 
 export const HomePage = () => {
 
@@ -12,6 +13,8 @@ export const HomePage = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const { t } = useTranslation('common');
+
+    const videoRef = useRef<HTMLVideoElement>(null);
 
     const titleVariants: Variants = {
         hidden: { opacity: 0, y: 50 },
@@ -69,6 +72,40 @@ export const HomePage = () => {
         });
     };
 
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const handlePlay = () => {
+
+            const playPromise = video.play();
+
+            if (playPromise !== undefined) {
+                playPromise
+                    .catch(() => {
+                        video.muted = true;
+                        video.play();
+                    });
+            }
+        };
+
+        handlePlay();
+
+        const handleUserInteraction = () => {
+            handlePlay();
+            document.removeEventListener('click', handleUserInteraction);
+            document.removeEventListener('touchstart', handleUserInteraction);
+        };
+
+        document.addEventListener('click', handleUserInteraction);
+        document.addEventListener('touchstart', handleUserInteraction);
+
+        return () => {
+            document.removeEventListener('click', handleUserInteraction);
+            document.removeEventListener('touchstart', handleUserInteraction);
+        };
+    }, []);
+
     return (
         <>
             <Box
@@ -84,10 +121,12 @@ export const HomePage = () => {
             >
                 <Box
                     component="video"
+                    ref={videoRef}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     src={videoBg}
                     sx={{
                         position: 'absolute',
@@ -232,7 +271,7 @@ export const HomePage = () => {
                     style={{
                         position: 'absolute',
                         bottom: '40px',
-                        left: '50%',
+                        left: '46%',
                         transform: 'translateX(-50%)',
                         zIndex: 3,
                         cursor: 'pointer',
@@ -263,13 +302,116 @@ export const HomePage = () => {
             </Box>
             <LayoutContentComponent
                 id='section2'
-                layoutType="split"
-                backgroundColors={isMobile ? undefined : { left: '#0a0a0c', right: '#dadada' }}
-                backgroundColor={isMobile ? '#0a0a0c' : undefined}
+                layoutType="full"
+                backgroundColor='inherit'
                 height={isMobile ? 'auto' : '100vh'}
                 sectionPadding={{ xs: '80px 6%', md: '6% 0' }}
             >
-                <h2>asdasd</h2>
+                <HeroComponent />
+            </LayoutContentComponent>
+
+            <VideoComponent />
+
+            <LayoutContentComponent
+                id='section2'
+                layoutType="split"
+                backgroundColor='inherit'
+                backgroundColors={{ left: 'inherit', right: '#5c8dd1' }}
+                height={isMobile ? 'auto' : '100vh'}
+                sectionPadding={{ xs: '80px 6%', md: '6% 0' }}
+            >
+                <RevealFromLeft>
+                    <Box padding={{ xs: '16px 0', md: '22%' }}>
+                        <HeaderComponent
+                            title={t('mision.title')}
+                            titleVariant='h2'
+                            align='left'
+                            spacing={4}
+                            subtitle={t('mision.subtitle')}
+                        />
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                mt: 1,
+                                color: 'text.secondary',
+                                lineHeight: 1.8
+                            }}
+                        >
+                            {t('mision.description')}
+                        </Typography>
+                    </Box>
+                </RevealFromLeft>
+                <RevealFromRight>
+                    <h2>asdasd</h2>
+                </RevealFromRight>
+            </LayoutContentComponent>
+
+            <LayoutContentComponent
+                id='section3'
+                layoutType="split"
+                backgroundColor='inherit'
+                backgroundColors={{ left: '#d14a9d', right: 'inherit' }}
+                height={isMobile ? 'auto' : '100vh'}
+                sectionPadding={{ xs: '80px 6%', md: '6% 0' }}
+            >
+                <RevealFromLeft>
+                    <h2>asdasd</h2>
+                </RevealFromLeft>
+                <RevealFromRight>
+                    <Box padding={{ xs: '16px 0', md: '22%' }}>
+                        <HeaderComponent
+                            title={t('vision.title')}
+                            titleVariant='h2'
+                            align='left'
+                            spacing={4}
+                            subtitle={t('vision.subtitle')}
+                        />
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                mt: 1,
+                                color: 'text.secondary',
+                                lineHeight: 1.8
+                            }}
+                        >
+                            {t('vision.description')}
+                        </Typography>
+                    </Box>
+                </RevealFromRight>
+            </LayoutContentComponent>
+
+            <LayoutContentComponent
+                id='section4'
+                layoutType="split"
+                backgroundColor='inherit'
+                backgroundColors={{ left: 'inherit', right: '#ffc870' }}
+                height={isMobile ? 'auto' : '100vh'}
+                sectionPadding={{ xs: '80px 6%', md: '6% 0' }}
+            >
+                <RevealFromLeft>
+                    <Box padding={{ xs: '16px 0', md: '22%' }}>
+                        <HeaderComponent
+                            title={t('values.title')}
+                            titleVariant='h2'
+                            align='left'
+                            spacing={4}
+                            subtitle={t('values.subtitle')}
+                        />
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                mt: 1,
+                                color: 'text.secondary',
+                                lineHeight: 1.8
+                            }}
+                        >
+                            {t('values.description')}
+                        </Typography>
+                    </Box>
+                </RevealFromLeft>
+                <RevealFromRight>
+                    <h2>asdasd</h2>
+                </RevealFromRight>
             </LayoutContentComponent>
         </>
     );

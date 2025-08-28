@@ -20,6 +20,58 @@
         "description": "Un espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
         "scroll": "Scroll para descubrir"
     },
+    "hero": {
+        "title": "La Red de Misiones Mundiales es una alianza global de iglesias y creyentes que coordina esfuerzos y recursos para llevar ayuda práctica y esperanza espiritual a comunidades en necesidad alrededor del mundo."
+    },
+    "history": {
+        "title": "Nuestra Historia",
+        "subtitle": "Un recorrido por los hitos y logros de nuestra misión."
+    },
+    "mision": {
+        "title": "Nuestra Misión",
+        "subtitle": "Un llamado a la acción           ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+    },
+    "vision": {
+        "title": "Nuestra Visión",
+        "subtitle": "Un futuro lleno de esperanza                ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "values": {
+        "title": "Nuestros Valores",
+        "subtitle": "Principios que nos guían                 ",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "regions": {
+        "title": "Regiones",
+        "subtitle": "La Red de Misiones Mundiales esta dividida en regiones a lo largo y ancho del país.",
+        "legend": "Regiones",
+        "noro": "Región Noroeste",
+        "nore": "Región Noreste",
+        "lito": "Región Litoral",
+        "center": "Región Centro",
+        "cuyo": "Región Cuyo",
+        "buenos-aires-cerca": "Buenos Aires (hasta 100 km)",
+        "buenos-aires-lejos": "Buenos Aires (+ de 100 km)",
+        "south": "Región Sur",
+        "austral": "Región Austral",
+        "bossesTitle": "Encargados Regionales",
+        "bossesSubtitle": "Contactate con el encargado regional de tu provincia",
+        "provinces": "Provincias",
+        "contact": "Información de Contacto",
+        "messages": "🖱️ Coloca el cursor sobre el mapa para descubrir las regiones",
+        "cardBossesRegions": {
+            "noro": "Región Noroeste",
+            "nore": "Región Noreste",
+            "lito": "Región Litoral",
+            "center": "Región Centro",
+            "cuyo": "Región Cuyo",
+            "buenos-aires-cerca": "Región Bs. As. (hasta 100 km)",
+            "buenos-aires-lejos": "Región Bs. As. (más de 100 km)",
+            "south": "Región Sur (General Roca)",
+            "south2": "Región Sur (Neuquén)"
+        }
+    },
     "footer": {
         "description": "Espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
         "usefulLinks": "LINKS ÚTILES",

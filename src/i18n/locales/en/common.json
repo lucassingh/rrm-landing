@@ -20,6 +20,58 @@
         "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
         "scroll": "Scroll to discover"
     },
+    "hero": {
+        "title": "Red de Misiones Mundiales is a global alliance of churches and believers that coordinates efforts and resources to bring practical help and spiritual hope to communities in need around the world."
+    },
+    "history": {
+        "title": "Our History",
+        "subtitle": "A journey through the milestones and achievements of our mission."
+    },
+    "mision": {
+        "title": "Our Mission",
+        "subtitle": "A call to action",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "vision": {
+        "title": "Our Vision",
+        "subtitle": "A future full of hope",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "values": {
+        "title": "Our Values",
+        "subtitle": "Principles that guide us",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "regions": {
+        "title": "Regions",
+        "subtitle": "The Red de Misiones Mundiales is divided into regions throughout the country.",
+        "legend": "Regions",
+        "noro": "Northwest Region",
+        "nore": "Northeast Region",
+        "lito": "Litoral Region",
+        "center": "Central Region",
+        "cuyo": "Cuyo Region",
+        "buenos-aires-cerca": "Buenos Aires (up to 100 km)",
+        "buenos-aires-lejos": "Buenos Aires (over 100 km)",
+        "south": "South Region",
+        "austral": "Austral Region",
+        "bossesTitle": "Regional Managers",
+        "bossesSubtitle": "Contact the regional manager for your province",
+        "provinces": "Provinces",
+        "contact": "Contact Information",
+        "messages": "🖱️ Hover over the map to discover the regions",
+        "cardBossesRegions": {
+            "noro": "Northwest Region",
+            "nore": "Northeast Region",
+            "lito": "Litoral Region",
+            "center": "Central Region",
+            "cuyo": "Cuyo Region",
+            "buenos-aires-cerca": "Buenos Aires (up to 100 km)",
+            "buenos-aires-lejos": "Buenos Aires (over 100 km)",
+            "south": "South Region (General Roca)",
+            "south2": "South Region (Neuquén)"
+        }
+    },
     "footer": {
         "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
         "usefulLinks": "USEFUL LINKS",

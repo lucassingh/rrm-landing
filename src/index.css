@@ -1,0 +1,15 @@
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Estilo específico para contenedores de animación */
+.motion-container {
+    width: 100%;
+    overflow: hidden;
+}
