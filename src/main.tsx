@@ -5,7 +5,6 @@ import { CssBaseline } from "@mui/material";
 import { CustomThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import './i18n/config';
-import './fonts.css'
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

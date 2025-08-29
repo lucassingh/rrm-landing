@@ -287,7 +287,7 @@ export const NavBarComponent = () => {
                             textDecoration: 'none'
                         }}
                     >
-                        <Typography variant="h2" fontSize='45px' fontStyle="italic" color={mode === 'dark' ? theme.palette.secondary.contrastText : theme.palette.primary.main}>RMM</Typography>
+                        <Typography sx={{ fontWeight: '700' }} variant="h2" fontSize='45px' fontStyle="italic" color={mode === 'dark' ? theme.palette.secondary.contrastText : theme.palette.primary.main}>RMM</Typography>
                     </Box>
 
                     {/* Botones derecha */}

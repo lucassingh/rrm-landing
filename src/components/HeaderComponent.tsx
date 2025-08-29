@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
-import { useTheme, type TypographyVariant } from '@mui/material/styles';
+import { useTheme, type SxProps, type TypographyVariant } from '@mui/material/styles';
 import { darkPalette, lightPalette } from '../theme/palettes';
 
 type PaletteColorKey = {
@@ -16,6 +16,7 @@ export interface HeaderComponentProps {
     subtitleColor?: PaletteColorKey | 'textPrimary' | 'textSecondary';
     align?: 'left' | 'center' | 'right';
     spacing?: number;
+    sx?: SxProps;
 }
 
 export const HeaderComponent: React.FC<HeaderComponentProps> = ({
@@ -26,6 +27,7 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = ({
     subtitleColor = 'primary',
     align = 'center',
     spacing = 1,
+    sx,
 }) => {
     const theme = useTheme();
 
@@ -53,6 +55,7 @@ export const HeaderComponent: React.FC<HeaderComponentProps> = ({
                 width: '100%',
                 textAlign: align,
                 mb: spacing,
+                ...sx,
             }}
         >
             <Typography

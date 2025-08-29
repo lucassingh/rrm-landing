@@ -187,16 +187,15 @@ export const HomePage = () => {
                                     variant="h1"
                                     sx={{
                                         fontSize: {
-                                            xs: '2.8rem',
-                                            sm: '3.8rem',
-                                            md: '4.8rem',
-                                            lg: '5.8rem'
+                                            xs: '1.8rem',
+                                            sm: '2.8rem',
+                                            md: '3.8rem',
+                                            lg: '4.8rem'
                                         },
                                         fontWeight: 'bold',
                                         fontStyle: 'italic',
                                         lineHeight: 1.1,
                                         mb: 1,
-                                        textTransform: 'uppercase',
                                         wordWrap: 'break-word'
                                     }}
                                 >
@@ -209,16 +208,15 @@ export const HomePage = () => {
                                     variant="h1"
                                     sx={{
                                         fontSize: {
-                                            xs: '2.8rem',
-                                            sm: '3.8rem',
-                                            md: '4.8rem',
-                                            lg: '5.8rem'
+                                            xs: '1.8rem',
+                                            sm: '2.8rem',
+                                            md: '3.8rem',
+                                            lg: '4.8rem'
                                         },
                                         fontWeight: 'bold',
                                         fontStyle: 'italic',
                                         lineHeight: 1.1,
                                         mb: 2,
-                                        textTransform: 'uppercase',
                                         wordWrap: 'break-word'
                                     }}
                                 >

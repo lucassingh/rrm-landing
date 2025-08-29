@@ -529,11 +529,11 @@ const BossesCardsComponent: React.FC = () => {
     return (
         <Box sx={{ px: { xs: 2, sm: 3 } }}>
             <HeaderComponent
-                title="Encargados Regionales"
+                title={t("regions.bossesTitle")}
+                subtitle={t("regions.bossesSubtitle")}
                 titleVariant='h2'
                 align="left"
                 spacing={6}
-                subtitle="Contactate con el encargado regional de tu provincia"
             />
             <Grid container rowSpacing={2} columnSpacing={2}>
                 {bosses.map(boss => (

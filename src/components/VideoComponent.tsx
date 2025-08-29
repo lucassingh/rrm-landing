@@ -52,7 +52,6 @@ export const VideoComponent = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    // Opciones para el player de YouTube - Cambia el aspect ratio
     const opts = {
         height: '100%',
         width: '100%',
@@ -82,6 +81,7 @@ export const VideoComponent = () => {
         >
             <HeaderComponent
                 title="Nuestra Historia"
+                sx={{ color: 'primary.main', fontSize: '50px !important' }}
                 titleVariant='h2'
                 spacing={6}
                 subtitle="Conoce más sobre nuestros inicios y trayectoria"
@@ -96,7 +96,6 @@ export const VideoComponent = () => {
                         videoId="IX0QVURTqb8"
                         opts={opts}
                         onReady={onReady}
-                    // Elimina el style del componente YouTube
                     />
                     <VideoOverlay />
                 </VideoWrapper>

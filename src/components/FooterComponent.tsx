@@ -70,12 +70,13 @@ export const FooterComponent = () => {
                         <Typography
                             variant="h1"
                             sx={{
-                                fontSize: { xs: '4rem', md: '5rem' },
-                                fontWeight: 'bold',
+                                fontSize: { xs: '4rem', md: '4rem' },
+                                fontWeight: '700',
                                 fontStyle: 'italic',
                                 background: '#FFF',
                                 WebkitBackgroundClip: 'text',
                                 backgroundClip: 'text',
+                                width: '300px',
                                 color: 'transparent',
                                 mb: 1,
                                 lineHeight: '0.9'
