@@ -8,8 +8,7 @@ import {
     useMediaQuery,
     useTheme
 } from "@mui/material";
-import { ARMapComponent, CardDashboardComponent, HeaderComponent } from "../components";
-import JumbotronComponent from "../components/JumbotronComponent";
+import { ARMapComponent, CardDashboardComponent, HeaderComponent, JumbotronComponent } from "../components";
 import regionsBG from '../assets/bgs/regions-bg.jpg';
 import BossesCardsComponent from "../components/BossesCardsComponent";
 import { useTranslation } from "react-i18next";

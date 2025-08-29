@@ -69,7 +69,7 @@ export const lightPalette = {
         contrastText: '#FFFFFF',
     },
     tertiary: {
-        main: '#b63e81',
+        main: '#ff5733',
         contrastText: '#FFFFFF',
     },
     extra1: {
@@ -102,7 +102,7 @@ export const darkPalette = {
         contrastText: '#FFFFFF',
     },
     tertiary: {
-        main: '#d14a9d',
+        main: '#ff5733',
         contrastText: '#FFFFFF',
     },
     extra1: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 
 interface JumbotronComponentProps {
-    title: string;
+    title?: string;
     subtitle?: string;
     background?: string;
     backgroundColor?: string;
@@ -13,7 +13,7 @@ interface JumbotronComponentProps {
     subtitleColor?: string;
 }
 
-const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
+export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
     title,
     subtitle,
     background,
@@ -120,5 +120,3 @@ const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
         </Box>
     );
 };
-
-export default JumbotronComponent;

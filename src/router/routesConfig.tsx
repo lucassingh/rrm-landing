@@ -1,4 +1,5 @@
 import { ContactPage, HomePage, NewsPage, RegionsPage, ResourcesPage } from "../pages";
+import { NewsByIDPage } from "../pages/NewsByIDPage";
 
 interface RouteConfig {
     path: string;
@@ -13,6 +14,10 @@ export const routes: RouteConfig[] = [
     {
         path: "/news",
         element: <NewsPage />,
+    },
+    {
+        path: "/news/:id",
+        element: <NewsByIDPage />,
     },
     {
         path: "/regions",

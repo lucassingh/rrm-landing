@@ -72,6 +72,10 @@
             "south2": "South Region (Neuquén)"
         }
     },
+    "news": {
+        "title": "Latest News",
+        "subtitle": "Stay informed about our activities and events."
+    },
     "footer": {
         "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
         "usefulLinks": "USEFUL LINKS",

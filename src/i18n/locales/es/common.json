@@ -72,6 +72,10 @@
             "south2": "Región Sur (Neuquén)"
         }
     },
+    "news": {
+        "title": "Últimas Noticias",
+        "subtitle": "Mantente informado sobre nuestras actividades y eventos."
+    },
     "footer": {
         "description": "Espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
         "usefulLinks": "LINKS ÚTILES",
