@@ -2,11 +2,11 @@
     "navbar": {
         "news": "News",
         "regions": "Regions",
-        "resources": "Resources",
+        "entities": "Entities",
         "contact": "Contact",
         "newsDescription": "Stay informed with the latest news.",
         "regionsDescription": "Learn about our missionary work around the world",
-        "resourcesDescription": "Support material for your spiritual growth",
+        "entitiesDescription": "Explore the different entities that are part of our network.",
         "contactDescription": "Contact us, we are here to serve you",
         "close": "Close",
         "lightMode": "Light Mode",
@@ -75,6 +75,15 @@
     "news": {
         "title": "Latest News",
         "subtitle": "Stay informed about our activities and events."
+    },
+    "entities": {
+        "title": "Participating Entities",
+        "subtitle": "Learn about the entities that participate in our network.",
+        "section1": "Sending Agencies",
+        "section2": "Denominational Sending Agencies",
+        "section3": "Training Entities",
+        "section4": "Sending Churches",
+        "section5": "Mobilization Entities"
     },
     "footer": {
         "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",

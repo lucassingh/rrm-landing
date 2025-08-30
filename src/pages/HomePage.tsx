@@ -116,7 +116,9 @@ export const HomePage = () => {
                     overflow: 'hidden',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'flex-start'
+                    justifyContent: 'flex-start',
+                    borderBottomLeftRadius: '40px',
+                    borderBottomRightRadius: '40px',
                 }}
             >
                 <Box

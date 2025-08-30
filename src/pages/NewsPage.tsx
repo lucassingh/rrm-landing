@@ -124,7 +124,7 @@ export const NewsPage = () => {
                     <Grid size={{ xs: 12, lg: 8 }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                             {getPaginatedNews().map((newsItem) => (
-                                <NewsCard key={newsItem.id} news={newsItem} />
+                                <NewsCard key={newsItem.id} news={newsItem} index={0} />
                             ))}
                         </Box>
                         <NewsPagination

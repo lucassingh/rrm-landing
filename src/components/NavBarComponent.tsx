@@ -30,10 +30,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useThemeContext } from '../context/ThemeContext';
 import { useLanguageContext } from '../context/LanguageContext';
-import resources from '../assets/navbar/resources.jpg';
-import regions from '../assets/navbar/regions.jpg';
-import news from '../assets/navbar/news.jpg';
-import contact from '../assets/navbar/contact.jpg';
+import entities from '../assets/navbar/entities-nav.png';
+import regions from '../assets/navbar/regions-nav.png';
+import news from '../assets/navbar/news-nav.png';
+import contact from '../assets/navbar/contact-nav.png';
 
 interface MenuItem {
     titleKey: string;
@@ -70,10 +70,10 @@ export const NavBarComponent = () => {
             image: regions
         },
         {
-            titleKey: 'navbar.resources',
-            path: '/resources',
-            descriptionKey: 'navbar.resourcesDescription',
-            image: resources
+            titleKey: 'navbar.entities',
+            path: '/entities',
+            descriptionKey: 'navbar.entitiesDescription',
+            image: entities
         },
         {
             titleKey: 'navbar.contact',
@@ -291,7 +291,7 @@ export const NavBarComponent = () => {
                     </Box>
 
                     {/* Botones derecha */}
-                    <Box sx={{ display: 'flex', gap: 1, flex: 1, justifyContent: 'flex-end', marginRight: '15px' }}>
+                    <Box sx={{ display: 'flex', gap: 1, flex: 1, justifyContent: 'flex-end', marginRight: '19px' }}>
                         <Button
                             onClick={toggleTheme}
                             sx={{
@@ -376,7 +376,7 @@ export const NavBarComponent = () => {
                         spacing={2}
                         sx={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(5, 1fr)',
+                            gridTemplateColumns: 'repeat(4, 1fr)',
                             width: '100%'
                         }}
                     >

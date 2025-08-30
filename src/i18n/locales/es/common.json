@@ -2,11 +2,11 @@
     "navbar": {
         "news": "Noticias",
         "regions": "Regiones",
-        "resources": "Recursos",
+        "entities": "Entidades",
         "contact": "Contacto",
         "newsDescription": "Mantente informado con las últimas novedades.",
         "regionsDescription": "Conoce nuestro trabajo misionero alrededor del mundo",
-        "resourcesDescription": "Material de apoyo para tu crecimiento espiritual",
+        "entitiesDescription": "Explora las diferentes entidades que forman parte de nuestra red.",
         "contactDescription": "Comunícate con nosotros, estamos para servirte",
         "close": "Cerrar",
         "lightMode": "Modo Claro",
@@ -75,6 +75,15 @@
     "news": {
         "title": "Últimas Noticias",
         "subtitle": "Mantente informado sobre nuestras actividades y eventos."
+    },
+    "entities": {
+        "title": "Entidades Participantes",
+        "subtitle": "Conoce que entidades participan en nuestra red.",
+        "section1": "Agencias enviadoras",
+        "section2": "Agencias de envío denominacionales",
+        "section3": "Entidades de capacitación",
+        "section4": "Iglesias Enviadoras",
+        "section5": "Entidades de Movilización"
     },
     "footer": {
         "description": "Espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",

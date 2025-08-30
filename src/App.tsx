@@ -1,11 +1,12 @@
+import { FooterComponent, NavBarComponent, ScrollToTopComponent } from "./components"
 import { Outlet } from "react-router-dom";
-import { FooterComponent, NavBarComponent } from "./components"
 
 function App() {
 
     return (
         <>
             <NavBarComponent />
+            <ScrollToTopComponent />
             <Outlet />
             <FooterComponent />
         </>

@@ -17,6 +17,7 @@ import {
     LocationOn as LocationIcon
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
+import { motion, type Variants } from "framer-motion";
 
 // Importar componentes de mapas
 import { NOMapComponent } from "./regions/NOMapComponent";
@@ -526,6 +527,22 @@ const BossesCardsComponent: React.FC = () => {
         }
     ];
 
+    const cardVariants: Variants = {
+        offscreen: {
+            y: 50,
+            opacity: 0
+        },
+        onscreen: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 0.8
+            }
+        }
+    };
+
     return (
         <Box sx={{ px: { xs: 2, sm: 3 } }}>
             <HeaderComponent
@@ -536,7 +553,7 @@ const BossesCardsComponent: React.FC = () => {
                 spacing={6}
             />
             <Grid container rowSpacing={2} columnSpacing={2}>
-                {bosses.map(boss => (
+                {bosses.map((boss, index) => (
                     <Grid
                         size={{ xs: 12, sm: 6, md: 4 }}
                         key={boss.id}
@@ -545,9 +562,16 @@ const BossesCardsComponent: React.FC = () => {
                             minHeight: 400,
                         }}
                     >
-                        <Box sx={{ width: '100%' }}>
+                        <motion.div
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true, amount: 0.3 }}
+                            variants={cardVariants}
+                            transition={{ delay: index * 0.1 }}
+                            style={{ width: '100%' }}
+                        >
                             <BossCard boss={boss} provinceNames={provinceNames} />
-                        </Box>
+                        </motion.div>
                     </Grid>
                 ))}
             </Grid>

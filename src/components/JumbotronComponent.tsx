@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import { motion, type Variants } from "framer-motion";
 
 interface JumbotronComponentProps {
     title?: string;
@@ -32,6 +33,23 @@ export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
             ? { background: backgroundGradient }
             : { backgroundColor: backgroundColor };
 
+    const slideUpVariants: Variants = {
+        offscreen: {
+            y: 50,  // Comienza 50px más abajo
+            opacity: 0
+        },
+        onscreen: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+                duration: 0.8
+            }
+        }
+    };
+
     return (
         <Box
             sx={{
@@ -42,6 +60,8 @@ export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 display: 'flex',
+                borderBottomLeftRadius: '40px',
+                borderBottomRightRadius: '40px',
                 alignItems: 'flex-end',
                 overflow: 'hidden',
                 ...backgroundStyle
@@ -77,46 +97,60 @@ export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
                 }}
             >
                 <Container>
-                    <Typography
-                        variant="h1"
-                        component="h1"
-                        sx={{
-                            fontSize: {
-                                xs: '2rem',
-                                md: '2.5rem',
-                                lg: '3rem'
-                            },
-                            fontWeight: 'bold',
-                            marginBottom: subtitle ? '10px' : '0',
-                            color: titleColor,
-                            lineHeight: 1.2
+                    <motion.div
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{ once: true, amount: 0.3 }}
+                        variants={slideUpVariants}
+                        style={{
+                            position: 'relative',
+                            zIndex: 2,
+                            padding: '20px',
+                            width: '100%',
+                            color: '#fff'
                         }}
                     >
-                        {title}
-                    </Typography>
-
-                    {subtitle && (
                         <Typography
-                            variant="body1"
+                            variant="h1"
+                            component="h1"
                             sx={{
                                 fontSize: {
-                                    xs: '1rem',
-                                    md: '1.3rem',
-                                    lg: '1.5rem'
+                                    xs: '2rem',
+                                    md: '2.5rem',
+                                    lg: '3rem'
                                 },
-                                fontWeight: 'normal',
-                                margin: 0,
-                                color: subtitleColor,
-                                maxWidth: '500px',
-                                opacity: 0.9,
-                                lineHeight: 1.3
+                                fontWeight: 'bold',
+                                marginBottom: subtitle ? '10px' : '0',
+                                color: titleColor,
+                                lineHeight: 1.2
                             }}
                         >
-                            {subtitle}
+                            {title}
                         </Typography>
-                    )}
+
+                        {subtitle && (
+                            <Typography
+                                variant="body1"
+                                sx={{
+                                    fontSize: {
+                                        xs: '1rem',
+                                        md: '1.3rem',
+                                        lg: '1.5rem'
+                                    },
+                                    fontWeight: 'normal',
+                                    margin: 0,
+                                    color: subtitleColor,
+                                    maxWidth: '500px',
+                                    opacity: 0.9,
+                                    lineHeight: 1.3
+                                }}
+                            >
+                                {subtitle}
+                            </Typography>
+                        )}
+                    </motion.div>
                 </Container>
             </Box>
-        </Box>
+        </Box >
     );
 };

@@ -1,4 +1,4 @@
-import { ContactPage, HomePage, NewsPage, RegionsPage, ResourcesPage } from "../pages";
+import { ContactPage, EntitiesPage, HomePage, NewsPage, RegionsPage } from "../pages";
 import { NewsByIDPage } from "../pages/NewsByIDPage";
 
 interface RouteConfig {
@@ -24,8 +24,8 @@ export const routes: RouteConfig[] = [
         element: <RegionsPage />,
     },
     {
-        path: "/resources",
-        element: <ResourcesPage />,
+        path: "/entities",
+        element: <EntitiesPage />,
     },
     {
         path: "/contact",

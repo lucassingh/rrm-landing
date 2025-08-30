@@ -1,5 +1,6 @@
 import { styled, keyframes } from '@mui/system';
 import { useTranslation } from 'react-i18next';
+import { motion, type Variants } from "framer-motion";
 
 const gradientAnimation = keyframes`
   0% { background-position: 0% 50%; }
@@ -43,14 +44,37 @@ const AnimatedGradientText = styled('h1')`
   }
 `;
 
-export const HeroComponent = () => {
+const zoomInVariants: Variants = {
+    offscreen: {
+        scale: 0.95,
+        opacity: 0
+    },
+    onscreen: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            type: "tween",
+            ease: "easeOut",
+            duration: 0.5
+        }
+    }
+};
 
+export const HeroComponent = () => {
     const { t } = useTranslation('common');
 
     return (
         <HeroSection>
             <AnimatedGradientText>
-                {t('hero.title')}
+                <motion.span
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={zoomInVariants}
+                    style={{ display: 'inline-block' }}
+                >
+                    {t('hero.title')}
+                </motion.span>
             </AnimatedGradientText>
         </HeroSection>
     );

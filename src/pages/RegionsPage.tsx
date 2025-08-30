@@ -12,6 +12,7 @@ import { ARMapComponent, CardDashboardComponent, HeaderComponent, JumbotronCompo
 import regionsBG from '../assets/bgs/regions-bg.jpg';
 import BossesCardsComponent from "../components/BossesCardsComponent";
 import { useTranslation } from "react-i18next";
+import { motion, type Variants } from "framer-motion";
 
 interface Region {
     id: string;
@@ -363,6 +364,23 @@ export const RegionsPage = () => {
         }
     }, [isMobile, addMobileAnnotations]);
 
+    const zoomInVariants: Variants = {
+        offscreen: {
+            scale: 0.8,
+            opacity: 0
+        },
+        onscreen: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+                duration: 0.8
+            }
+        }
+    };
+
     return (
         <>
             <JumbotronComponent
@@ -378,165 +396,179 @@ export const RegionsPage = () => {
                     <Grid container spacing={3}>
                         {/* Mapa */}
                         <Grid size={{ xs: 12, md: 8 }} >
-                            <Box
-                                ref={mapContainerRef}
-                                sx={{
-                                    position: 'relative',
-                                    width: '80%',
-                                    borderRadius: 1,
-                                    overflow: 'visible',
-                                    minHeight: isMobile ? '400px' : '500px'
-                                }}
+                            <motion.div
+                                initial="offscreen"
+                                whileInView="onscreen"
+                                viewport={{ once: true, amount: 0.3 }}
+                                variants={zoomInVariants}
                             >
-                                {!isMobile && (
-                                    <Box
-                                        sx={{
-                                            position: 'absolute',
-                                            top: 10,
-                                            left: 10,
-                                            zIndex: 1000,
-                                            maxWidth: 200
-                                        }}
-                                    >
-                                        <Card
+                                <Box
+                                    ref={mapContainerRef}
+                                    sx={{
+                                        position: 'relative',
+                                        width: '80%',
+                                        borderRadius: 1,
+                                        overflow: 'visible',
+                                        minHeight: isMobile ? '400px' : '500px'
+                                    }}
+                                >
+                                    {!isMobile && (
+                                        <Box
                                             sx={{
-                                                p: 1.5,
-                                                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                                                backdropFilter: 'blur(4px)',
-                                                boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                                                position: 'absolute',
+                                                top: 10,
+                                                left: 10,
+                                                zIndex: 1000,
+                                                maxWidth: 200
+                                            }}
+                                        >
+                                            <Card
+                                                sx={{
+                                                    p: 1.5,
+                                                    backdropFilter: 'blur(4px)',
+                                                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                                                }}
+                                            >
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{
+                                                        fontWeight: 'medium',
+                                                        color: 'text.primary',
+                                                        textAlign: 'center'
+                                                    }}
+                                                >
+                                                    {t("regions.messages")}
+                                                </Typography>
+                                            </Card>
+                                        </Box>
+                                    )}
+                                    <ARMapComponent
+                                        style={{ width: '100%', height: 'auto' }}
+                                    />
+
+                                    {!isMobile && regionTooltip.visible && regionTooltip.region && (
+                                        <Box
+                                            sx={{
+                                                position: 'absolute',
+                                                left: regionTooltip.x,
+                                                top: regionTooltip.y,
+                                                transform: 'translate(-50%, -100%)',
+                                                bgcolor: 'background.paper',
+                                                color: 'text.primary',
+                                                p: 2,
+                                                borderRadius: 2,
+                                                boxShadow: 4,
+                                                maxWidth: 280,
+                                                minWidth: 200,
+                                                pointerEvents: 'none',
+                                                zIndex: 1001,
+                                                borderLeft: `4px solid ${regionTooltip.region.color}`,
+                                                transition: 'all 0.3s ease',
+                                                '&::after': {
+                                                    content: '""',
+                                                    position: 'absolute',
+                                                    bottom: '-8px',
+                                                    left: '50%',
+                                                    transform: 'translateX(-50%)',
+                                                    width: '16px',
+                                                    height: '16px',
+                                                    bgcolor: 'background.paper',
+                                                    zIndex: -1
+                                                }
                                             }}
                                         >
                                             <Typography
-                                                variant="body2"
+                                                variant="h6"
+                                                gutterBottom
                                                 sx={{
-                                                    fontWeight: 'medium',
-                                                    color: 'text.primary',
-                                                    textAlign: 'center'
+                                                    color: regionTooltip.region.color,
+                                                    fontSize: '15px',
+                                                    fontWeight: 'bold'
                                                 }}
                                             >
-                                                {t("regions.messages")}
+                                                {regionTooltip.region.name}
                                             </Typography>
-                                        </Card>
-                                    </Box>
-                                )}
-                                <ARMapComponent
-                                    style={{ width: '100%', height: 'auto' }}
-                                />
-
-                                {!isMobile && regionTooltip.visible && regionTooltip.region && (
-                                    <Box
-                                        sx={{
-                                            position: 'absolute',
-                                            left: regionTooltip.x,
-                                            top: regionTooltip.y,
-                                            transform: 'translate(-50%, -100%)',
-                                            bgcolor: 'background.paper',
-                                            color: 'text.primary',
-                                            p: 2,
-                                            borderRadius: 2,
-                                            boxShadow: 4,
-                                            maxWidth: 280,
-                                            minWidth: 200,
-                                            pointerEvents: 'none',
-                                            zIndex: 1001,
-                                            borderLeft: `4px solid ${regionTooltip.region.color}`,
-                                            transition: 'all 0.3s ease',
-                                            '&::after': {
-                                                content: '""',
-                                                position: 'absolute',
-                                                bottom: '-8px',
-                                                left: '50%',
-                                                transform: 'translateX(-50%)',
-                                                width: '16px',
-                                                height: '16px',
-                                                bgcolor: 'background.paper',
-                                                zIndex: -1
-                                            }
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h6"
-                                            gutterBottom
-                                            sx={{
-                                                color: regionTooltip.region.color,
-                                                fontSize: '15px',
-                                                fontWeight: 'bold'
-                                            }}
-                                        >
-                                            {regionTooltip.region.name}
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ fontSize: '13px', lineHeight: 1.4 }}>
-                                            {regionTooltip.region.description}
-                                        </Typography>
-                                    </Box>
-                                )}
-                            </Box>
+                                            <Typography variant="body2" sx={{ fontSize: '13px', lineHeight: 1.4 }}>
+                                                {regionTooltip.region.description}
+                                            </Typography>
+                                        </Box>
+                                    )}
+                                </Box>
+                            </motion.div>
                         </Grid>
 
                         {/* Panel lateral */}
                         <Grid size={{ xs: 12, md: 4 }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                                {/* Leyenda de regiones */}
-                                <Card sx={{ p: 2 }}>
-                                    <HeaderComponent
-                                        title={t("regions.legend")}
-                                        titleVariant='h2'
-                                        align="left"
-                                    />
-                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                                        {regions.map(region => (
-                                            <Box
-                                                key={region.id}
-                                                sx={{
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    p: 1,
-                                                    borderRadius: 1,
-                                                    backgroundColor: activeRegion?.id === region.id ? 'action.hover' : 'transparent',
-                                                    transition: 'background-color 0.2s'
-                                                }}
-                                            >
+                            <motion.div
+                                initial="offscreen"
+                                whileInView="onscreen"
+                                viewport={{ once: true, amount: 0.3 }}
+                                variants={zoomInVariants}
+                                transition={{ delay: 0.2 }}
+                            >
+                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                                    {/* Leyenda de regiones */}
+                                    <Card sx={{ p: 2 }}>
+                                        <HeaderComponent
+                                            title={t("regions.legend")}
+                                            titleVariant='h2'
+                                            align="left"
+                                        />
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                            {regions.map(region => (
                                                 <Box
+                                                    key={region.id}
                                                     sx={{
-                                                        width: 16,
-                                                        height: 16,
-                                                        backgroundColor: region.color,
-                                                        mr: 1.5,
-                                                        borderRadius: 0.5,
-                                                        flexShrink: 0
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        p: 1,
+                                                        borderRadius: 1,
+                                                        backgroundColor: activeRegion?.id === region.id ? 'action.hover' : 'transparent',
+                                                        transition: 'background-color 0.2s'
                                                     }}
-                                                />
-                                                <Typography variant="body2">
-                                                    {region.name}
-                                                </Typography>
-                                            </Box>
-                                        ))}
-                                    </Box>
-                                </Card>
-
-                                {/* Información de región activa (solo mobile) */}
-                                {isMobile && activeRegion && (
-                                    <Card
-                                        sx={{
-                                            p: 2,
-                                            backgroundColor: 'background.default',
-                                            borderLeft: `4px solid ${activeRegion.color}`,
-                                            borderRadius: 1
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h6"
-                                            gutterBottom
-                                            sx={{ color: activeRegion.color }}
-                                        >
-                                            {activeRegion.name}
-                                        </Typography>
-                                        <Typography variant="body2">
-                                            {activeRegion.description}
-                                        </Typography>
+                                                >
+                                                    <Box
+                                                        sx={{
+                                                            width: 16,
+                                                            height: 16,
+                                                            backgroundColor: region.color,
+                                                            mr: 1.5,
+                                                            borderRadius: 0.5,
+                                                            flexShrink: 0
+                                                        }}
+                                                    />
+                                                    <Typography variant="body2">
+                                                        {region.name}
+                                                    </Typography>
+                                                </Box>
+                                            ))}
+                                        </Box>
                                     </Card>
-                                )}
-                            </Box>
+
+                                    {/* Información de región activa (solo mobile) */}
+                                    {isMobile && activeRegion && (
+                                        <Card
+                                            sx={{
+                                                p: 2,
+                                                backgroundColor: 'background.default',
+                                                borderLeft: `4px solid ${activeRegion.color}`,
+                                                borderRadius: 1
+                                            }}
+                                        >
+                                            <Typography
+                                                variant="h6"
+                                                gutterBottom
+                                                sx={{ color: activeRegion.color }}
+                                            >
+                                                {activeRegion.name}
+                                            </Typography>
+                                            <Typography variant="body2">
+                                                {activeRegion.description}
+                                            </Typography>
+                                        </Card>
+                                    )}
+                                </Box>
+                            </motion.div>
                         </Grid>
                     </Grid>
                 </CardDashboardComponent>
