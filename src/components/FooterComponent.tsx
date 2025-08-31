@@ -185,7 +185,7 @@ export const FooterComponent = () => {
                                 <Box sx={{ display: 'flex', gap: 2 }}>
                                     <Box
                                         component="a"
-                                        href="#"
+                                        href="https://www.facebook.com/RedMisionesMundialesArgentina/"
                                         target="_blank"
                                         sx={{
                                             width: '40px',
@@ -206,7 +206,7 @@ export const FooterComponent = () => {
                                     </Box>
                                     <Box
                                         component="a"
-                                        href="#"
+                                        href="https://www.instagram.com/rmm_argentina/"
                                         target="_blank"
                                         sx={{
                                             width: '40px',
@@ -227,7 +227,7 @@ export const FooterComponent = () => {
                                     </Box>
                                     <Box
                                         component="a"
-                                        href="#"
+                                        href="https://t.me/RMM_Argentina"
                                         target="_blank"
                                         sx={{
                                             width: '40px',
@@ -248,7 +248,7 @@ export const FooterComponent = () => {
                                     </Box>
                                     <Box
                                         component="a"
-                                        href="#"
+                                        href="https://www.youtube.com/@redmisionesmundialesargentina"
                                         target="_blank"
                                         sx={{
                                             width: '40px',

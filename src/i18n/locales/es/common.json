@@ -85,6 +85,22 @@
         "section4": "Iglesias Enviadoras",
         "section5": "Entidades de Movilización"
     },
+    "asideSocial": {
+        "face": "Síguenos en Facebook",
+        "insta": "Síguenos en Instagram",
+        "tele": "Únete a nuestro Telegram",
+        "you": "Suscríbete a nuestro YouTube",
+        "whats": "Consulta por Whatsapp"
+    },
+    "contact": {
+        "title": "Contáctanos",
+        "subtitle": "Estamos aquí para ayudarte con lo que necesites",
+        "name": "Nombre",
+        "email": "Email",
+        "message": "Mensaje",
+        "success": "¡Mensaje enviado con éxito! Te contactaremos pronto.",
+        "error": " Error al enviar el mensaje. Por favor, intenta nuevamente."
+    },
     "footer": {
         "description": "Espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
         "usefulLinks": "LINKS ÚTILES",

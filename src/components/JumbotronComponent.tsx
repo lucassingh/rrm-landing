@@ -35,7 +35,7 @@ export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
 
     const slideUpVariants: Variants = {
         offscreen: {
-            y: 50,  // Comienza 50px más abajo
+            y: 50,
             opacity: 0
         },
         onscreen: {
@@ -60,8 +60,8 @@ export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 display: 'flex',
-                borderBottomLeftRadius: '40px',
-                borderBottomRightRadius: '40px',
+                borderBottomLeftRadius: { xs: '20px', md: '40px' },
+                borderBottomRightRadius: { xs: '20px', md: '40px' },
                 alignItems: 'flex-end',
                 overflow: 'hidden',
                 ...backgroundStyle

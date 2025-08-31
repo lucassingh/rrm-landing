@@ -85,6 +85,22 @@
         "section4": "Sending Churches",
         "section5": "Mobilization Entities"
     },
+    "asideSocial": {
+        "face": "Follow us on Facebook",
+        "insta": "Follow us on Instagram",
+        "tele": "Join our Telegram channel",
+        "you": "Subscribe to our YouTube channel",
+        "whats": "Contact us on WhatsApp"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "We are here to help you with whatever you need",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "success": "Message sent successfully! We'll contact you soon.",
+        "error": "Error sending the message. Please try again."
+    },
     "footer": {
         "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
         "usefulLinks": "USEFUL LINKS",

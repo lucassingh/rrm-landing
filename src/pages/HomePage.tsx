@@ -117,8 +117,8 @@ export const HomePage = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'flex-start',
-                    borderBottomLeftRadius: '40px',
-                    borderBottomRightRadius: '40px',
+                    borderBottomLeftRadius: { xs: '20px', md: '40px' },
+                    borderBottomRightRadius: { xs: '20px', md: '40px' },
                 }}
             >
                 <Box
