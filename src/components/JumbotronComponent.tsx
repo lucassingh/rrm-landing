@@ -118,7 +118,7 @@ export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
                             component="h1"
                             sx={{
                                 fontSize: {
-                                    xs: '2rem',
+                                    xs: '1.7rem',
                                     md: '2.5rem',
                                     lg: '3rem'
                                 },
