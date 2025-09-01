@@ -47,15 +47,14 @@ export const FooterComponent = () => {
                     borderTopRightRadius: '30px'
                 }}
             >
-                {/* Eliminé el Container que envolvía al Grid */}
                 <Grid
                     container
                     spacing={4}
                     sx={{
                         height: isMobile ? 'auto' : '100%',
-                        maxWidth: '1200px', // Añadí un ancho máximo similar al Container
-                        margin: '0 auto',   // Centrado horizontal
-                        padding: { xs: '0 16px', sm: '0 24px' } // Padding responsivo
+                        maxWidth: '1200px',
+                        margin: '0 auto',
+                        padding: { xs: '0 16px', sm: '0 24px' }
                     }}
                 >
                     {/* Columna 1: Logo y descripción */}

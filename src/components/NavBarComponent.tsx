@@ -560,7 +560,7 @@ export const NavBarComponent = () => {
 
                     <Divider sx={{ my: 2 }} />
 
-                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', py: 4 }}>
+                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', py: 6 }}>
                         <Button
                             onClick={toggleLanguage}
                             variant="outlined"

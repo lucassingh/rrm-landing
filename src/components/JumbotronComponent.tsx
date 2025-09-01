@@ -55,7 +55,7 @@ export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
             sx={{
                 position: 'relative',
                 height: {
-                    xs: '25vh',
+                    xs: '30vh',
                     md: '50vh'
                 },
                 width: '100%',
