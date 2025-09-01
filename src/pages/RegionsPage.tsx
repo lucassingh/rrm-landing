@@ -13,6 +13,8 @@ import regionsBG from '../assets/bgs/regions-bg.jpg';
 import BossesCardsComponent from "../components/BossesCardsComponent";
 import { useTranslation } from "react-i18next";
 import { motion, type Variants } from "framer-motion";
+import mapARes from '../assets/mapARes.png';
+import mapARen from '../assets/mapARen.png';
 
 interface Region {
     id: string;
@@ -32,7 +34,7 @@ interface RegionTooltip {
 export const RegionsPage = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const regions: Region[] = [
         {
@@ -109,8 +111,6 @@ export const RegionsPage = () => {
         visible: false
     });
 
-    const [, setMobileAnnotations] = React.useState<boolean>(false);
-
     const mapContainerRef = React.useRef<HTMLDivElement | null>(null);
 
     const findRegionByProvince = (provinceId: string): Region | null => {
@@ -166,8 +166,6 @@ export const RegionsPage = () => {
         const containerRect = mapContainerRef.current.getBoundingClientRect();
         let newX = x;
         let newY = y;
-
-        // Ajustar posición horizontal
         if (newX - width / 2 < 0) {
             newX = width / 2 + 10;
         } else if (newX + width / 2 > containerRect.width) {
@@ -183,77 +181,6 @@ export const RegionsPage = () => {
 
         return { x: newX, y: newY };
     };
-
-    const addMobileAnnotations = React.useCallback(() => {
-        if (!isMobile) return;
-
-        // Pequeño delay para asegurar que el SVG esté renderizado
-        setTimeout(() => {
-            const svgElement = document.querySelector('svg');
-            if (!svgElement) {
-                // Reintentar si no se encuentra el SVG
-                setTimeout(addMobileAnnotations, 500);
-                return;
-            }
-
-            // Limpiar anotaciones previas
-            const existingAnnotations = svgElement.querySelectorAll('.region-annotation');
-            existingAnnotations.forEach(ann => ann.remove());
-
-            regions.forEach(region => {
-                const position = getRandomPositionNearRegion(region);
-
-                // Crear grupo para la infografía
-                const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                g.classList.add('region-annotation');
-
-                // Punto indicador
-                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                circle.setAttribute("cx", position.x.toString());
-                circle.setAttribute("cy", position.y.toString());
-                circle.setAttribute("r", "5");
-                circle.setAttribute("fill", region.color);
-                circle.setAttribute("stroke", "#fff");
-                circle.setAttribute("stroke-width", "1.5");
-
-                // Línea conectora más visible
-                const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                line.setAttribute("x1", position.x.toString());
-                line.setAttribute("y1", position.y.toString());
-                line.setAttribute("x2", (position.x + 35).toString());
-                line.setAttribute("y2", (position.y - 25).toString());
-                line.setAttribute("stroke", region.color);
-                line.setAttribute("stroke-width", "2");
-                line.setAttribute("stroke-dasharray", "3,2");
-
-                // Texto con fondo para mejor legibilidad
-                const textBg = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-                textBg.setAttribute("x", (position.x + 30).toString());
-                textBg.setAttribute("y", (position.y - 35).toString());
-                textBg.setAttribute("width", "120");
-                textBg.setAttribute("height", "20");
-                textBg.setAttribute("fill", "white");
-                textBg.setAttribute("rx", "3");
-                textBg.setAttribute("ry", "3");
-                textBg.setAttribute("opacity", "0.9");
-
-                // Texto
-                const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                text.setAttribute("x", (position.x + 35).toString());
-                text.setAttribute("y", (position.y - 20).toString());
-                text.setAttribute("fill", region.color);
-                text.setAttribute("font-size", "11");
-                text.setAttribute("font-weight", "bold");
-                text.textContent = region.name;
-
-                g.appendChild(circle);
-                g.appendChild(line);
-                g.appendChild(textBg);
-                g.appendChild(text);
-                svgElement.appendChild(g);
-            });
-        }, 300);
-    }, [isMobile, regions]);
 
     React.useEffect(() => {
         const addHoverListeners = () => {
@@ -321,9 +248,6 @@ export const RegionsPage = () => {
                     });
                 });
             }
-            if (isMobile) {
-                addMobileAnnotations();
-            }
         };
 
         const timer = setTimeout(addHoverListeners, 100);
@@ -341,29 +265,6 @@ export const RegionsPage = () => {
         };
     }, [isMobile]);
 
-    React.useEffect(() => {
-        const handleResize = () => {
-            if (isMobile) {
-                setMobileAnnotations(false);
-                setTimeout(() => {
-                    const svgElement = document.querySelector('svg');
-                    if (svgElement) {
-                        addMobileAnnotations();
-                    }
-                }, 100);
-            }
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, [isMobile]);
-
-    React.useEffect(() => {
-        if (isMobile) {
-            addMobileAnnotations();
-        }
-    }, [isMobile, addMobileAnnotations]);
-
     const zoomInVariants: Variants = {
         offscreen: {
             scale: 0.8,
@@ -380,6 +281,9 @@ export const RegionsPage = () => {
             }
         }
     };
+
+    // Determinar qué imagen de mapa mostrar según el idioma
+    const mapImage = i18n.language === 'es' ? mapARes : mapARen;
 
     return (
         <>
@@ -406,7 +310,6 @@ export const RegionsPage = () => {
                                     ref={mapContainerRef}
                                     sx={{
                                         position: 'relative',
-                                        width: '80%',
                                         borderRadius: 1,
                                         overflow: 'visible',
                                         minHeight: isMobile ? '400px' : '500px'
@@ -442,9 +345,20 @@ export const RegionsPage = () => {
                                             </Card>
                                         </Box>
                                     )}
-                                    <ARMapComponent
-                                        style={{ width: '100%', height: 'auto' }}
-                                    />
+
+                                    {/* Mostrar componente interactivo en desktop, imagen en mobile */}
+                                    {!isMobile ? (
+                                        <ARMapComponent
+                                            style={{ width: '100%', height: 'auto' }}
+                                        />
+                                    ) : (
+                                        <Box
+                                            component="img"
+                                            src={mapImage}
+                                            alt="Mapa de Argentina"
+                                            sx={{ width: '100%', height: 'auto' }}
+                                        />
+                                    )}
 
                                     {!isMobile && regionTooltip.visible && regionTooltip.region && (
                                         <Box
@@ -497,79 +411,81 @@ export const RegionsPage = () => {
                             </motion.div>
                         </Grid>
 
-                        {/* Panel lateral */}
-                        <Grid size={{ xs: 12, md: 4 }}>
-                            <motion.div
-                                initial="offscreen"
-                                whileInView="onscreen"
-                                viewport={{ once: true, amount: 0.3 }}
-                                variants={zoomInVariants}
-                                transition={{ delay: 0.2 }}
-                            >
-                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                                    {/* Leyenda de regiones */}
-                                    <Card sx={{ p: 2 }}>
-                                        <HeaderComponent
-                                            title={t("regions.legend")}
-                                            titleVariant='h2'
-                                            align="left"
-                                        />
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                                            {regions.map(region => (
-                                                <Box
-                                                    key={region.id}
-                                                    sx={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        p: 1,
-                                                        borderRadius: 1,
-                                                        backgroundColor: activeRegion?.id === region.id ? 'action.hover' : 'transparent',
-                                                        transition: 'background-color 0.2s'
-                                                    }}
-                                                >
+                        {/* Panel lateral - Ocultar en mobile */}
+                        {!isMobile && (
+                            <Grid size={{ xs: 12, md: 4 }}>
+                                <motion.div
+                                    initial="offscreen"
+                                    whileInView="onscreen"
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    variants={zoomInVariants}
+                                    transition={{ delay: 0.2 }}
+                                >
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                                        {/* Leyenda de regiones */}
+                                        <Card sx={{ p: 2 }}>
+                                            <HeaderComponent
+                                                title={t("regions.legend")}
+                                                titleVariant='h2'
+                                                align="left"
+                                            />
+                                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                                {regions.map(region => (
                                                     <Box
+                                                        key={region.id}
                                                         sx={{
-                                                            width: 16,
-                                                            height: 16,
-                                                            backgroundColor: region.color,
-                                                            mr: 1.5,
-                                                            borderRadius: 0.5,
-                                                            flexShrink: 0
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            p: 1,
+                                                            borderRadius: 1,
+                                                            backgroundColor: activeRegion?.id === region.id ? 'action.hover' : 'transparent',
+                                                            transition: 'background-color 0.2s'
                                                         }}
-                                                    />
-                                                    <Typography variant="body2">
-                                                        {region.name}
-                                                    </Typography>
-                                                </Box>
-                                            ))}
-                                        </Box>
-                                    </Card>
-
-                                    {/* Información de región activa (solo mobile) */}
-                                    {isMobile && activeRegion && (
-                                        <Card
-                                            sx={{
-                                                p: 2,
-                                                backgroundColor: 'background.default',
-                                                borderLeft: `4px solid ${activeRegion.color}`,
-                                                borderRadius: 1
-                                            }}
-                                        >
-                                            <Typography
-                                                variant="h6"
-                                                gutterBottom
-                                                sx={{ color: activeRegion.color }}
-                                            >
-                                                {activeRegion.name}
-                                            </Typography>
-                                            <Typography variant="body2">
-                                                {activeRegion.description}
-                                            </Typography>
+                                                    >
+                                                        <Box
+                                                            sx={{
+                                                                width: 16,
+                                                                height: 16,
+                                                                backgroundColor: region.color,
+                                                                mr: 1.5,
+                                                                borderRadius: 0.5,
+                                                                flexShrink: 0
+                                                            }}
+                                                        />
+                                                        <Typography variant="body2">
+                                                            {region.name}
+                                                        </Typography>
+                                                    </Box>
+                                                ))}
+                                            </Box>
                                         </Card>
-                                    )}
-                                </Box>
-                            </motion.div>
-                        </Grid>
+
+                                        {/* Información de región activa (solo mobile) */}
+                                        {isMobile && activeRegion && (
+                                            <Card
+                                                sx={{
+                                                    p: 2,
+                                                    backgroundColor: 'background.default',
+                                                    borderLeft: `4px solid ${activeRegion.color}`,
+                                                    borderRadius: 1
+                                                }}
+                                            >
+                                                <Typography
+                                                    variant="h6"
+                                                    gutterBottom
+                                                    sx={{ color: activeRegion.color }}
+                                                >
+                                                    {activeRegion.name}
+                                                </Typography>
+                                                <Typography variant="body2">
+                                                    {activeRegion.description}
+                                                </Typography>
+                                            </Card>
+                                        )}
+                                    </Box>
+                                </motion.div>
+                            </Grid>
+                        )}
                     </Grid>
                 </CardDashboardComponent>
                 <CardDashboardComponent>
