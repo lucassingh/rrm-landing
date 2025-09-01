@@ -380,7 +380,7 @@ export const ContactPage = () => {
                 `}
             </style>
 
-            <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, marginTop: '80px' }}>
+            <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, marginTop: { sx: '20px', sm: '80px' } }}>
                 <motion.div
                     initial="hidden"
                     animate="visible"
