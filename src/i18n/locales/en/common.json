@@ -42,6 +42,10 @@
         "subtitle": "Principles that guide us",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
+    "whatdo": {
+        "title": "¿Cómo lo hacemos?",
+        "subtitle": "Algunas de las actividades que realiza la RMM"
+    },
     "regions": {
         "title": "Regions",
         "subtitle": "The Red de Misiones Mundiales is divided into regions throughout the country.",
@@ -113,6 +117,9 @@
         "emailPlaceholder": "Your email",
         "send": "Send",
         "whatsappTitle": "Follow the Red Misiones Mundiales channel",
-        "whatsappAction": "on WhatsApp"
+        "whatsappAction": "on WhatsApp",
+        "location": "WHERE ARE WE?",
+        "address": "Address",
+        "openMaps": "Open in Google maps"
     }
 }

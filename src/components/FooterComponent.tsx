@@ -1,9 +1,8 @@
 import { useRef } from 'react';
-import { Box, Typography, TextField, Button, useMediaQuery, useTheme, Card, CardContent } from '@mui/material';
+import { Box, Typography, Button, useMediaQuery, useTheme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaFacebookF, FaInstagram, FaTelegram, FaWhatsapp, FaYoutube } from 'react-icons/fa';
-import qrlogo from '../assets/qr-logo.png';
 import { useTranslation } from 'react-i18next';
 
 export const FooterComponent = () => {
@@ -266,59 +265,33 @@ export const FooterComponent = () => {
                                     >
                                         <FaYoutube />
                                     </Box>
-                                </Box>
-                            </Box>
-
-                            <Box>
-                                <Typography
-                                    variant="body2"
-                                    sx={{
-                                        color: '#fff',
-                                        mb: 2,
-                                        fontWeight: 'medium'
-                                    }}
-                                >
-                                    {t('footer.newsletter')}
-                                </Typography>
-                                <Box sx={{ display: 'flex', gap: 1 }}>
-                                    <TextField
-                                        placeholder={t('footer.emailPlaceholder')}
-                                        variant="outlined"
-                                        size="small"
+                                    <Box
+                                        component="a"
+                                        href="https://wa.me/5491132119184"
+                                        target="_blank"
                                         sx={{
-                                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                            borderRadius: '4px',
-                                            flex: 1,
-                                            '& .MuiOutlinedInput-root': {
-                                                '& fieldset': {
-                                                    borderColor: 'none',
-                                                },
-                                                '&:hover fieldset': {
-                                                    borderColor: '#b63e81',
-                                                },
-                                            },
-                                        }}
-                                    />
-                                    <Button
-                                        variant="contained"
-                                        sx={{
-                                            backgroundColor: '#b63e81',
-                                            color: '#0a0a0c',
+                                            width: '40px',
                                             height: '40px',
+                                            borderRadius: '50%',
+                                            backgroundColor: '#0a0a0c',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            color: '#ffffff',
                                             '&:hover': {
-                                                backgroundColor: '#b63e81',
-                                                color: '#0a0a0c'
+                                                color: '#b63e81',
+                                                backgroundColor: '#0a0a0c'
                                             }
                                         }}
                                     >
-                                        {t('footer.send')}
-                                    </Button>
+                                        <FaWhatsapp />
+                                    </Box>
                                 </Box>
                             </Box>
                         </Box>
                     </Grid>
 
-                    {/* Columna 3: Card de WhatsApp con QR */}
+                    {/* colum 3  */}
                     <Grid size={{ xs: 12, md: 4 }} sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -326,67 +299,93 @@ export const FooterComponent = () => {
                         alignItems: 'flex-start',
                         height: isMobile ? 'auto' : '100%',
                     }}>
-                        <Card sx={{
-                            backgroundColor: '#25D366',
-                            borderRadius: '12px',
-                            padding: '20px',
+                        <Box sx={{
                             width: '100%',
-                            height: isMobile ? 'auto' : '75%',
                             display: 'flex',
                             flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center'
+                            gap: 3
                         }}>
-                            <CardContent sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                gap: 2,
+                            {/* Título de la sección */}
+                            <Typography
+                                variant="body1"
+                                sx={{
+                                    color: '#FFF',
+                                    mb: 1,
+                                    fontWeight: '800',
+                                    fontSize: '1.1rem'
+                                }}
+                            >
+                                {t('footer.location') || 'Nuestra Ubicación'}
+                            </Typography>
+
+                            {/* Contenedor del mapa */}
+                            <Box sx={{
                                 width: '100%',
-                                padding: '0 !important'
+                                height: '200px',
+                                borderRadius: '12px',
+                                overflow: 'hidden',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                                position: 'relative'
                             }}>
-                                <Typography
-                                    variant="body1"
-                                    sx={{
-                                        color: '#1c1c1c',
-                                        fontWeight: '900',
-                                        textAlign: 'center',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        maxWidth: '200px',
-                                        gap: 0.5
-                                    }}
-                                >
-                                    {t('footer.whatsappTitle')}
-                                </Typography>
-
-                                <Box
-                                    component="img"
-                                    src={qrlogo}
-                                    alt="QR Code"
-                                    sx={{
-                                        width: isMobile ? '150px' : '200px',
-                                        height: isMobile ? '150px' : '200px',
-                                        borderRadius: '8px',
-                                        objectFit: 'cover'
-                                    }}
+                                {/* Mapa de Google usando iframe directamente */}
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.536389057038!2d-58.486495!3d-34.6358552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc99796be8e73%3A0x113f27c7674d1780!2sCnel.%20Ram%C3%B3n%20L.%20Falc%C3%B3n%204080%2C%20C1407GSP%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1725223940494!5m2!1ses!2sar"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
                                 />
+                            </Box>
 
-                                <Typography
-                                    variant="body1"
-                                    sx={{
-                                        color: '#1c1c1c',
+                            {/* Información de dirección */}
+                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                                <Typography sx={{
+                                    color: '#fff',
+                                    fontSize: '15px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 1
+                                }}>
+                                    <span style={{
+                                        color: '#b63e81',
                                         fontWeight: 'bold',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: 0.5
-                                    }}
-                                >
-                                    <FaWhatsapp style={{ color: '#1c1c1c', fontSize: '24px' }} />
-                                    {t('footer.whatsappAction')}
+                                        fontSize: '18px'
+                                    }}>📍</span>
+                                    {t('footer.address') || 'Dirección:'}
                                 </Typography>
-                            </CardContent>
-                        </Card>
+                                <Typography sx={{
+                                    color: '#ccc',
+                                    fontSize: '14px',
+                                    pl: 3
+                                }}>
+                                    Coronel Ramón L. Falcón 4080
+                                    <br />
+                                    Ciudad Autónoma de Buenos Aires
+                                    <br />
+                                    C1407GSP
+                                </Typography>
+                            </Box>
+
+                            {/* Botón para abrir en Google Maps */}
+                            <Button
+                                variant="outlined"
+                                href="https://www.google.com/maps/place/Cnel.+Ram%C3%B3n+L.+Falc%C3%B3n+4080,+C1407GSP+Cdad.+Aut%C3%B3noma+de+Buenos+Aires/@-34.6358552,-58.4839202,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcc99796be8e73:0x113f27c7674d1780!8m2!3d-34.6358552!4d-58.4839202!16s%2Fg%2F11b8v82s3s?entry=ttu"
+                                target="_blank"
+                                sx={{
+                                    color: '#ffffff',
+                                    fontSize: '14px',
+                                    '&:hover': {
+                                        borderColor: '#fff',
+                                        color: '#fff',
+                                        backgroundColor: '#b63e81'
+                                    }
+                                }}
+                            >
+                                {t('footer.openMaps') || 'Abrir en Google Maps'}
+                            </Button>
+                        </Box>
                     </Grid>
                 </Grid>
             </motion.div>

@@ -13,8 +13,8 @@ import regionsBG from '../assets/bgs/regions-bg.jpg';
 import BossesCardsComponent from "../components/BossesCardsComponent";
 import { useTranslation } from "react-i18next";
 import { motion, type Variants } from "framer-motion";
-import mapARes from '../assets/mapARes.png';
-import mapARen from '../assets/mapARen.png';
+import mapARes from '../assets/regions/mapARes.png';
+import mapARen from '../assets/regions/mapARen.png';
 
 interface Region {
     id: string;
@@ -171,12 +171,10 @@ export const RegionsPage = () => {
         } else if (newX + width / 2 > containerRect.width) {
             newX = containerRect.width - width / 2 - 10;
         }
-
-        // Ajustar posición vertical (tanto superior como inferior)
         if (newY - height < 0) {
-            newY = height + 10; // Evita que se corte por arriba
+            newY = height + 10
         } else if (newY + height > containerRect.height) {
-            newY = containerRect.height - height - 10; // Evita que se corte por abajo
+            newY = containerRect.height - height - 10;
         }
 
         return { x: newX, y: newY };
@@ -184,7 +182,6 @@ export const RegionsPage = () => {
 
     React.useEffect(() => {
         const addHoverListeners = () => {
-            // Colorear provincias
             regions.forEach(region => {
                 region.provinces.forEach(provinceId => {
                     const element = document.getElementById(provinceId);
@@ -197,19 +194,16 @@ export const RegionsPage = () => {
                 });
             });
 
-            // Agregar event listeners para hover (solo desktop)
             if (!isMobile) {
                 regions.forEach(region => {
                     region.provinces.forEach(provinceId => {
                         const element = document.getElementById(provinceId);
                         if (element) {
-                            // Mouse over - resaltar región
                             element.addEventListener('mouseover', () => {
                                 const region = findRegionByProvince(provinceId);
                                 if (region) {
                                     setActiveRegion(region);
 
-                                    // Resaltar todas las provincias de la región
                                     region.provinces.forEach(provId => {
                                         const provElement = document.getElementById(provId);
                                         if (provElement) {
@@ -217,7 +211,6 @@ export const RegionsPage = () => {
                                         }
                                     });
 
-                                    // Mostrar tooltip de región en posición ajustada
                                     const position = getRandomPositionNearRegion(region);
                                     const adjustedPosition = ensureTooltipInViewport(position.x, position.y);
 
@@ -230,7 +223,6 @@ export const RegionsPage = () => {
                                 }
                             });
 
-                            // Mouse out - restaurar colores
                             element.addEventListener('mouseout', () => {
                                 setActiveRegion(null);
                                 setRegionTooltip(prev => ({ ...prev, visible: false }));
@@ -282,7 +274,6 @@ export const RegionsPage = () => {
         }
     };
 
-    // Determinar qué imagen de mapa mostrar según el idioma
     const mapImage = i18n.language === 'es' ? mapARes : mapARen;
 
     return (

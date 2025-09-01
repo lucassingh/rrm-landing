@@ -83,7 +83,6 @@ export const NavBarComponent = () => {
         }
     ];
 
-    // Precargar imágenes
     useEffect(() => {
         const loadImages = async () => {
             const imagePromises = mainMenuItems.map(item => {
@@ -195,6 +194,10 @@ export const NavBarComponent = () => {
 
     const { t } = useTranslation();
 
+    const handleNavigateMenu = () => {
+        navigate('/')
+    }
+
     const desktopNavbar = (
         <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
             <AppBar
@@ -232,6 +235,40 @@ export const NavBarComponent = () => {
                         onMouseEnter={() => handleMenuHover(true)}
                         onMouseLeave={() => handleMenuHover(false)}
                     >
+                        <Button
+                            sx={{
+                                color: getNavbarTextColor(),
+                                borderRadius: 10,
+                                px: 2,
+                                py: 1,
+                                backgroundColor: 'transparent',
+                                transition: 'all 0.3s ease',
+                                position: 'relative',
+                                overflow: 'hidden',
+                                '&::before': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    bottom: 0,
+                                    left: '50%',
+                                    height: '2px',
+                                    backgroundColor: mode === 'dark' ? theme.palette.primary.contrastText : theme.palette.primary.main,
+                                    transition: 'all 0.3s ease',
+                                    transform: 'translateX(-50%)',
+                                },
+                                '&:hover': {
+                                    backgroundColor: 'transparent',
+                                    opacity: 1,
+                                    '&::before': {
+                                        width: '80%',
+                                    },
+                                }
+                            }}
+
+                            onClick={handleNavigateMenu}
+                        >
+                            Home
+                        </Button>
+
                         {mainMenuItems.map((item, index) => (
                             <Button
                                 key={item.titleKey}
