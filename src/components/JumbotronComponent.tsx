@@ -54,7 +54,10 @@ export const JumbotronComponent: React.FC<JumbotronComponentProps> = ({
         <Box
             sx={{
                 position: 'relative',
-                height: '50vh',
+                height: {
+                    xs: '25vh',
+                    md: '50vh'
+                },
                 width: '100%',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',

@@ -525,7 +525,7 @@ export const NavBarComponent = () => {
                                         component={RouterLink}
                                         to={item.path}
                                         onClick={handleDrawerToggle}
-                                        sx={{ py: 2 }}
+                                        sx={{ py: 0 }}
                                     >
                                         <ListItemIcon sx={{ minWidth: 50 }}>
                                             <Box
@@ -560,7 +560,7 @@ export const NavBarComponent = () => {
 
                     <Divider sx={{ my: 2 }} />
 
-                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', py: 2 }}>
+                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', py: 4 }}>
                         <Button
                             onClick={toggleLanguage}
                             variant="outlined"

@@ -77,20 +77,25 @@ export const HomePage = () => {
         if (!video) return;
 
         const handlePlay = () => {
+            // Forzar muted en iOS
+            video.muted = true;
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
 
             const playPromise = video.play();
 
             if (playPromise !== undefined) {
                 playPromise
-                    .catch(() => {
-                        video.muted = true;
-                        video.play();
+                    .catch((error) => {
+                        console.log('Autoplay prevented:', error);
                     });
             }
         };
 
+        // Intentar reproducir inmediatamente
         handlePlay();
 
+        // También intentar cuando haya interacción del usuario
         const handleUserInteraction = () => {
             handlePlay();
             document.removeEventListener('click', handleUserInteraction);

@@ -62,7 +62,6 @@ export const ContactPage = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-    // Animación de zoom in para el container principal
     const containerVariants: Variants = {
         hidden: { opacity: 0, scale: 0.8 },
         visible: {
@@ -195,9 +194,9 @@ export const ContactPage = () => {
 
         setIsSubmitting(true);
 
-        const serviceID = 'service_iyqlb8b';
-        const templateID = 'template_g83mlxs';
-        const publicKey = 'cI7O7i2ca8pBb5I8h';
+        const serviceID = import.meta.env.VITE_PUBLIC_SERVICE;
+        const templateID = import.meta.env.VITE_PUBLIC_TEMPLATE;
+        const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
         emailjs.sendForm(serviceID, templateID, form.current!, publicKey)
             .then(() => {

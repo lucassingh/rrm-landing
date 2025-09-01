@@ -9,7 +9,6 @@ interface NewsCardProps {
     index: number
 }
 
-// Colores aleatorios para los círculos
 const randomColors = [
     lightPalette.primary.main,
     lightPalette.secondary.main,
@@ -23,7 +22,6 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
 
-    // Seleccionar color aleatorio para el círculo y avatar
     const randomColor = randomColors[Math.floor(Math.random() * randomColors.length)];
 
     const formatDate = (dateString: string) => {
@@ -47,7 +45,6 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
         });
     };
 
-    // Variantes de animación para reveal
     const revealVariants: Variants = {
         offscreen: {
             y: 30,
@@ -70,7 +67,7 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.2 }}
             variants={revealVariants}
-            transition={{ delay: index * 0.1 }} // Retardo escalonado
+            transition={{ delay: index * 0.1 }}
             style={{ width: '100%' }}
         >
             <Card
@@ -88,7 +85,6 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                 onClick={handleClick}
             >
                 <CardContent sx={{ p: 0, '&:last-child': { pb: 0 } }}>
-                    {/* Header con círculo de color y subtítulo */}
                     <Box display="flex" alignItems="center" gap={1} mb={1}>
                         <Box
                             sx={{
@@ -100,6 +96,7 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                             }}
                         />
                         <Typography
+                            component="div"
                             variant="overline"
                             sx={{
                                 color: isDarkMode ? darkPalette.text.secondary : lightPalette.text.secondary,
@@ -112,7 +109,6 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                         </Typography>
                     </Box>
 
-                    {/* Contenido principal - Título e Imagen */}
                     <Box display="flex" gap={2} mb={2}>
                         {/* Título - 10 cols */}
                         <Box flex={8}>
@@ -135,7 +131,6 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                             </Typography>
                         </Box>
 
-                        {/* Imagen - 2 cols */}
                         {news.image_url && (
                             <Box flex={4}>
                                 <Box
@@ -144,7 +139,7 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                                     alt={news.image_description}
                                     sx={{
                                         width: '100%',
-                                        height: 80,
+                                        height: { xs: 40, sm: 80 },
                                         objectFit: 'cover',
                                         borderRadius: 1
                                     }}
@@ -156,6 +151,7 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                     {/* Extracto del cuerpo */}
                     <Box mb={2}>
                         <Typography
+                            component="div"
                             variant="body2"
                             sx={{
                                 color: isDarkMode ? darkPalette.text.secondary : lightPalette.text.secondary,
@@ -166,7 +162,6 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                                 lineHeight: 1.5
                             }}
                         >
-                            {/* Extraer texto plano del HTML */}
                             {news.body.replace(/<[^>]*>/g, '').slice(0, 150)}...
                         </Typography>
                     </Box>
@@ -175,13 +170,14 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                     <Box display="flex" justifyContent="space-between" alignItems="center">
                         {/* Fecha */}
                         <Typography
+                            component="div"
                             variant="caption"
                             sx={{
                                 color: isDarkMode ? darkPalette.text.secondary : lightPalette.text.secondary,
                                 fontSize: '0.75rem'
                             }}
                         >
-                            Fecha de Creación: {formatDate(news.date)}
+                            Fecha de Creación: <br /> {formatDate(news.date)}
                         </Typography>
 
                         {/* Información del autor */}
@@ -199,6 +195,7 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                             </Avatar>
                             <Box>
                                 <Typography
+                                    component="div"
                                     variant="caption"
                                     sx={{
                                         display: 'block',
@@ -210,6 +207,7 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                                 </Typography>
                                 <Typography
                                     variant="caption"
+                                    component="div"
                                     sx={{
                                         display: 'block',
                                         fontWeight: 500,
@@ -219,6 +217,7 @@ export const NewsCard = ({ news, index = 0 }: NewsCardProps) => {
                                     {news.author.first_name} {news.author.last_name}
                                 </Typography>
                                 <Typography
+                                    component="div"
                                     variant="caption"
                                     sx={{
                                         color: isDarkMode ? darkPalette.text.secondary : lightPalette.text.secondary,
