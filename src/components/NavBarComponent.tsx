@@ -31,7 +31,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useThemeContext } from '../context/ThemeContext';
 import { useLanguageContext } from '../context/LanguageContext';
 import entities from '../assets/navbar/entities-nav.png';
-import regions from '../assets/navbar/regions-nav.png';
+import regions from '../assets/navbar/regions-nav.jpg';
+import forums from '../assets/navbar/forums-nav.jpg';
 import news from '../assets/navbar/news-nav.png';
 import contact from '../assets/navbar/contact-nav.png';
 
@@ -68,6 +69,12 @@ export const NavBarComponent = () => {
             path: '/regions',
             descriptionKey: 'navbar.regionsDescription',
             image: regions
+        },
+        {
+            titleKey: 'navbar.forums',
+            path: '/forums',
+            descriptionKey: 'navbar.forumsDescription',
+            image: forums
         },
         {
             titleKey: 'navbar.entities',

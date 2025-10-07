@@ -1,4 +1,5 @@
-import { ContactPage, EntitiesPage, HomePage, NewsPage, RegionsPage } from "../pages";
+import { Forum } from "@mui/icons-material";
+import { ContactPage, EntitiesPage, ForumPage, HomePage, NewsPage, RegionsPage } from "../pages";
 import { NewsByIDPage } from "../pages/NewsByIDPage";
 
 interface RouteConfig {
@@ -22,6 +23,10 @@ export const routes: RouteConfig[] = [
     {
         path: "/regions",
         element: <RegionsPage />,
+    },
+    {
+        path: "/forums",
+        element: <ForumPage />,
     },
     {
         path: "/entities",

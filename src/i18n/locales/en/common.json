@@ -2,10 +2,12 @@
     "navbar": {
         "news": "News",
         "regions": "Regions",
+        "forums": "Forums",
         "entities": "Entities",
         "contact": "Contact",
         "newsDescription": "Stay informed with the latest news.",
         "regionsDescription": "Learn about our missionary work around the world",
+        "forumsDescription": "Join discussions and share experiences with other members of the network.",
         "entitiesDescription": "Explore the different entities that are part of our network.",
         "contactDescription": "Contact us, we are here to serve you",
         "close": "Close",
@@ -15,7 +17,7 @@
         "english": "English"
     },
     "home": {
-        "titleLine1": "Red de",
+        "titleLine1": "Red",
         "titleLine2": "Misiones Mundiales",
         "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
         "scroll": "Scroll to discover"
@@ -75,6 +77,12 @@
             "south": "South Region (General Roca)",
             "south2": "South Region (Neuquén)"
         }
+    },
+    "forums": {
+        "title": "Forums",
+        "subtitle": "Join the discussions and share your ideas.",
+        "titleGralCards": "Forum Managers",
+        "subtitleGralCards": "Contact the coordinators of each forum to collaborate and participate."
     },
     "news": {
         "title": "Latest News",

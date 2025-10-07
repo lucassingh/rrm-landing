@@ -2,10 +2,12 @@
     "navbar": {
         "news": "Noticias",
         "regions": "Regiones",
+        "forums": "Foros",
         "entities": "Entidades",
         "contact": "Contacto",
         "newsDescription": "Mantente informado con las últimas novedades.",
         "regionsDescription": "Conoce nuestro trabajo misionero alrededor del mundo",
+        "forumsDescription": "Participa en discusiones y comparte experiencias con otros miembros de la red.",
         "entitiesDescription": "Explora las diferentes entidades que forman parte de nuestra red.",
         "contactDescription": "Comunícate con nosotros, estamos para servirte",
         "close": "Cerrar",
@@ -15,7 +17,7 @@
         "english": "Inglés"
     },
     "home": {
-        "titleLine1": "Red de",
+        "titleLine1": "Red",
         "titleLine2": "Misiones Mundiales",
         "description": "Un espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
         "scroll": "Scroll para descubrir"
@@ -84,6 +86,12 @@
             "south": "Región Sur (General Roca)",
             "south2": "Región Sur (Neuquén)"
         }
+    },
+    "forums": {
+        "title": "Foros",
+        "subtitle": "Participa en las discusiones y comparte tus ideas.",
+        "titleGralCards": "Encargados de Foros",
+        "subtitleGralCards": "Contactate con los coordinadores de cada foro para colaborar y participar."
     },
     "news": {
         "title": "Últimas Noticias",
