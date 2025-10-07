@@ -1,4 +1,3 @@
-import { Forum } from "@mui/icons-material";
 import { ContactPage, EntitiesPage, ForumPage, HomePage, NewsPage, RegionsPage } from "../pages";
 import { NewsByIDPage } from "../pages/NewsByIDPage";
 
