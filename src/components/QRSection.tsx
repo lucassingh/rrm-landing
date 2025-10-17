@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Typography, useTheme, useMediaQuery, keyframes } from '@mui/material';
+import { Box, Typography, useTheme, useMediaQuery, keyframes, Button } from '@mui/material';
 import { FaWhatsapp } from 'react-icons/fa';
 import { LayoutContentComponent } from './LayoutContentComponent';
 import { darkPalette, lightPalette } from '../theme/palettes';
@@ -35,6 +35,8 @@ const QRSection = () => {
     useEffect(() => {
         setIsDarkMode(theme.palette.mode === 'dark');
     }, [theme]);
+
+    const whatsappUrl = "https://www.whatsapp.com/channel/0029VbBFsvh6hENtuBZH6k2m";
 
     return (
         <LayoutContentComponent
@@ -149,11 +151,14 @@ const QRSection = () => {
                             margin: isMobile ? '0 auto' : '0',
                         }}
                     >
-                        Escaneá el QR para saber más sobre cómo unirte a nuestra comunidad y no perderte ninguna novedad.
+                        {isMobile
+                            ? 'Unite a nuestro canal de WhatsApp para saber más sobre cómo ser parte de nuestra comunidad y no perderte ninguna novedad.'
+                            : 'Escaneá el QR para saber más sobre cómo unirte a nuestra comunidad y no perderte ninguna novedad.'
+                        }
                     </Typography>
                 </Box>
 
-                {/* Tarjeta con QR */}
+                {/* Tarjeta con QR o Link según dispositivo */}
                 <Box
                     sx={{
                         flex: isMobile ? 1 : 0.6,
@@ -210,42 +215,85 @@ const QRSection = () => {
                                 {t('footer.whatsappTitle')}
                             </Typography>
 
-                            <Box
-                                component="img"
-                                src={qrlogo}
-                                alt="QR Code"
-                                sx={{
-                                    width: isMobile ? '150px' : '200px',
-                                    height: isMobile ? '150px' : '200px',
-                                    borderRadius: '12px',
-                                    objectFit: 'cover',
-                                    border: '4px solid white',
-                                    boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
-                                    margin: '0 auto',
-                                    display: 'block',
-                                }}
-                            />
+                            {isMobile ? (
+                                // Versión Mobile - Botón de link directo
+                                <Box sx={{ textAlign: 'center' }}>
+                                    <Button
+                                        variant="contained"
+                                        href={whatsappUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        sx={{
+                                            backgroundColor: '#1c1c1c',
+                                            color: '#25D366',
+                                            fontWeight: 'bold',
+                                            fontSize: '1.1rem',
+                                            padding: '12px 24px',
+                                            borderRadius: '12px',
+                                            textTransform: 'none',
+                                            '&:hover': {
+                                                backgroundColor: '#333333',
+                                                transform: 'scale(1.05)',
+                                            },
+                                            transition: 'all 0.3s ease',
+                                            marginBottom: '1rem',
+                                        }}
+                                        startIcon={<FaWhatsapp style={{ fontSize: '24px' }} />}
+                                    >
+                                        Unirse al Canal
+                                    </Button>
+                                    <Typography
+                                        variant="body2"
+                                        sx={{
+                                            color: '#1c1c1c',
+                                            fontWeight: 500,
+                                            fontStyle: 'italic',
+                                        }}
+                                    >
+                                        Toca el botón para unirte instantáneamente
+                                    </Typography>
+                                </Box>
+                            ) : (
+                                // Versión Desktop - QR Code
+                                <>
+                                    <Box
+                                        component="img"
+                                        src={qrlogo}
+                                        alt="QR Code"
+                                        sx={{
+                                            width: '200px',
+                                            height: '200px',
+                                            borderRadius: '12px',
+                                            objectFit: 'cover',
+                                            border: '4px solid white',
+                                            boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                                            margin: '0 auto',
+                                            display: 'block',
+                                        }}
+                                    />
 
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '0.5rem',
-                                    marginTop: '1.5rem',
-                                }}
-                            >
-                                <FaWhatsapp style={{ color: '#1c1c1c', fontSize: '24px' }} />
-                                <Typography
-                                    variant="body1"
-                                    sx={{
-                                        color: '#1c1c1c',
-                                        fontWeight: 'bold',
-                                    }}
-                                >
-                                    {t('footer.whatsappAction')}
-                                </Typography>
-                            </Box>
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '0.5rem',
+                                            marginTop: '1.5rem',
+                                        }}
+                                    >
+                                        <FaWhatsapp style={{ color: '#1c1c1c', fontSize: '24px' }} />
+                                        <Typography
+                                            variant="body1"
+                                            sx={{
+                                                color: '#1c1c1c',
+                                                fontWeight: 'bold',
+                                            }}
+                                        >
+                                            {t('footer.whatsappAction')}
+                                        </Typography>
+                                    </Box>
+                                </>
+                            )}
                         </Box>
                     </Box>
                 </Box>

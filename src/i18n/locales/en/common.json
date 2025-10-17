@@ -19,7 +19,7 @@
     "home": {
         "titleLine1": "Red",
         "titleLine2": "Misiones Mundiales",
-        "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
+        "description": "An interdenominational space for missionary cooperation, mobilizing the Argentine evangelical church for God's global mission.",
         "scroll": "Scroll to discover"
     },
     "hero": {
@@ -36,13 +36,59 @@
     },
     "vision": {
         "title": "Our Vision",
-        "subtitle": "A future full of hope",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "subtitle": "We dream big, we act with purpose",
+        "description": "",
+        "dreams": {
+            "missionaries": {
+                "title": "✦ 2,500 Cross-Cultural Missionaries",
+                "text": "We dream of mobilizing 2,500 cross-cultural missionaries in our generation."
+            },
+            "churches": {
+                "title": "✦ 15,000 Transformative Churches",
+                "text": "We envision 15,000 churches in Argentina projecting themselves locally, nationally, and cross-culturally, impacting society and carrying the message to the ends of the earth.",
+                "verse": {
+                    "text": "Therefore, go and make disciples of all the nations, baptizing them in the name of the Father and the Son and the Holy Spirit. Teach these new disciples to obey all the commands I have given you.",
+                    "reference": "Matthew 28:19-20 (NLT)"
+                }
+            },
+            "mission": {
+                "title": "✦ Strategic Mission",
+                "efficiency": {
+                    "title": "Efficiency",
+                    "text": "Cooperation that maximizes gifts, skills, and resources that God has given us, growing in unity and solidarity."
+                },
+                "effectiveness": {
+                    "title": "Effectiveness",
+                    "text": "Final result: vital and reproductive churches with integral gospel in every ethnicity on earth."
+                }
+            }
+        }
     },
     "values": {
         "title": "Our Values",
         "subtitle": "Principles that guide us",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "principles": {
+            "relationship": {
+                "title": "✦ Relationship",
+                "description": "Sharing experiences and learning from others to perfect models."
+            },
+            "cooperation": {
+                "title": "✦ Cooperation",
+                "description": "Working together in everything that leads us to fulfill the Great Commission.",
+                "verse": {
+                    "text": "So, my dear brothers and sisters, be strong and immovable. Always work enthusiastically for the Lord, for you know that nothing you do for the Lord is ever useless.",
+                    "reference": "1 Corinthians 15:58 (NLT)"
+                }
+            },
+            "mobilization": {
+                "title": "✦ Mobilization",
+                "description": "Encouraging churches, agencies, training centers, pastors and missionaries to mobilize other churches with vision and projects."
+            },
+            "modelCreation": {
+                "title": "✦ Model Creation",
+                "description": "Developing cooperation models among pastors, agencies, centers and ministries, reviewing and projecting the biblical paradigm of cooperation."
+            }
+        }
     },
     "whatdo": {
         "title": "¿Cómo lo hacemos?",

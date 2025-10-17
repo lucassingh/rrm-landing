@@ -93,7 +93,7 @@ export const VideoComponent = () => {
                     aspectRatio: isMobile ? '16/9' : 'none'
                 }}>
                     <YouTube
-                        videoId="IX0QVURTqb8"
+                        videoId="NVDynqtr-bw"
                         opts={opts}
                         onReady={onReady}
                     />

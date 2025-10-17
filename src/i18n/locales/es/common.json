@@ -19,11 +19,11 @@
     "home": {
         "titleLine1": "Red",
         "titleLine2": "Misiones Mundiales",
-        "description": "Un espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
+        "description": "Un espacio de cooperación misionera interdenominacional que facilita la movilización de la iglesia evangélica argentina hacia la misión global de Dios.",
         "scroll": "Scroll para descubrir"
     },
     "hero": {
-        "title": "La Red de Misiones Mundiales es una alianza global de iglesias y creyentes que coordina esfuerzos y recursos para llevar ayuda práctica y esperanza espiritual a comunidades en necesidad alrededor del mundo."
+        "title": "La Red Misiones Mundiales es un movimiento que busca desarrollar compañerismo y alianzas de cooperación misionera entre pastores, iglesias, agencias, centros de capacitación, misioneros y ministerios de movilización."
     },
     "history": {
         "title": "Nuestra Historia",
@@ -32,17 +32,63 @@
     "mision": {
         "title": "Nuestra Misión",
         "subtitle": "Un llamado a la acción           ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+        "description": "Enfocar los recursos integrales de la iglesia hacia los pueblos no alcanzados y menos evangelizados."
     },
     "vision": {
         "title": "Nuestra Visión",
-        "subtitle": "Un futuro lleno de esperanza                ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "subtitle": "Soñamos en grande, actuamos con propósito",
+        "description": "",
+        "dreams": {
+            "missionaries": {
+                "title": "✦ 2,500 Misioneros Transculturales",
+                "text": "Soñamos con movilizar 2,500 misioneros transculturales en nuestra generación."
+            },
+            "churches": {
+                "title": "✦ 15,000 Iglesias Transformadoras",
+                "text": "Visualizamos 15,000 iglesias en Argentina proyectándose local, nacional y transculturalmente, impactando la sociedad y llevando el mensaje hasta los confines de la tierra.",
+                "verse": {
+                    "text": "Por tanto, vayan y hagan discípulos de todas las naciones...",
+                    "reference": "Mateo 28:19-20 (NTV)"
+                }
+            },
+            "mission": {
+                "title": "✦ Misión Estratégica",
+                "efficiency": {
+                    "title": "Eficiencia",
+                    "text": "Cooperación que maximiza dones, habilidades y recursos, creciendo en unidad y solidaridad."
+                },
+                "effectiveness": {
+                    "title": "Efectividad",
+                    "text": "Resultado final: iglesias vitales y reproductivas con evangelio integral en cada etnia de la tierra."
+                }
+            }
+        }
     },
     "values": {
         "title": "Nuestros Valores",
-        "subtitle": "Principios que nos guían                 ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "subtitle": "Principios que nos guían",
+        "principles": {
+            "relationship": {
+                "title": "✦ Relación",
+                "description": "Compartir experiencias y aprender de otros para perfeccionar modelos."
+            },
+            "cooperation": {
+                "title": "✦ Cooperación",
+                "description": "Trabajar en conjunto en todo lo que nos lleve a cumplir la Gran Comisión.",
+                "verse": {
+                    "text": "Así que, queridos hermanos, sean fuertes e inamovibles. Trabajen siempre para el Señor con entusiasmo, porque ustedes saben que nada de lo que hacen para el Señor es inútil",
+                    "reference": "1 Corintios 15:58 (NTV)"
+                }
+            },
+            "mobilization": {
+                "title": "✦ Movilización",
+                "description": "Animamos a iglesias, agencias, centros de entrenamiento, pastores y misioneros a movilizar a otras iglesias con visión y proyectos."
+            },
+            "modelCreation": {
+                "title": "✦ Creación de Modelos",
+                "description": "Desarrollar modelos de cooperación entre pastores, agencias, centros y ministerios, revisando y proyectando el paradigma bíblico de cooperación."
+            }
+        }
     },
     "whatdo": {
         "title": "¿Cómo lo hacemos?",

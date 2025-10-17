@@ -3,11 +3,11 @@ import { Typography, Box, Container, useMediaQuery, useTheme } from '@mui/materi
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import videoBg from '../assets/videos/video_bg.mp4';
 import { FaChevronDown } from 'react-icons/fa';
-import { HeaderComponent, HeroComponent, LayoutContentComponent, RevealFromLeft, RevealFromRight, VideoComponent } from '../components';
+import { HeroComponent, LayoutContentComponent, RevealFromLeft, RevealFromRight, VideoComponent } from '../components';
 import { useEffect, useRef } from 'react';
-import img1 from '../assets/whatdo/img_1.jpg'
-import img2 from '../assets/whatdo/img_2.jpg'
-import img3 from '../assets/whatdo/img_3.jpg'
+// import img1 from '../assets/whatdo/img_1.jpg'
+// import img2 from '../assets/whatdo/img_2.jpg'
+// import img3 from '../assets/whatdo/img_3.jpg'
 import mision from '../assets/mvv/mision.jpg'
 import vision from '../assets/mvv/vision.jpg'
 import values from '../assets/mvv/values.jpg'
@@ -413,19 +413,69 @@ export const HomePage = () => {
             >
                 <RevealFromLeft>
                     <Box padding={{ xs: '16px 0', md: '22%' }}>
-                        <Typography variant="h3" component="h3" gutterBottom>
-                            <GradientText>{t('mision.title')}</GradientText>
-                        </Typography>
                         <Typography
-                            variant="body1"
+                            variant="h5"
                             sx={{
-                                mt: 1,
-                                color: 'text.secondary',
-                                lineHeight: 1.8
+                                mb: 4,
+                                color: 'primary.main',
+                                fontStyle: 'italic',
+                                fontWeight: 300,
+                                textAlign: 'center'
                             }}
                         >
-                            {t('mision.description')}
+                            {t('mision.subtitle')}
                         </Typography>
+                        <Typography
+                            variant="h3"
+                            component="h3"
+                            gutterBottom
+                            sx={{ textAlign: 'center', mb: 4 }}
+                        >
+                            <GradientText>{t('mision.title')}</GradientText>
+                        </Typography>
+
+
+                        {/* Texto de misión destacado */}
+                        <Box
+                            sx={{
+                                p: 4,
+                                bgcolor: 'rgba(92, 141, 209, 0.1)',
+                                border: '2px solid',
+                                borderColor: 'primary.main',
+                                borderRadius: 2,
+                                textAlign: 'center',
+                                position: 'relative'
+                            }}
+                        >
+                            <Typography
+                                variant="h4"
+                                component="p"
+                                sx={{
+                                    color: 'text.primary',
+                                    lineHeight: 1.6,
+                                    fontWeight: 400,
+                                    fontStyle: 'italic',
+                                    '&::before, &::after': {
+                                        content: '"“"',
+                                        fontSize: '3rem',
+                                        color: 'primary.main',
+                                        position: 'absolute',
+                                        opacity: 0.3
+                                    },
+                                    '&::before': {
+                                        top: 10,
+                                        left: 20
+                                    },
+                                    '&::after': {
+                                        content: '"”"',
+                                        bottom: 10,
+                                        right: 20
+                                    }
+                                }}
+                            >
+                                {t('mision.description')}
+                            </Typography>
+                        </Box>
                     </Box>
                 </RevealFromLeft>
                 <RevealFromRight>
@@ -438,27 +488,88 @@ export const HomePage = () => {
                 layoutType="split"
                 backgroundColor='inherit'
                 backgroundColors={{ left: '#d14a9d', right: 'inherit' }}
-                height={isMobile ? 'auto' : '100vh'}
+                height={isMobile ? 'auto' : 'auto'}
                 sectionPadding={{ xs: '80px 6%', md: '6% 0' }}
             >
                 <RevealFromLeft>
                     <ParallaxImage src={vision} alt="vision image" />
                 </RevealFromLeft>
                 <RevealFromRight>
-                    <Box padding={{ xs: '16px 0', md: '22%' }}>
-                        <Typography variant="h3" component="h3" gutterBottom>
-                            <GradientText>{t('vision.title')}</GradientText>
-                        </Typography>
+                    <Box padding={{ xs: '16px 0', md: '16%' }}>
                         <Typography
-                            variant="body1"
+                            variant="h6"
                             sx={{
                                 mt: 1,
-                                color: 'text.secondary',
-                                lineHeight: 1.8
+                                mb: 1,
+                                color: 'primary.main',
+                                fontStyle: 'italic',
+                                fontWeight: 300
                             }}
                         >
-                            {t('vision.description')}
+                            {t('vision.subtitle')}
                         </Typography>
+                        <Typography variant="h3" component="h3" gutterBottom sx={{ mb: 4 }}>
+                            <GradientText>{t('vision.title')}</GradientText>
+                        </Typography>
+
+                        {/* Sueño 1 - Misioneros */}
+                        <Box sx={{ mb: 4 }}>
+                            <Typography variant="h5" sx={{ color: 'secondary.main', mb: 1 }}>
+                                {t('vision.dreams.missionaries.title')}
+                            </Typography>
+                            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                                {t('vision.dreams.missionaries.text')}
+                            </Typography>
+                        </Box>
+
+                        {/* Sueño 2 - Iglesias */}
+                        <Box sx={{ mb: 4 }}>
+                            <Typography variant="h5" sx={{ color: 'secondary.main', mb: 1 }}>
+                                {t('vision.dreams.churches.title')}
+                            </Typography>
+                            <Typography variant="body1" sx={{ lineHeight: 1.8, mb: 2 }}>
+                                {t('vision.dreams.churches.text')}
+                            </Typography>
+                            <Box sx={{
+                                p: 2,
+                                bgcolor: 'rgba(0,0,0,0.03)',
+                                borderLeft: '4px solid',
+                                borderColor: 'primary.main',
+                                fontStyle: 'italic'
+                            }}>
+                                <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+                                    "{t('vision.dreams.churches.verse.text')}"
+                                </Typography>
+                                <Typography variant="caption" sx={{ display: 'block', mt: 1, fontWeight: 'bold' }}>
+                                    {t('vision.dreams.churches.verse.reference')}
+                                </Typography>
+                            </Box>
+                        </Box>
+
+                        {/* Sueño 3 - Misión Estratégica */}
+                        <Box>
+                            <Typography variant="h5" sx={{ color: 'secondary.main', mb: 2 }}>
+                                {t('vision.dreams.mission.title')}
+                            </Typography>
+
+                            <Box sx={{ mb: 2 }}>
+                                <Typography variant="h6" sx={{ color: 'text.primary', mb: 1 }}>
+                                    {t('vision.dreams.mission.efficiency.title')}
+                                </Typography>
+                                <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                                    {t('vision.dreams.mission.efficiency.text')}
+                                </Typography>
+                            </Box>
+
+                            <Box>
+                                <Typography variant="h6" sx={{ color: 'text.primary', mb: 1 }}>
+                                    {t('vision.dreams.mission.effectiveness.title')}
+                                </Typography>
+                                <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                                    {t('vision.dreams.mission.effectiveness.text')}
+                                </Typography>
+                            </Box>
+                        </Box>
                     </Box>
                 </RevealFromRight>
             </LayoutContentComponent>
@@ -468,24 +579,80 @@ export const HomePage = () => {
                 layoutType="split"
                 backgroundColor='inherit'
                 backgroundColors={{ left: 'inherit', right: '#ffc870' }}
-                height={isMobile ? 'auto' : '100vh'}
+                height={isMobile ? 'auto' : 'auto'}
                 sectionPadding={{ xs: '80px 6%', md: '6% 0' }}
             >
                 <RevealFromLeft>
-                    <Box padding={{ xs: '16px 0', md: '22%' }}>
-                        <Typography variant="h3" component="h3" gutterBottom>
-                            <GradientText>{t('values.title')}</GradientText>
-                        </Typography>
+                    <Box padding={{ xs: '16px 0', md: '16%' }}>
                         <Typography
-                            variant="body1"
+                            variant="h6"
                             sx={{
                                 mt: 1,
-                                color: 'text.secondary',
-                                lineHeight: 1.8
+                                mb: 1,
+                                color: 'primary.main',
+                                fontStyle: 'italic',
+                                fontWeight: 300
                             }}
                         >
-                            {t('values.description')}
+                            {t('values.subtitle')}
                         </Typography>
+                        <Typography variant="h3" component="h3" gutterBottom sx={{ mb: 4 }}>
+                            <GradientText>{t('values.title')}</GradientText>
+                        </Typography>
+
+                        {/* Valor 1 - Relación */}
+                        <Box sx={{ mb: 4 }}>
+                            <Typography variant="h5" sx={{ color: 'secondary.main', mb: 1 }}>
+                                {t('values.principles.relationship.title')}
+                            </Typography>
+                            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                                {t('values.principles.relationship.description')}
+                            </Typography>
+                        </Box>
+
+                        {/* Valor 2 - Cooperación */}
+                        <Box sx={{ mb: 4 }}>
+                            <Typography variant="h5" sx={{ color: 'secondary.main', mb: 1 }}>
+                                {t('values.principles.cooperation.title')}
+                            </Typography>
+                            <Typography variant="body1" sx={{ lineHeight: 1.8, mb: 2 }}>
+                                {t('values.principles.cooperation.description')}
+                            </Typography>
+                            <Box sx={{
+                                p: 2,
+                                bgcolor: 'rgba(0,0,0,0.03)',
+                                borderLeft: '4px solid',
+                                borderColor: 'primary.main',
+                                fontStyle: 'italic'
+                            }}>
+                                <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
+                                    "{t('values.principles.cooperation.verse.text')}"
+                                </Typography>
+                                <Typography variant="caption" sx={{ display: 'block', mt: 1, fontWeight: 'bold' }}>
+                                    {t('values.principles.cooperation.verse.reference')}
+                                </Typography>
+                            </Box>
+                        </Box>
+
+                        {/* Valor 3 - Movilización */}
+                        <Box sx={{ mb: 4 }}>
+                            <Typography variant="h5" sx={{ color: 'secondary.main', mb: 1 }}>
+                                {t('values.principles.mobilization.title')}
+                            </Typography>
+                            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                                {t('values.principles.mobilization.description')}
+                            </Typography>
+                        </Box>
+
+                        {/* Valor 4 - Creación de Modelos */}
+                        <Box>
+                            <Typography variant="h5" sx={{ color: 'secondary.main', mb: 1 }}>
+                                {t('values.principles.modelCreation.title')}
+                            </Typography>
+                            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                                {t('values.principles.modelCreation.description')}
+                            </Typography>
+                        </Box>
                     </Box>
                 </RevealFromLeft>
                 <RevealFromRight>
@@ -493,7 +660,7 @@ export const HomePage = () => {
                 </RevealFromRight>
             </LayoutContentComponent>
 
-            <LayoutContentComponent
+            {/* <LayoutContentComponent
                 layoutType="full"
                 backgroundColor="inherit"
                 height={'auto'}
@@ -802,7 +969,7 @@ export const HomePage = () => {
                         )}
                     </Box>
                 </Box>
-            </LayoutContentComponent>
+            </LayoutContentComponent> */}
 
             <QRSection />
         </>
