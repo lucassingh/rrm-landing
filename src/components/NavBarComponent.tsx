@@ -35,6 +35,7 @@ import regions from '../assets/navbar/regions-nav.jpg';
 import forums from '../assets/navbar/forums-nav.jpg';
 import news from '../assets/navbar/news-nav.png';
 import contact from '../assets/navbar/contact-nav.png';
+import logo from '../assets/rmm-logo.svg';
 
 interface MenuItem {
     titleKey: string;
@@ -106,7 +107,7 @@ export const NavBarComponent = () => {
                 setImagesLoaded(true);
             } catch (error) {
                 console.error('Error loading images:', error);
-                setImagesLoaded(true); // Continuar aunque falle la carga
+                setImagesLoaded(true);
             }
         };
 
@@ -230,7 +231,6 @@ export const NavBarComponent = () => {
                         px: 3,
                     }}
                 >
-                    {/* Links izquierda - Ahora con navegación al hacer clic */}
                     <Box
                         sx={{
                             display: 'flex',
@@ -331,10 +331,9 @@ export const NavBarComponent = () => {
                             textDecoration: 'none'
                         }}
                     >
-                        <Typography sx={{ fontWeight: '700' }} variant="h2" fontSize='45px' fontStyle="italic" color={mode === 'dark' ? theme.palette.secondary.contrastText : theme.palette.primary.main}>RMM</Typography>
+                        <img src={logo} alt="Logo" width="60px" />
                     </Box>
 
-                    {/* Botones derecha */}
                     <Box sx={{ display: 'flex', gap: 1, flex: 1, justifyContent: 'flex-end', marginRight: '19px' }}>
                         <Button
                             onClick={toggleTheme}
@@ -511,7 +510,7 @@ export const NavBarComponent = () => {
                         to="/"
                         sx={{ textDecoration: 'none' }}
                     >
-                        <Typography sx={{ marginTop: '8px' }} variant="h2" fontSize='45px' fontStyle="italic" color={mode === 'dark' ? theme.palette.secondary.contrastText : theme.palette.primary.main}>RMM</Typography>
+                        <img src={logo} alt="Logo" width="50px" />
                     </Box>
 
                     <IconButton
@@ -549,8 +548,7 @@ export const NavBarComponent = () => {
             >
                 <Box sx={{ p: 2, height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                        <Typography variant="h2" fontSize='45px' fontStyle="italic" color={mode === 'dark' ? theme.palette.secondary.contrastText : theme.palette.primary.main}>RMM</Typography>
-
+                        <img src={logo} alt="Logo" width="50px" />
                         <IconButton onClick={handleDrawerToggle}>
                             <CloseIcon />
                             <Typography variant="body1" sx={{ ml: 1 }}>

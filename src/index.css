@@ -8,8 +8,24 @@ body {
     box-sizing: border-box;
 }
 
-/* Estilo específico para contenedores de animación */
 .motion-container {
     width: 100%;
     overflow: hidden;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.8);
+        opacity: 0.6;
+    }
 }

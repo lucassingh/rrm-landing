@@ -3,16 +3,18 @@ import { Typography, Box, Container, useMediaQuery, useTheme } from '@mui/materi
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import videoBg from '../assets/videos/video_bg.mp4';
 import { FaChevronDown } from 'react-icons/fa';
-import { HeroComponent, LayoutContentComponent, RevealFromLeft, RevealFromRight, VideoComponent } from '../components';
+import { HeaderComponent, HeroComponent, LayoutContentComponent, RevealFromLeft, RevealFromRight, VideoComponent } from '../components';
 import { useEffect, useRef } from 'react';
-// import img1 from '../assets/whatdo/img_1.jpg'
-// import img2 from '../assets/whatdo/img_2.jpg'
-// import img3 from '../assets/whatdo/img_3.jpg'
+import img1 from '../assets/whatdo/img_1.jpg'
+import img2 from '../assets/whatdo/img_2.jpg'
+import img3 from '../assets/whatdo/img_3.jpg'
 import mision from '../assets/mvv/mision.jpg'
 import vision from '../assets/mvv/vision.jpg'
 import values from '../assets/mvv/values.jpg'
 import { styled } from '@mui/system';
 import QRSection from '../components/QRSection';
+import { Link } from 'react-router-dom';
+import ColaborateSection from '../components/ColaborateSection';
 
 export const HomePage = () => {
 
@@ -20,7 +22,7 @@ export const HomePage = () => {
 
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    const { t } = useTranslation('common');
+    const { t, i18n } = useTranslation('common');
 
     const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -85,7 +87,6 @@ export const HomePage = () => {
         if (!video) return;
 
         const handlePlay = () => {
-            // Forzar muted en iOS
             video.muted = true;
             video.setAttribute('muted', '');
             video.setAttribute('playsinline', '');
@@ -408,11 +409,11 @@ export const HomePage = () => {
                 layoutType="split"
                 backgroundColor='inherit'
                 backgroundColors={{ left: 'inherit', right: '#5c8dd1' }}
-                height={isMobile ? 'auto' : '100vh'}
+                height={isMobile ? 'auto' : 'auto'}
                 sectionPadding={{ xs: '80px 6%', md: '6% 0' }}
             >
                 <RevealFromLeft>
-                    <Box padding={{ xs: '16px 0', md: '22%' }}>
+                    <Box padding={{ xs: '16px 0', md: '16%' }}>
                         <Typography
                             variant="h5"
                             sx={{
@@ -420,7 +421,7 @@ export const HomePage = () => {
                                 color: 'primary.main',
                                 fontStyle: 'italic',
                                 fontWeight: 300,
-                                textAlign: 'center'
+                                textAlign: 'left'
                             }}
                         >
                             {t('mision.subtitle')}
@@ -429,13 +430,11 @@ export const HomePage = () => {
                             variant="h3"
                             component="h3"
                             gutterBottom
-                            sx={{ textAlign: 'center', mb: 4 }}
+                            sx={{ textAlign: 'left', mb: 4 }}
                         >
                             <GradientText>{t('mision.title')}</GradientText>
                         </Typography>
 
-
-                        {/* Texto de misión destacado */}
                         <Box
                             sx={{
                                 p: 4,
@@ -660,114 +659,210 @@ export const HomePage = () => {
                 </RevealFromRight>
             </LayoutContentComponent>
 
-            {/* <LayoutContentComponent
-                layoutType="full"
-                backgroundColor="inherit"
-                height={'auto'}
-            >
-                <Box sx={{
-                    maxWidth: 1200,
-                    margin: '0 auto',
-                    width: '100%',
-                    px: isMobile ? 2 : 0
-                }}>
-                    <HeaderComponent
-                        title={t('whatdo.title')}
-                        subtitle={t('whatdo.subtitle')}
-                        align='center'
-                        sx={{ marginBottom: 6 }}
-                    />
-
+            {i18n.language === 'es' ? (
+                <LayoutContentComponent
+                    layoutType="full"
+                    backgroundColor="inherit"
+                    height={'auto'}
+                >
                     <Box sx={{
-                        width: '100%',
-                        maxWidth: '1000px',
-                        height: isMobile ? 'auto' : '1000px',
+                        maxWidth: 1200,
                         margin: '0 auto',
-                        display: 'flex',
-                        flexDirection: isMobile ? 'column' : 'row',
-                        gap: '20px',
-                        mb: 6
+                        width: '100%',
+                        px: isMobile ? 2 : 0
                     }}>
-                        <RevealFromLeft>
-                            <Box sx={{
-                                width: isMobile ? '100%' : '500px',
-                                height: isMobile ? 'auto' : '1000px',
-                                borderRadius: '15px',
-                                p: isMobile ? 3 : 4,
-                                display: 'flex',
-                                flexDirection: 'column',
-                                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                                bgcolor: 'background.paper',
-                                minHeight: isMobile ? 'auto' : '1000px'
-                            }}>
-                                <Box
-                                    sx={{
-                                        width: '100%',
-                                        mb: 4,
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        justifyContent: 'center',
-                                        cursor: 'pointer',
-                                        flex: 1
-                                    }}
-                                >
-                                    <Typography variant="h4" component="h3" sx={{
-                                        color: 'extra1.main',
-                                        mb: 3,
-                                        fontWeight: 700,
-                                        fontSize: isMobile ? '1.5rem' : '1.9rem'
-                                    }}>
-                                        {t('whatdo.cardTitle1')}
-                                    </Typography>
+                        <HeaderComponent
+                            title={t('whatdo.title')}
+                            subtitle={t('whatdo.subtitle')}
+                            align='center'
+                            sx={{ marginBottom: 6 }}
+                        />
 
-                                    <Typography variant="body1" sx={{
-                                        color: 'text.primary',
-                                        mb: 3,
-                                        fontSize: isMobile ? '1rem' : '1.1rem',
-                                        lineHeight: 1.6
-                                    }}>
-                                        {t('whatdo.cardSubtitle1')}
-                                    </Typography>
-
-                                    <Typography variant="body1" sx={{
-                                        color: 'text.primary',
-                                        mb: 3,
-                                        fontSize: isMobile ? '1rem' : '1.1rem',
-                                        lineHeight: 1.6
-                                    }}>
-                                        {t('whatdo.textCard1')}
-                                    </Typography>
-                                </Box>
-                                {
-                                    !isMobile && <Box sx={{
-                                        width: '100%',
-                                        position: 'relative',
-                                        borderRadius: '10px',
-                                        overflow: 'hidden',
-                                        mt: 'auto'
-                                    }}>
-                                        <img width='100%' height='auto' src={img1} alt="" />
-                                    </Box>
-                                }
-                            </Box>
-                        </RevealFromLeft>
-
-                        {!isMobile ? (
-                            <RevealFromRight>
+                        <Box sx={{
+                            width: '100%',
+                            maxWidth: '1000px',
+                            height: isMobile ? 'auto' : '1000px',
+                            margin: '0 auto',
+                            display: 'flex',
+                            flexDirection: isMobile ? 'column' : 'row',
+                            gap: '20px',
+                            mb: 6
+                        }}>
+                            <RevealFromLeft>
                                 <Box sx={{
-                                    width: '500px',
-                                    height: '1000px',
+                                    width: isMobile ? '100%' : '500px',
+                                    height: isMobile ? 'auto' : '1000px',
+                                    borderRadius: '15px',
+                                    p: isMobile ? 3 : 4,
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    gap: '20px'
+                                    boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                    bgcolor: 'background.paper',
+                                    minHeight: isMobile ? 'auto' : '1000px'
                                 }}>
+                                    <Box
+                                        sx={{
+                                            width: '100%',
+                                            mb: 4,
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            justifyContent: 'center',
+                                            flex: 1
+                                        }}
+                                    >
+                                        <Typography variant="h4" component="h3" sx={{
+                                            color: 'extra1.main',
+                                            mb: 3,
+                                            fontWeight: 700,
+                                            fontSize: isMobile ? '1.5rem' : '1.9rem'
+                                        }}>
+                                            {t('whatdo.cardTitle1')}
+                                        </Typography>
+
+                                        <Typography variant="body1" sx={{
+                                            color: 'text.primary',
+                                            mb: 3,
+                                            fontSize: isMobile ? '1rem' : '1.1rem',
+                                            lineHeight: 1.6
+                                        }}>
+                                            {t('whatdo.cardSubtitle1')}
+                                        </Typography>
+
+                                        <Typography variant="body1" sx={{
+                                            color: 'text.primary',
+                                            mb: 3,
+                                            fontSize: isMobile ? '1rem' : '1.1rem',
+                                            lineHeight: 1.6
+                                        }}>
+                                            La RMM está dividida en{' '}
+                                            <Link
+                                                to="/regions"
+                                                style={{
+                                                    color: '#1976d2',
+                                                    fontWeight: 'bold',
+                                                    textDecoration: 'none'
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.textDecoration = 'underline';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.textDecoration = 'none';
+                                                }}
+                                            >
+                                                REGIONES
+                                            </Link>{' '}
+                                            que abarcan todo el país. Te invitamos a participar en tu región poniéndote en contacto con su representante. Haciendo click aquí accedes a la información de las regiones y los datos de contacto.
+                                        </Typography>
+                                    </Box>
+                                    {
+                                        !isMobile && <Box sx={{
+                                            width: '100%',
+                                            position: 'relative',
+                                            borderRadius: '10px',
+                                            overflow: 'hidden',
+                                            mt: 'auto'
+                                        }}>
+                                            <img width='100%' height='auto' src={img1} alt="" />
+                                        </Box>
+                                    }
+                                </Box>
+                            </RevealFromLeft>
+
+                            {!isMobile ? (
+                                <RevealFromRight>
                                     <Box sx={{
                                         width: '500px',
-                                        height: '500px',
+                                        height: '1000px',
                                         display: 'flex',
                                         flexDirection: 'column',
                                         gap: '20px'
                                     }}>
+                                        <Box sx={{
+                                            width: '500px',
+                                            height: '500px',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: '20px'
+                                        }}>
+                                            <Box sx={{
+                                                width: '100%',
+                                                height: '500px',
+                                                borderRadius: '15px',
+                                                p: 4,
+                                                position: 'relative',
+                                                overflow: 'visible',
+                                                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                justifyContent: 'center',
+                                                bgcolor: 'background.paper'
+                                            }}>
+                                                <Box
+                                                    component="img"
+                                                    src={img2}
+                                                    sx={{
+                                                        position: 'absolute',
+                                                        top: -130,
+                                                        right: -70,
+                                                        width: '180px',
+                                                        height: '260px',
+                                                        borderRadius: '10px',
+                                                        objectFit: 'cover',
+                                                        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
+                                                    }}
+                                                />
+
+                                                <Typography
+                                                    variant="h4"
+                                                    component="h3"
+                                                    sx={{
+                                                        color: 'secondary.main',
+                                                        mb: 3,
+                                                        fontWeight: 700,
+                                                        fontSize: isMobile ? '1.5rem' : '1.9rem'
+                                                    }}
+                                                >
+                                                    {t('whatdo.cardTitle2')}
+                                                </Typography>
+                                                <Typography
+                                                    variant="body1"
+                                                    sx={{
+                                                        color: 'text.primary',
+                                                        mb: 3,
+                                                        fontSize: isMobile ? '1rem' : '1.1rem',
+                                                        lineHeight: 1.6
+                                                    }}
+                                                >
+                                                    {t('whatdo.cardSubtitle2')}
+                                                </Typography>
+                                                <Typography variant="body1" sx={{
+                                                    color: 'text.primary',
+                                                    mb: 3,
+                                                    fontSize: isMobile ? '1rem' : '1.1rem',
+                                                    lineHeight: 1.6
+                                                }}>
+                                                    Además, la Red está integrada por{' '}
+                                                    <Link
+                                                        to="/forums"
+                                                        style={{
+                                                            color: '#1976d2',
+                                                            fontWeight: 'bold',
+                                                            textDecoration: 'none'
+                                                        }}
+                                                        onMouseEnter={(e) => {
+                                                            e.currentTarget.style.textDecoration = 'underline';
+                                                        }}
+                                                        onMouseLeave={(e) => {
+                                                            e.currentTarget.style.textDecoration = 'none';
+                                                        }}
+                                                    >
+                                                        FOROS
+                                                    </Link>
+                                                    , que sirven en diferentes áreas de la misión. Contactate con los coordinadores de cada foro para colaborar y participar.
+                                                </Typography>
+                                            </Box>
+                                        </Box>
+
                                         <Box sx={{
                                             width: '100%',
                                             height: '500px',
@@ -781,28 +876,100 @@ export const HomePage = () => {
                                             justifyContent: 'center',
                                             bgcolor: 'background.paper'
                                         }}>
-                                            <Box
-                                                component="img"
-                                                src={img2}
-                                                sx={{
-                                                    position: 'absolute',
-                                                    top: -80,
-                                                    right: -70,
-                                                    width: '180px',
-                                                    height: '260px',
-                                                    borderRadius: '10px',
-                                                    objectFit: 'cover',
-                                                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
-                                                }}
-                                            />
+                                            <Box sx={{
+                                                position: 'absolute',
+                                                top: -70,
+                                                right: -60,
+                                                width: '300px',
+                                                height: '200px',
+                                                borderRadius: '10px',
+                                                overflow: 'hidden',
+                                                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                                                border: '2px solid',
+                                                borderColor: 'background.paper',
+                                                zIndex: 2
+                                            }}>
+                                                <Box
+                                                    component="img"
+                                                    src={img3}
+                                                    alt="Certificaciones"
+                                                    sx={{
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        objectFit: 'cover',
+                                                        objectPosition: 'center'
+                                                    }}
+                                                />
+                                            </Box>
 
+                                            <Typography variant="h4" component="h3" sx={{
+                                                color: 'tertiary.main',
+                                                mb: 3,
+                                                fontWeight: 700,
+                                                fontSize: isMobile ? '1.5rem' : '1.9rem',
+                                                mt: 16
+                                            }}>
+                                                {t('whatdo.cardTitle3')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
+                                                color: 'text.primary',
+                                                mb: 3,
+                                                fontSize: isMobile ? '1rem' : '1.1rem',
+                                                lineHeight: 1.6
+                                            }}>
+                                                {t('whatdo.cardSubtitle3')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
+                                                color: 'text.primary',
+                                                mb: 3,
+                                                fontSize: isMobile ? '1rem' : '1.1rem',
+                                                lineHeight: 1.6
+                                            }}>
+                                                También la RMM está formada por Agencias Misioneras, Centros de Capacitación, Movilización e Iglesias comprometidas con la visión de alcanzar a los no alcanzados.
+                                                Conocé las{' '}
+                                                <Link
+                                                    to="/entities"
+                                                    style={{
+                                                        color: '#1976d2',
+                                                        fontWeight: 'bold',
+                                                        textDecoration: 'none'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'underline';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'none';
+                                                    }}
+                                                >
+                                                    ENTIDADES
+                                                </Link>
+                                                {' '} que forman parte de la Red Misiones Mundiales.
+                                            </Typography>
+                                        </Box>
+                                    </Box>
+                                </RevealFromRight>
+                            ) : (
+                                <>
+                                    <RevealFromRight>
+                                        <Box sx={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '15px',
+                                            p: 3,
+                                            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            mb: 3,
+                                            bgcolor: 'background.paper'
+                                        }}>
                                             <Typography
                                                 variant="h4"
                                                 component="h3"
                                                 sx={{
                                                     color: 'secondary.main',
-                                                    mb: 2,
-                                                    fontWeight: 700
+                                                    mb: 3,
+                                                    fontWeight: 700,
+                                                    fontSize: '1.5rem'
                                                 }}
                                             >
                                                 {t('whatdo.cardTitle2')}
@@ -811,7 +978,8 @@ export const HomePage = () => {
                                                 variant="body1"
                                                 sx={{
                                                     color: 'text.primary',
-                                                    fontSize: '1.1rem',
+                                                    mb: 3,
+                                                    fontSize: '1rem',
                                                     lineHeight: 1.6
                                                 }}
                                             >
@@ -819,159 +987,511 @@ export const HomePage = () => {
                                             </Typography>
                                             <Typography variant="body1" sx={{
                                                 color: 'text.primary',
-                                                mt: 2
+                                                mb: 3,
+                                                fontSize: '1rem',
+                                                lineHeight: 1.6
                                             }}>
-                                                {t('whatdo.textCard2')}
+                                                Además, la Red está integrada por{' '}
+                                                <Link
+                                                    to="/forums"
+                                                    style={{
+                                                        color: '#1976d2',
+                                                        fontWeight: 'bold',
+                                                        textDecoration: 'none'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'underline';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'none';
+                                                    }}
+                                                >
+                                                    FOROS
+                                                </Link>
+                                                , que sirven en diferentes áreas de la misión. Contactate con los coordinadores de cada foro para colaborar y participar.
+                                            </Typography>
+                                        </Box>
+                                    </RevealFromRight>
+
+                                    <RevealFromRight>
+                                        <Box sx={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '15px',
+                                            p: 3,
+                                            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            bgcolor: 'background.paper'
+                                        }}>
+                                            <Typography variant="h4" component="h3" sx={{
+                                                color: 'tertiary.main',
+                                                mb: 3,
+                                                fontWeight: 700,
+                                                fontSize: '1.5rem'
+                                            }}>
+                                                {t('whatdo.cardTitle3')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
+                                                color: 'text.primary',
+                                                mb: 3,
+                                                fontSize: '1rem',
+                                                lineHeight: 1.6
+                                            }}>
+                                                {t('whatdo.cardSubtitle3')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
+                                                color: 'text.primary',
+                                                mb: 3,
+                                                fontSize: '1rem',
+                                                lineHeight: 1.6
+                                            }}>
+                                                También la RMM está formada por Agencias Misioneras, Centros de Capacitación, Movilización e Iglesias comprometidas con la visión de alcanzar a los no alcanzados.
+                                                Conocé las{' '}
+                                                <Link
+                                                    to="/entities"
+                                                    style={{
+                                                        color: '#1976d2',
+                                                        fontWeight: 'bold',
+                                                        textDecoration: 'none'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'underline';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'none';
+                                                    }}
+                                                >
+                                                    ENTIDADES
+                                                </Link>
+                                                {' '} que forman parte de la Red Misiones Mundiales.
+                                            </Typography>
+                                        </Box>
+                                    </RevealFromRight>
+                                </>
+                            )}
+                        </Box>
+                    </Box>
+                </LayoutContentComponent>
+            ) : (
+                <LayoutContentComponent
+                    layoutType="full"
+                    backgroundColor="inherit"
+                    height={'auto'}
+                >
+                    <Box sx={{
+                        maxWidth: 1200,
+                        margin: '0 auto',
+                        width: '100%',
+                        px: isMobile ? 2 : 0
+                    }}>
+                        <HeaderComponent
+                            title={t('whatdo.title')}
+                            subtitle={t('whatdo.subtitle')}
+                            align='center'
+                            sx={{ marginBottom: 6 }}
+                        />
+
+                        <Box sx={{
+                            width: '100%',
+                            maxWidth: '1000px',
+                            height: isMobile ? 'auto' : '1000px',
+                            margin: '0 auto',
+                            display: 'flex',
+                            flexDirection: isMobile ? 'column' : 'row',
+                            gap: '20px',
+                            mb: 6
+                        }}>
+                            <RevealFromLeft>
+                                <Box sx={{
+                                    width: isMobile ? '100%' : '500px',
+                                    height: isMobile ? 'auto' : '1000px',
+                                    borderRadius: '15px',
+                                    p: isMobile ? 3 : 4,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                    bgcolor: 'background.paper',
+                                    minHeight: isMobile ? 'auto' : '1000px'
+                                }}>
+                                    <Box
+                                        sx={{
+                                            width: '100%',
+                                            mb: 4,
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            justifyContent: 'center',
+                                            flex: 1
+                                        }}
+                                    >
+                                        <Typography variant="h4" component="h3" sx={{
+                                            color: 'extra1.main',
+                                            mb: 3,
+                                            fontWeight: 700,
+                                            fontSize: isMobile ? '1.5rem' : '1.9rem'
+                                        }}>
+                                            {t('whatdo.cardTitle1')}
+                                        </Typography>
+
+                                        <Typography variant="body1" sx={{
+                                            color: 'text.primary',
+                                            mb: 3,
+                                            fontSize: isMobile ? '1rem' : '1.1rem',
+                                            lineHeight: 1.6
+                                        }}>
+                                            {t('whatdo.cardSubtitle1')}
+                                        </Typography>
+
+                                        <Typography variant="body1" sx={{
+                                            color: 'text.primary',
+                                            mb: 3,
+                                            fontSize: isMobile ? '1rem' : '1.1rem',
+                                            lineHeight: 1.6
+                                        }}>
+                                            The RMM is divided into{' '}
+                                            <Link
+                                                to="/regions"
+                                                style={{
+                                                    color: '#1976d2',
+                                                    fontWeight: 'bold',
+                                                    textDecoration: 'none'
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.textDecoration = 'underline';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.textDecoration = 'none';
+                                                }}
+                                            >
+                                                REGIONS
+                                            </Link>{' '}
+                                            that cover the entire country. We invite you to participate in your region by contacting its representative. Click here to access information about the regions and contact details.
+                                        </Typography>
+                                    </Box>
+                                    {
+                                        !isMobile && <Box sx={{
+                                            width: '100%',
+                                            position: 'relative',
+                                            borderRadius: '10px',
+                                            overflow: 'hidden',
+                                            mt: 'auto'
+                                        }}>
+                                            <img width='100%' height='auto' src={img1} alt="" />
+                                        </Box>
+                                    }
+                                </Box>
+                            </RevealFromLeft>
+
+                            {!isMobile ? (
+                                <RevealFromRight>
+                                    <Box sx={{
+                                        width: '500px',
+                                        height: '1000px',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '20px'
+                                    }}>
+                                        <Box sx={{
+                                            width: '500px',
+                                            height: '500px',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: '20px'
+                                        }}>
+                                            <Box sx={{
+                                                width: '100%',
+                                                height: '500px',
+                                                borderRadius: '15px',
+                                                p: 4,
+                                                position: 'relative',
+                                                overflow: 'visible',
+                                                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                justifyContent: 'center',
+                                                bgcolor: 'background.paper'
+                                            }}>
+                                                <Box
+                                                    component="img"
+                                                    src={img2}
+                                                    sx={{
+                                                        position: 'absolute',
+                                                        top: -130,
+                                                        right: -70,
+                                                        width: '180px',
+                                                        height: '260px',
+                                                        borderRadius: '10px',
+                                                        objectFit: 'cover',
+                                                        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
+                                                    }}
+                                                />
+
+                                                <Typography
+                                                    variant="h4"
+                                                    component="h3"
+                                                    sx={{
+                                                        color: 'secondary.main',
+                                                        mb: 3,
+                                                        fontWeight: 700,
+                                                        fontSize: isMobile ? '1.5rem' : '1.9rem'
+                                                    }}
+                                                >
+                                                    {t('whatdo.cardTitle2')}
+                                                </Typography>
+                                                <Typography
+                                                    variant="body1"
+                                                    sx={{
+                                                        color: 'text.primary',
+                                                        mb: 3,
+                                                        fontSize: isMobile ? '1rem' : '1.1rem',
+                                                        lineHeight: 1.6
+                                                    }}
+                                                >
+                                                    {t('whatdo.cardSubtitle2')}
+                                                </Typography>
+                                                <Typography variant="body1" sx={{
+                                                    color: 'text.primary',
+                                                    mb: 3,
+                                                    fontSize: isMobile ? '1rem' : '1.1rem',
+                                                    lineHeight: 1.6
+                                                }}>
+                                                    Additionally, the RMM is composed of{' '}
+                                                    <Link
+                                                        to="/forums"
+                                                        style={{
+                                                            color: '#1976d2',
+                                                            fontWeight: 'bold',
+                                                            textDecoration: 'none'
+                                                        }}
+                                                        onMouseEnter={(e) => {
+                                                            e.currentTarget.style.textDecoration = 'underline';
+                                                        }}
+                                                        onMouseLeave={(e) => {
+                                                            e.currentTarget.style.textDecoration = 'none';
+                                                        }}
+                                                    >
+                                                        FORUMS
+                                                    </Link>
+                                                    , which serve in different areas of mission. Contact the coordinators of each forum to collaborate and participate.
+                                                </Typography>
+                                            </Box>
+                                        </Box>
+
+                                        <Box sx={{
+                                            width: '100%',
+                                            height: '500px',
+                                            borderRadius: '15px',
+                                            p: 4,
+                                            position: 'relative',
+                                            overflow: 'visible',
+                                            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            justifyContent: 'center',
+                                            bgcolor: 'background.paper'
+                                        }}>
+                                            <Box sx={{
+                                                position: 'absolute',
+                                                top: -70,
+                                                right: -60,
+                                                width: '300px',
+                                                height: '200px',
+                                                borderRadius: '10px',
+                                                overflow: 'hidden',
+                                                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                                                border: '2px solid',
+                                                borderColor: 'background.paper',
+                                                zIndex: 2
+                                            }}>
+                                                <Box
+                                                    component="img"
+                                                    src={img3}
+                                                    alt="Certifications"
+                                                    sx={{
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        objectFit: 'cover',
+                                                        objectPosition: 'center'
+                                                    }}
+                                                />
+                                            </Box>
+
+                                            <Typography variant="h4" component="h3" sx={{
+                                                color: 'tertiary.main',
+                                                mb: 3,
+                                                fontWeight: 700,
+                                                fontSize: isMobile ? '1.5rem' : '1.9rem',
+                                                mt: 16
+                                            }}>
+                                                {t('whatdo.cardTitle3')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
+                                                color: 'text.primary',
+                                                mb: 3,
+                                                fontSize: isMobile ? '1rem' : '1.1rem',
+                                                lineHeight: 1.6
+                                            }}>
+                                                {t('whatdo.cardSubtitle3')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
+                                                color: 'text.primary',
+                                                mb: 3,
+                                                fontSize: isMobile ? '1rem' : '1.1rem',
+                                                lineHeight: 1.6
+                                            }}>
+                                                The RMM is also formed by Mission Agencies, Training Centers, Mobilization and Churches committed to the vision of reaching the unreached.
+                                                Discover the{' '}
+                                                <Link
+                                                    to="/entities"
+                                                    style={{
+                                                        color: '#1976d2',
+                                                        fontWeight: 'bold',
+                                                        textDecoration: 'none'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'underline';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'none';
+                                                    }}
+                                                >
+                                                    ENTITIES
+                                                </Link>
+                                                {' '} that are part of the World Missions Network.
                                             </Typography>
                                         </Box>
                                     </Box>
-
-                                    <Box sx={{
-                                        width: '100%',
-                                        height: '500px',
-                                        borderRadius: '15px',
-                                        p: 4,
-                                        position: 'relative',
-                                        overflow: 'visible',
-                                        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        justifyContent: 'center',
-                                        bgcolor: 'background.paper'
-                                    }}>
+                                </RevealFromRight>
+                            ) : (
+                                <>
+                                    <RevealFromRight>
                                         <Box sx={{
-                                            position: 'absolute',
-                                            top: 30,
-                                            right: -60,
-                                            width: '300px',
-                                            height: '200px',
-                                            borderRadius: '10px',
-                                            overflow: 'hidden',
-                                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-                                            border: '2px solid',
-                                            borderColor: 'background.paper',
-                                            zIndex: 2
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '15px',
+                                            p: 3,
+                                            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            mb: 3,
+                                            bgcolor: 'background.paper'
                                         }}>
-                                            <Box
-                                                component="img"
-                                                src={img3}
-                                                alt="Certificaciones"
+                                            <Typography
+                                                variant="h4"
+                                                component="h3"
                                                 sx={{
-                                                    width: '100%',
-                                                    height: '100%',
-                                                    objectFit: 'cover',
-                                                    objectPosition: 'center'
+                                                    color: 'secondary.main',
+                                                    mb: 3,
+                                                    fontWeight: 700,
+                                                    fontSize: '1.5rem'
                                                 }}
-                                            />
+                                            >
+                                                {t('whatdo.cardTitle2')}
+                                            </Typography>
+                                            <Typography
+                                                variant="body1"
+                                                sx={{
+                                                    color: 'text.primary',
+                                                    mb: 3,
+                                                    fontSize: '1rem',
+                                                    lineHeight: 1.6
+                                                }}
+                                            >
+                                                {t('whatdo.cardSubtitle2')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
+                                                color: 'text.primary',
+                                                mb: 3,
+                                                fontSize: '1rem',
+                                                lineHeight: 1.6
+                                            }}>
+                                                Additionally, the Network is composed of{' '}
+                                                <Link
+                                                    to="/forums"
+                                                    style={{
+                                                        color: '#1976d2',
+                                                        fontWeight: 'bold',
+                                                        textDecoration: 'none'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'underline';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'none';
+                                                    }}
+                                                >
+                                                    FORUMS
+                                                </Link>
+                                                , which serve in different areas of mission. Contact the coordinators of each forum to collaborate and participate.
+                                            </Typography>
                                         </Box>
+                                    </RevealFromRight>
 
-                                        <Typography variant="h4" component="h3" sx={{
-                                            color: 'tertiary.main',
-                                            mb: 2,
-                                            fontWeight: 700,
-                                            mt: 16
+                                    <RevealFromRight>
+                                        <Box sx={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '15px',
+                                            p: 3,
+                                            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            bgcolor: 'background.paper'
                                         }}>
-                                            {t('whatdo.cardTitle3')}
-                                        </Typography>
-                                        <Typography variant="body1" sx={{
-                                            color: 'text.primary',
-                                            mt: 2
-                                        }}>
-                                            {t('whatdo.cardSubtitle3')}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </RevealFromRight>
-                        ) : (
-                            <>
-                                <RevealFromRight>
-                                    <Box sx={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        borderRadius: '15px',
-                                        p: 3,
-                                        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        mb: 3,
-                                        bgcolor: 'background.paper'
-                                    }}>
-                                        <Typography
-                                            variant="h4"
-                                            component="h3"
-                                            sx={{
-                                                color: 'secondary.main',
-                                                mb: 2,
+                                            <Typography variant="h4" component="h3" sx={{
+                                                color: 'tertiary.main',
+                                                mb: 3,
                                                 fontWeight: 700,
                                                 fontSize: '1.5rem'
-                                            }}
-                                        >
-                                            {t('whatdo.cardTitle2')}
-                                        </Typography>
-                                        <Typography
-                                            variant="body1"
-                                            sx={{
+                                            }}>
+                                                {t('whatdo.cardTitle3')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
                                                 color: 'text.primary',
+                                                mb: 3,
                                                 fontSize: '1rem',
-                                                lineHeight: 1.6,
-                                                mb: 2
-                                            }}
-                                        >
-                                            {t('whatdo.cardSubtitle2')}
-                                        </Typography>
-                                        <Typography variant="body1" sx={{
-                                            color: 'text.primary',
-                                            fontSize: '0.9rem',
-                                            lineHeight: 1.5
-                                        }}>
-                                            {t('whatdo.textCard2')}
-                                        </Typography>
-                                    </Box>
-                                </RevealFromRight>
-
-                                <RevealFromRight>
-                                    <Box sx={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        borderRadius: '15px',
-                                        p: 3,
-                                        boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        bgcolor: 'background.paper'
-                                    }}>
-                                        <Typography variant="h4" component="h3" sx={{
-                                            color: 'tertiary.main',
-                                            mb: 2,
-                                            fontWeight: 700,
-                                            fontSize: '1.5rem'
-                                        }}>
-                                            {t('whatdo.cardTitle3')}
-                                        </Typography>
-                                        <Typography variant="body1" sx={{
-                                            color: 'text.primary',
-                                            fontSize: '1rem',
-                                            lineHeight: 1.6,
-                                            mb: 2
-                                        }}>
-                                            {t('whatdo.cardSubtitle3')}
-                                        </Typography>
-                                        <Typography variant="body1" sx={{
-                                            color: 'text.primary',
-                                            fontSize: '0.9rem',
-                                            lineHeight: 1.5
-                                        }}>
-                                            {t('whatdo.textCard3')}
-                                        </Typography>
-                                    </Box>
-                                </RevealFromRight>
-                            </>
-                        )}
+                                                lineHeight: 1.6
+                                            }}>
+                                                {t('whatdo.cardSubtitle3')}
+                                            </Typography>
+                                            <Typography variant="body1" sx={{
+                                                color: 'text.primary',
+                                                mb: 3,
+                                                fontSize: '1rem',
+                                                lineHeight: 1.6
+                                            }}>
+                                                The RMM is also formed by Mission Agencies, Training Centers, Mobilization and Churches committed to the vision of reaching the unreached.
+                                                Discover the{' '}
+                                                <Link
+                                                    to="/entities"
+                                                    style={{
+                                                        color: '#1976d2',
+                                                        fontWeight: 'bold',
+                                                        textDecoration: 'none'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'underline';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.textDecoration = 'none';
+                                                    }}
+                                                >
+                                                    ENTITIES
+                                                </Link>
+                                                {' '} that are part of the World Missions Network.
+                                            </Typography>
+                                        </Box>
+                                    </RevealFromRight>
+                                </>
+                            )}
+                        </Box>
                     </Box>
-                </Box>
-            </LayoutContentComponent> */}
+                </LayoutContentComponent>
+            )}
 
             <QRSection />
+
+            <ColaborateSection />
         </>
     );
 };

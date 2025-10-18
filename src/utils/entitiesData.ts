@@ -35,6 +35,7 @@ import movLogo from '../assets/entities/entidades_movilizacion/logo-movida-remol
 import nerLogo from '../assets/entities/entidades_movilizacion/cropped-ner-cabeza-1-768x172.png'
 import raimLogo from '../assets/entities/entidades_movilizacion/RAIM-768x640.png'
 import noImg from '../assets/entities/placeholder.jpg'
+import jornadasLogo from '../assets/entities/entidades_movilizacion/logo_JM_fondo_blanco_op1.svg'
 
 export interface Entity {
     id: string;
@@ -276,6 +277,14 @@ export const movilizationEntities: Entity[] = [
         logo: noImg,
         webUrl: '',
         facebookUrl: 'https://www.facebook.com/?_rdc=1&_rdr#',
+        whatappUrl: ''
+    },
+    {
+        id: '9',
+        name: 'Jornadas Misioneras',
+        logo: jornadasLogo,
+        webUrl: 'https://www.jornadasmisioneras.org/',
+        facebookUrl: '',
         whatappUrl: ''
     }
 ]

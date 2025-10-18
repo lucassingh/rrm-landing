@@ -93,15 +93,35 @@
     "whatdo": {
         "title": "¿Cómo lo hacemos?",
         "subtitle": "Algunas de las actividades que realiza la RMM",
-        "cardTitle1": "Encontrar una necesidad",
-        "cardSubtitle1": "Sed ut perspiciatis unde omnis",
-        "textCard1": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
-        "cardTitle2": "Conectar",
-        "cardSubtitle2": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem",
-        "textCard2": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
-        "cardTitle3": "Nuevo ministerio",
-        "cardSubtitle3": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem oloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore ver oloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore ver",
-        "textCard3": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?"
+        "cardTitle1": "Colaborando en Regiones",
+        "cardSubtitle1": "",
+        "textCard1": "La RMM está dividida en REGIONES que abarcan todo el país. Te invitamos a participar en tu región poniéndote en contacto con su representante. Haciendo click aquí accedes a la información de las regiones y los datos de contacto.",
+        "cardTitle2": "Con Conexiones y Foros",
+        "cardSubtitle2": "",
+        "textCard2": "Además, la Red está integrada por FOROS, que sirven en diferentes áreas de la misión. Contactate con los coordinadores de cada foro para colaborar y participar.",
+        "cardTitle3": "Trabajando en conjunto con Organizaciones",
+        "cardSubtitle3": "",
+        "textCard3": ""
+    },
+    "qrsections": {
+        "title": "¿Querés ser parte de RMM?",
+        "subtitle": "Escaneá el QR para saber más sobre cómo unirte a nuestra comunidad y no perderte ninguna novedad.",
+        "titleMobile": "Unite a nuestro canal de WhatsApp para saber más sobre cómo ser parte de nuestra comunidad y no perderte ninguna novedad.",
+        "unite": "Unirse al Canal",
+        "legend": " Toca el botón para unirte instantáneamente"
+    },
+    "donate": {
+        "title": "Apoyá Nuestra Misión",
+        "subtitle": "Tu contribución hace posible que sigamos expandiendo el evangelio y formando discípulos alrededor del mundo",
+        "argentinaTitle": "Doná desde Argentina",
+        "argentinaDescription": "Usá Mercado Pago para apoyar nuestra misión localmente",
+        "internationalTitle": "Doná desde el Exterior",
+        "internationalDescription": "Usá PayPal para contribuir desde cualquier parte del mundo",
+        "donateButton": "Donar Ahora",
+        "securePayment": "Pago 100% Seguro",
+        "impactText": "Tu donación transforma vidas",
+        "localSupport": "Apoyo Local",
+        "globalSupport": "Apoyo Global"
     },
     "regions": {
         "title": "Regiones",
@@ -170,6 +190,8 @@
     },
     "footer": {
         "description": "Espacio de encuentro y cooperación para movilizar y facilitar la misión global de la iglesia argentina.",
+        "description2": "Servir a la Iglesia iberoamericana fomentando su cooperación, unidad y movilización para cumplir la Gran Comisión.",
+        "description3": "La Red Misiones Mundiales es parte de la Alianza Cristiana de Iglesias Evangélicas de la República Argentina, y es integrante de la Cooperación Misionera Iberoamericana, siendo su representación en nuestro país.",
         "usefulLinks": "LINKS ÚTILES",
         "news": "Noticias",
         "regions": "Regiones",

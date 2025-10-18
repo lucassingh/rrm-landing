@@ -25,7 +25,6 @@ interface ContainerEntitiesProps {
     subtitle?: string;
 }
 
-// Definición de la animación de pulso
 const pulseBorder = keyframes`
   0% {
     box-shadow: 0 0 0 0px rgba(25, 118, 210, 0.2);
@@ -38,7 +37,6 @@ const pulseBorder = keyframes`
   }
 `;
 
-// Variantes de animación para Framer Motion con tipos correctos
 const cardVariants: Variants = {
     offscreen: {
         y: 50,
@@ -119,7 +117,6 @@ export const ContainerEntitiesComponent: React.FC<ContainerEntitiesProps> = ({
                                     '&:hover': {
                                         transform: 'translateY(-4px)',
                                         boxShadow: theme.shadows[6],
-                                        // Intensificar la animación al hacer hover
                                         ...(isLightMode && {
                                             '&::before': {
                                                 animation: `${pulseBorder} 1s infinite`
@@ -128,7 +125,6 @@ export const ContainerEntitiesComponent: React.FC<ContainerEntitiesProps> = ({
                                     }
                                 }}
                             >
-                                {/* Header con logo - Fondo adaptativo para logos blancos */}
                                 <Box
                                     sx={{
                                         backgroundColor: entity.isWhite

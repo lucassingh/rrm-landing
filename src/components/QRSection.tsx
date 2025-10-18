@@ -31,7 +31,6 @@ const QRSection = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const { t } = useTranslation();
 
-    // Efecto para detectar el modo oscuro del tema
     useEffect(() => {
         setIsDarkMode(theme.palette.mode === 'dark');
     }, [theme]);
@@ -52,7 +51,6 @@ const QRSection = () => {
                 padding: isMobile ? '2rem 1rem' : '0',
             }}
         >
-            {/* Elementos decorativos de fondo con más contraste */}
             <Box
                 sx={{
                     position: 'absolute',
@@ -83,7 +81,6 @@ const QRSection = () => {
                 }}
             />
 
-            {/* Elemento adicional para más profundidad */}
             <Box
                 sx={{
                     position: 'absolute',
@@ -137,7 +134,7 @@ const QRSection = () => {
                             animation: `${gradientBackground} 8s ease infinite`,
                         }}
                     >
-                        ¿Querés ser parte de RMM?
+                        {t('qrsections.title')}
                     </Typography>
 
                     <Typography
@@ -152,13 +149,12 @@ const QRSection = () => {
                         }}
                     >
                         {isMobile
-                            ? 'Unite a nuestro canal de WhatsApp para saber más sobre cómo ser parte de nuestra comunidad y no perderte ninguna novedad.'
-                            : 'Escaneá el QR para saber más sobre cómo unirte a nuestra comunidad y no perderte ninguna novedad.'
+                            ? t('qrsections.titlemobile')
+                            : t('qrsections.subtitle')
                         }
                     </Typography>
                 </Box>
 
-                {/* Tarjeta con QR o Link según dispositivo */}
                 <Box
                     sx={{
                         flex: isMobile ? 1 : 0.6,
@@ -216,7 +212,6 @@ const QRSection = () => {
                             </Typography>
 
                             {isMobile ? (
-                                // Versión Mobile - Botón de link directo
                                 <Box sx={{ textAlign: 'center' }}>
                                     <Button
                                         variant="contained"
@@ -240,7 +235,7 @@ const QRSection = () => {
                                         }}
                                         startIcon={<FaWhatsapp style={{ fontSize: '24px' }} />}
                                     >
-                                        Unirse al Canal
+                                        {t('qrsections.unite')}
                                     </Button>
                                     <Typography
                                         variant="body2"
@@ -250,11 +245,10 @@ const QRSection = () => {
                                             fontStyle: 'italic',
                                         }}
                                     >
-                                        Toca el botón para unirte instantáneamente
+                                        {t('qrsections.legend')}
                                     </Typography>
                                 </Box>
                             ) : (
-                                // Versión Desktop - QR Code
                                 <>
                                     <Box
                                         component="img"

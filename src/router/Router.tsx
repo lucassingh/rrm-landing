@@ -1,11 +1,34 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { routes } from "./routesConfig";
 import { NotFoundPage } from "../pages";
 import App from "../App";
+import { CentralLoader } from '../components/CentralLoader';
 
-export const Router = () => {
+const RouterContent: React.FC = () => {
+    const [isLoading, setIsLoading] = useState(true);
+    const [prevLocation, setPrevLocation] = useState('');
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname !== prevLocation) {
+            setIsLoading(true);
+            setPrevLocation(location.pathname);
+        }
+    }, [location, prevLocation]);
+
+    useEffect(() => {
+        if (isLoading) {
+            const timer = setTimeout(() => {
+                setIsLoading(false);
+            }, 1500);
+            return () => clearTimeout(timer);
+        }
+    }, [isLoading]);
+
     return (
-        <BrowserRouter>
+        <>
+            <CentralLoader open={isLoading} />
             <Routes>
                 <Route path="/" element={<App />}>
                     {routes.map((route, index) => (
@@ -18,6 +41,14 @@ export const Router = () => {
                 </Route>
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
+        </>
+    );
+};
+
+export const Router = () => {
+    return (
+        <BrowserRouter>
+            <RouterContent />
         </BrowserRouter>
     );
 };

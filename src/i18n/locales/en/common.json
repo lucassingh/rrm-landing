@@ -91,8 +91,37 @@
         }
     },
     "whatdo": {
-        "title": "¿Cómo lo hacemos?",
-        "subtitle": "Algunas de las actividades que realiza la RMM"
+        "title": "How do we do it?",
+        "subtitle": "Some of the activities carried out by the RMM",
+        "cardTitle1": "Collaborating in Regions",
+        "cardSubtitle1": "",
+        "textCard1": "The RMM is divided into REGIONS that cover the entire country. We invite you to participate in your region by contacting its representative. By clicking here you can access information about the regions and contact details.",
+        "cardTitle2": "With Connections and Forums",
+        "cardSubtitle2": "",
+        "textCard2": "In addition, the Network is made up of FORUMS, which serve in different areas of the mission. Contact the coordinators of each forum to collaborate and participate.",
+        "cardTitle3": "Working together with Organizations",
+        "cardSubtitle3": "",
+        "textCard3": "La RMM colabora con diversas organizaciones para llevar a cabo su misión. Si deseas más información sobre cómo trabajar juntos, no dudes en contactarnos."
+    },
+    "qrsections": {
+        "title": "Do you want to be part of RMM?",
+        "subtitle": "Scan the QR code to learn more about how to join our community and not miss any updates.",
+        "titleMobile": "Join our WhatsApp channel to learn more about how to be part of our community and not miss any updates.",
+        "unite": "Join the Channel",
+        "legend": "Tap the button to join instantly"
+    },
+    "donate": {
+        "title": "Support Our Mission",
+        "subtitle": "Your contribution makes it possible for us to continue spreading the gospel and making disciples around the world",
+        "argentinaTitle": "Donate from Argentina",
+        "argentinaDescription": "Use Mercado Pago to support our mission locally",
+        "internationalTitle": "Donate Internationally",
+        "internationalDescription": "Use PayPal to contribute from anywhere in the world",
+        "donateButton": "Donate Now",
+        "securePayment": "100% Secure Payment",
+        "impactText": "Your donation transforms lives",
+        "localSupport": "Local Support",
+        "globalSupport": "Global Support"
     },
     "regions": {
         "title": "Regions",
@@ -161,6 +190,8 @@
     },
     "footer": {
         "description": "Meeting and cooperation space to mobilize and facilitate the global mission of the Argentine church.",
+        "description2": "To serve the Ibero-American Church by fostering its cooperation, unity, and mobilization to fulfill the Great Commission.",
+        "description3": "The World Missions Network is part of the Christian Alliance of Evangelical Churches of the Argentine Republic and is a member of the Ibero-American Missionary Cooperation, representing it in our country.",
         "usefulLinks": "USEFUL LINKS",
         "news": "News",
         "regions": "Regions",

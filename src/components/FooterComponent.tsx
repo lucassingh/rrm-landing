@@ -4,6 +4,9 @@ import Grid from '@mui/material/Grid';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaFacebookF, FaInstagram, FaTelegram, FaWhatsapp, FaYoutube } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import logo from '../assets/rmm-logo-w.svg';
+import comibam from '../assets/comiban-logo.svg';
+import aciera from '../assets/aciera-logo.svg';
 
 export const FooterComponent = () => {
     const footerRef = useRef(null);
@@ -65,34 +68,52 @@ export const FooterComponent = () => {
                         height: isMobile ? 'auto' : '100%',
                         marginTop: isMobile ? '30px' : '0'
                     }}>
-                        <Typography
-                            variant="h1"
-                            sx={{
-                                fontSize: { xs: '4rem', md: '4rem' },
-                                fontWeight: '700',
-                                fontStyle: 'italic',
-                                background: '#FFF',
-                                WebkitBackgroundClip: 'text',
-                                backgroundClip: 'text',
-                                width: '300px',
-                                color: 'transparent',
-                                mb: 1,
-                                lineHeight: '0.9'
-                            }}
-                        >
-                            RMM
-                        </Typography>
+                        <a href='https://redmisionesmundiales.org/' target='_blank' rel='noopener noreferrer'>
+                            <img src={logo} alt="Logo" width="80px" style={{ marginBottom: '16px' }} />
+                        </a>
 
                         <Typography
                             sx={{
                                 color: '#fff',
                                 mb: 4,
-                                fontWeight: 'medium',
-                                fontSize: '16px',
+                                fontWeight: 'regular',
+                                fontSize: '12px',
                                 width: '270px'
                             }}
                         >
                             {t('footer.description')}
+                        </Typography>
+
+                        <a href='https://comibam.org/es/' target='_blank' rel='noopener noreferrer'>
+                            <img src={comibam} alt="Logo" width="150px" style={{ marginBottom: '16px' }} />
+                        </a>
+
+                        <Typography
+                            sx={{
+                                color: '#fff',
+                                mb: 4,
+                                fontWeight: 'regular',
+                                fontSize: '12px',
+                                width: '270px'
+                            }}
+                        >
+                            {t('footer.description2')}
+                        </Typography>
+
+                        <a href='https://www.aciera.org/' target='_blank' rel='noopener noreferrer'>
+                            <img src={aciera} alt="Logo" width="120px" style={{ marginBottom: '16px' }} />
+                        </a>
+
+                        <Typography
+                            sx={{
+                                color: '#fff',
+                                mb: 4,
+                                fontWeight: 'regular',
+                                fontSize: '12px',
+                                width: '270px'
+                            }}
+                        >
+                            {t('footer.description3')}
                         </Typography>
                     </Grid>
 
