@@ -1,44 +1,67 @@
 import type { ForumCard } from "../../interfaces/forum";
 
-export const forumCardsData: ForumCard[] = [
+export const getForumCardsData = (t: any): ForumCard[] => [
     {
         id: '1',
-        name: 'María González',
-        email: 'maria.gonzalez@example.com',
-        whatsappGroup: 'https://chat.whatsapp.com/example1',
-        forumImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=200&fit=crop',
-        forumName: 'Desarrollo Web',
-        forumDescription: 'Comunidad dedicada al desarrollo web moderno con las últimas tecnologías y frameworks.',
-        avatarColor: '#4972b2'
+        forumName: t("forums.forumsList.pastors"),
+        coordinators: ['Jhonatan Togani', 'Carlos Park', 'Martín Cinirella'],
+        whatsappGroup: 'https://chat.whatsapp.com/pastores',
+        forumColor: '#4972b2'
     },
     {
         id: '2',
-        name: 'Carlos Rodríguez',
-        email: 'carlos.rodriguez@example.com',
-        whatsappGroup: 'https://chat.whatsapp.com/example2',
-        forumImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop',
-        forumName: 'Inteligencia Artificial',
-        forumDescription: 'Exploramos el fascinante mundo de la IA y machine learning.',
-        avatarColor: '#b63e81'
+        forumName: t("forums.forumsList.sendingChurches"),
+        coordinators: ['Coordinador por definir'],
+        whatsappGroup: 'https://chat.whatsapp.com/iglesias-enviadoras',
+        forumColor: '#b63e81'
     },
     {
         id: '3',
-        name: 'Ana Martínez',
-        email: 'ana.martinez@example.com',
-        whatsappGroup: 'https://chat.whatsapp.com/example3',
-        forumImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop',
-        forumName: 'Diseño UX/UI',
-        forumDescription: 'Compartimos experiencias y mejores prácticas en diseño de interfaces.',
-        avatarColor: '#39b54a'
+        forumName: t("forums.forumsList.agencies"),
+        coordinators: ['Alfredo', 'Roberto', 'Marilina'],
+        whatsappGroup: 'https://chat.whatsapp.com/agencias-ministerios',
+        forumColor: '#39b54a'
     },
     {
         id: '4',
-        name: 'David López',
-        email: 'david.lopez@example.com',
-        whatsappGroup: 'https://chat.whatsapp.com/example4',
-        forumImage: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=200&fit=crop',
-        forumName: 'DevOps & Cloud',
-        forumDescription: 'Todo sobre infraestructura, CI/CD y tecnologías cloud.',
-        avatarColor: '#fcb040'
+        forumName: t("forums.forumsList.training"),
+        coordinators: ['Nestor Cornara', 'Silvia Moyano', 'Federico Sinópoli'],
+        whatsappGroup: 'https://chat.whatsapp.com/capacitacion',
+        forumColor: '#fcb040'
+    },
+    {
+        id: '5',
+        forumName: t("forums.forumsList.crossCultural"),
+        coordinators: ['Nora Velazquez'],
+        whatsappGroup: 'https://chat.whatsapp.com/misioneros-transculturales',
+        forumColor: '#ff5733'
+    },
+    {
+        id: '6',
+        forumName: t("forums.forumsList.care"),
+        coordinators: ['Vanesa Leder'],
+        whatsappGroup: 'https://chat.whatsapp.com/cuidado-integral',
+        forumColor: '#7b5ba1'
+    },
+    {
+        id: '7',
+        forumName: t("forums.forumsList.work"),
+        coordinators: ['Luis Perfetti', 'Joel'],
+        whatsappGroup: 'https://chat.whatsapp.com/trabajo-mision',
+        forumColor: '#49a6a6'
+    },
+    {
+        id: '8',
+        forumName: t("forums.forumsList.mobilizers"),
+        coordinators: ['Pablo', 'Ricardo'],
+        whatsappGroup: 'https://chat.whatsapp.com/movilizadores',
+        forumColor: '#bd634f'
+    },
+    {
+        id: '9',
+        forumName: t("forums.forumsList.intercession"),
+        coordinators: ['Maricel', 'Ana'],
+        whatsappGroup: 'https://chat.whatsapp.com/intercesion',
+        forumColor: '#1e6f2f'
     }
 ];

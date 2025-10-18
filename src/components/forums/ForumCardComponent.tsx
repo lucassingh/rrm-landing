@@ -2,21 +2,19 @@ import React from 'react';
 import {
     Card,
     CardContent,
-    CardMedia,
     Typography,
-    Avatar,
     Box,
-    Chip,
     IconButton,
     useTheme,
-    useMediaQuery
+    alpha
 } from '@mui/material';
 import {
-    Email,
     WhatsApp,
-    Groups
+    Groups,
+    Person
 } from '@mui/icons-material';
 import type { ForumCard } from '../../interfaces/forum';
+import { useTranslation } from 'react-i18next';
 
 interface ForumCardComponentProps {
     card: ForumCard;
@@ -25,7 +23,13 @@ interface ForumCardComponentProps {
 export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ card }) => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const { t } = useTranslation();
+
+    const forumColor = card.forumColor || theme.palette.primary.main;
+
+    const handleWhatsAppClick = () => {
+        window.open(card.whatsappGroup, '_blank', 'noopener,noreferrer');
+    };
 
     const getInitials = (name: string) => {
         return name
@@ -34,10 +38,6 @@ export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ card }) 
             .join('')
             .toUpperCase()
             .slice(0, 2);
-    };
-
-    const handleWhatsAppClick = () => {
-        window.open(card.whatsappGroup, '_blank', 'noopener,noreferrer');
     };
 
     return (
@@ -50,136 +50,146 @@ export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ card }) 
                 overflow: 'hidden',
                 '&:hover': {
                     transform: 'translateY(-8px)',
-                    boxShadow: isDarkMode
-                        ? '0 8px 25px rgba(0,0,0,0.5)'
-                        : '0 8px 25px rgba(0,0,0,0.15)',
+                    boxShadow: `0 12px 28px ${alpha(forumColor, 0.3)}`,
                 },
                 background: isDarkMode
-                    ? 'linear-gradient(145deg, #1E1E1E 0%, #2D2D2D 100%)'
-                    : 'linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%)',
-                border: isDarkMode
-                    ? '1px solid #333'
-                    : '1px solid #e0e0e0',
+                    ? `linear-gradient(145deg, ${alpha(forumColor, 0.1)} 0%, #2D2D2D 100%)`
+                    : `linear-gradient(145deg, ${alpha(forumColor, 0.05)} 0%, #FFFFFF 100%)`,
+                border: `1px solid ${alpha(forumColor, 0.2)}`,
+                borderRadius: 2,
+                position: 'relative',
+                '&:before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 4,
+                    background: `linear-gradient(90deg, ${forumColor}, ${alpha(forumColor, 0.7)})`,
+                }
             }}
         >
-            <CardMedia
-                component="img"
-                height="140"
-                image={card.forumImage}
-                alt={card.forumName}
-                sx={{
-                    objectFit: 'cover',
-                    width: '100%',
-                    borderTopLeftRadius: '4px', // Bordes redondeados solo arriba
-                    borderTopRightRadius: '4px',
-                    borderBottom: 'none' // Sin borde inferior
-                }}
-            />
             <CardContent sx={{
                 flexGrow: 1,
                 p: 3,
-                pt: 2,
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%'
             }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <Avatar
+                {/* ENCABEZADO - SOLO TÍTULO DEL FORO */}
+                <Box sx={{ mb: 2 }}>
+                    <Typography
+                        variant="h5"
+                        component="h3"
                         sx={{
-                            bgcolor: card.avatarColor || theme.palette.primary.main,
-                            width: 48,
-                            height: 48,
-                            mr: 2,
-                            fontSize: '1rem',
                             fontWeight: 'bold',
+                            color: forumColor,
+                            fontSize: '1.4rem',
+                            mb: 1,
+                            textShadow: `0 2px 4px ${alpha(forumColor, 0.2)}`,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 1
                         }}
                     >
-                        {getInitials(card.name)}
-                    </Avatar>
+                        <Groups sx={{ fontSize: '1.5rem' }} />
+                        {card.forumName}
+                    </Typography>
+                </Box>
 
-                    <Box sx={{ flex: 1 }}>
-                        <Typography
-                            variant="h6"
-                            component="h3"
-                            sx={{
-                                fontWeight: 600,
-                                color: theme.palette.text.primary,
-                                mb: 0.5,
-                                fontSize: '1.1rem'
-                            }}
-                        >
-                            {card.name}
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            sx={{
-                                color: theme.palette.text.secondary,
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 0.5,
-                                fontSize: '0.8rem'
-                            }}
-                        >
-                            <Email sx={{ fontSize: 14 }} />
-                            {card.email}
-                        </Typography>
+                {/* COORDINADORES - ELEMENTO SECUNDARIO */}
+                <Box sx={{ mb: 3 }}>
+                    <Typography
+                        variant="subtitle2"
+                        sx={{
+                            fontWeight: 'bold',
+                            color: 'text.secondary',
+                            mb: 1.5,
+                            fontSize: '0.9rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 0.5
+                        }}
+                    >
+                        <Person sx={{ fontSize: 16 }} />
+                        {t("forums.coordinators")}
+                    </Typography>
+
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                        {card.coordinators.map((coordinator, index) => (
+                            <Box
+                                key={index}
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    p: 1,
+                                    borderRadius: 1,
+                                    backgroundColor: alpha(forumColor, 0.05),
+                                    border: `1px solid ${alpha(forumColor, 0.1)}`,
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        width: 32,
+                                        height: 32,
+                                        borderRadius: '50%',
+                                        bgcolor: alpha(forumColor, 0.2),
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        mr: 1.5,
+                                        color: forumColor,
+                                        fontWeight: 'bold',
+                                        fontSize: '0.8rem',
+                                        flexShrink: 0
+                                    }}
+                                >
+                                    {getInitials(coordinator)}
+                                </Box>
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        fontWeight: 'medium',
+                                        color: 'text.primary',
+                                        fontSize: '0.9rem'
+                                    }}
+                                >
+                                    {coordinator}
+                                </Typography>
+                            </Box>
+                        ))}
                     </Box>
                 </Box>
 
-                <Chip
-                    icon={<Groups color="inherit" sx={{ color: 'white' }} />}
-                    label={card.forumName}
-                    size="small"
-                    sx={{
-                        mb: 2,
-                        bgcolor: isDarkMode
-                            ? theme.palette.primary.main
-                            : theme.palette.primary.light,
-                        color: 'white',
-                        fontWeight: 600,
-                        alignSelf: 'flex-start'
-                    }}
-                />
-                <Typography
-                    variant="body2"
-                    sx={{
-                        color: theme.palette.text.secondary,
-                        lineHeight: 1.5,
-                        mb: 2,
-                        flexGrow: 1,
-                        fontSize: '0.875rem'
-                    }}
-                >
-                    {card.forumDescription}
-                </Typography>
-
-                <Box sx={{
-                    display: 'flex',
-                    gap: 1,
-                    justifyContent: 'space-between',
-                    mt: 'auto'
-                }}>
+                {/* BOTÓN WHATSAPP */}
+                <Box sx={{ mt: 'auto' }}>
                     <IconButton
                         onClick={handleWhatsAppClick}
                         size="small"
                         sx={{
-                            flex: 1,
-                            bgcolor: isDarkMode
-                                ? 'rgba(37, 211, 102, 0.1)'
-                                : 'rgba(37, 211, 102, 0.08)',
+                            width: '100%',
+                            bgcolor: alpha('#25D366', 0.1),
                             color: '#25D366',
-                            borderRadius: 1,
-                            py: 0.75,
+                            borderRadius: 2,
+                            py: 1.5,
+                            border: `1px solid ${alpha('#25D366', 0.2)}`,
                             '&:hover': {
-                                bgcolor: isDarkMode
-                                    ? 'rgba(37, 211, 102, 0.2)'
-                                    : 'rgba(37, 211, 102, 0.15)',
-                            }
+                                bgcolor: alpha('#25D366', 0.2),
+                                transform: 'translateY(-2px)',
+                            },
+                            transition: 'all 0.3s ease',
                         }}
                     >
                         <WhatsApp fontSize="small" />
-                        <Typography variant="button" sx={{ ml: 0.5, fontSize: '0.9rem' }}>
-                            {isMobile ? '' : 'Unirse'}
+                        <Typography
+                            variant="button"
+                            sx={{
+                                ml: 1,
+                                fontSize: '0.9rem',
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            {t("forums.joinGroup")}
                         </Typography>
                     </IconButton>
                 </Box>

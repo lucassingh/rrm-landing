@@ -157,7 +157,20 @@
         "title": "Forums",
         "subtitle": "Join the discussions and share your ideas.",
         "titleGralCards": "Forum Managers",
-        "subtitleGralCards": "Contact the coordinators of each forum to collaborate and participate."
+        "subtitleGralCards": "Contact the coordinators of each forum to collaborate and participate.",
+        "coordinators": "Coordinators",
+        "joinGroup": "Join the Group",
+        "forumsList": {
+            "pastors": "Pastors",
+            "sendingChurches": "Sending Churches",
+            "agencies": "Agencies and Ministries",
+            "training": "Training",
+            "crossCultural": "Cross-Cultural Missionaries",
+            "care": "Comprehensive Missionary Care",
+            "work": "Work and Mission",
+            "mobilizers": "Mobilizers",
+            "intercession": "Intercession"
+        }
     },
     "news": {
         "title": "Latest News",

@@ -2,11 +2,13 @@ import { Box, Container } from "@mui/material"
 import { CardDashboardComponent, ForumCardsGridComponent, HeaderComponent, JumbotronComponent } from "../components"
 import { useTranslation } from "react-i18next";
 import forumsBG from '../assets/bgs/forums-bg.jpg';
-import { forumCardsData } from "../components/forums/forumCardsData";
+import { getForumCardsData } from "../components/forums/forumCardsData";
 
 export const ForumPage = () => {
 
     const { t } = useTranslation();
+
+    const forumsData = getForumCardsData(t);
 
     return (
         <>
@@ -29,7 +31,7 @@ export const ForumPage = () => {
                             spacing={6}
                         />
                     </Box>
-                    <ForumCardsGridComponent cards={forumCardsData} />
+                    <ForumCardsGridComponent cards={forumsData} />
                 </CardDashboardComponent>
             </Container>
         </>

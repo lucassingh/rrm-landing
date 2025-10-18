@@ -108,11 +108,11 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
             }}
         >
             <CardContent sx={{ flexGrow: 1, minWidth: 0, padding: '0 !important' }}>
-                {/* Encabezado con avatar y nombre - MEJORADO */}
+                {/* ENCABEZADO - REGIÓN PRIMERO, ENCARGADO SEGUNDO */}
                 <Box
                     sx={{
                         display: 'flex',
-                        alignItems: 'center',
+                        flexDirection: 'column',
                         mb: 2,
                         p: 1.5,
                         borderRadius: 1,
@@ -120,48 +120,65 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
                         border: `1px solid ${alpha(regionColor, 0.1)}`,
                     }}
                 >
-                    <Avatar
-                        src={boss.imgAvatar}
-                        sx={{
-                            width: 64,
-                            height: 64,
-                            mr: 2,
-                            border: `3px solid ${alpha(regionColor, 0.3)}`,
-                            boxShadow: `0 0 0 3px ${alpha(regionColor, 0.1)}`,
-                            backgroundColor: alpha(regionColor, 0.2),
-                        }}
-                    >
-                        {boss.nameBoss.charAt(0)}
-                    </Avatar>
-                    <Box sx={{ minWidth: 0 }}>
+                    {/* REGIÓN - ELEMENTO PRINCIPAL */}
+                    <Box sx={{ mb: 1.5 }}>
                         <Typography
-                            variant="subtitle1"
+                            variant="h6"
                             component="h3"
                             fontWeight="bold"
-                            noWrap
                             sx={{
                                 color: regionColor,
-                                fontSize: '1.1rem',
+                                fontSize: '1.2rem',
                                 textShadow: `0 1px 1px ${alpha(regionColor, 0.2)}`,
                             }}
                         >
-                            {boss.nameBoss}
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                mt: 0.5,
-                                fontWeight: 'medium',
-                                fontSize: '13px',
-                                color: 'text.primary',
-                            }}
-                            noWrap
-                        >
-                            <LocationIcon sx={{ fontSize: 14, mr: 0.5, color: regionColor }} />
                             {boss.nameRegion}
                         </Typography>
+                    </Box>
+
+                    {/* ENCARGADO - ELEMENTO SECUNDARIO */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Avatar
+                            src={boss.imgAvatar}
+                            sx={{
+                                width: 50,
+                                height: 50,
+                                mr: 2,
+                                border: `2px solid ${alpha(regionColor, 0.3)}`,
+                                backgroundColor: alpha(regionColor, 0.2),
+                            }}
+                        >
+                            {boss.nameBoss.charAt(0)}
+                        </Avatar>
+                        <Box sx={{ minWidth: 0 }}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontWeight: 'medium',
+                                    color: 'text.secondary',
+                                    fontSize: '0.8rem',
+                                    mb: 0.5
+                                }}
+                            >
+                                Encargado Regional
+                            </Typography>
+                            <Typography
+                                variant="subtitle1"
+                                fontWeight="bold"
+                                noWrap
+                                sx={{
+                                    color: 'text.primary',
+                                    fontSize: '1rem'
+                                }}
+                            >
+                                {boss.nameBoss}
+                            </Typography>
+                        </Box>
                     </Box>
                 </Box>
 
