@@ -14,7 +14,6 @@ import {
 import {
     Phone as PhoneIcon,
     Email as EmailIcon,
-    LocationOn as LocationIcon
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { motion, type Variants } from "framer-motion";
