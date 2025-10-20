@@ -44,9 +44,8 @@ const ColaborateSection = () => {
         setIsDarkMode(theme.palette.mode === 'dark');
     }, [theme]);
 
-    // URLs de donación - listas para recibir los links reales
-    const mercadoPagoUrl = "#"; // Reemplazar con el link real de Mercado Pago
-    const paypalUrl = "#"; // Reemplazar con el link real de PayPal
+    const mercadoPagoUrl = "#";
+    const paypalUrl = "#";
 
     return (
         <LayoutContentComponent
@@ -57,10 +56,9 @@ const ColaborateSection = () => {
                 padding: isMobile ? '4rem 1rem' : '6rem 2rem',
                 overflow: 'hidden',
                 position: 'relative',
-                isolation: 'isolate', // Mejora el manejo de z-index
+                isolation: 'isolate',
             }}
         >
-            {/* Fondo con gradiente suave para evitar cortes bruscos */}
             <Box
                 sx={{
                     position: 'absolute',
@@ -78,7 +76,6 @@ const ColaborateSection = () => {
                 }}
             />
 
-            {/* Elementos flotantes mejorados */}
             <Box
                 sx={{
                     position: 'absolute',
@@ -267,7 +264,7 @@ const ColaborateSection = () => {
                                         backgroundColor: 'white',
                                         borderRadius: '12px',
                                         boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                                        width: isMobile ? '100px' : '140px',
+                                        width: isMobile ? '120px' : '140px',
                                         height: isMobile ? '50px' : '60px',
                                         display: 'flex',
                                         alignItems: 'center',
@@ -458,7 +455,7 @@ const ColaborateSection = () => {
                                         backgroundColor: 'white',
                                         borderRadius: '7px',
                                         boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                                        width: isMobile ? '100px' : '140px',
+                                        width: isMobile ? '120px' : '140px',
                                         height: isMobile ? '50px' : '60px',
                                         display: 'flex',
                                         alignItems: 'center',

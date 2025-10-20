@@ -15,6 +15,7 @@ import { styled } from '@mui/system';
 import QRSection from '../components/QRSection';
 import { Link } from 'react-router-dom';
 import ColaborateSection from '../components/ColaborateSection';
+import ResourcesSection from '../components/ResourcesSection';
 
 export const HomePage = () => {
 
@@ -489,6 +490,7 @@ export const HomePage = () => {
                 backgroundColors={{ left: '#d14a9d', right: 'inherit' }}
                 height={isMobile ? 'auto' : 'auto'}
                 sectionPadding={{ xs: '80px 6%', md: '6% 0' }}
+                reverseOnMobile={true}
             >
                 <RevealFromLeft>
                     <ParallaxImage src={vision} alt="vision image" />
@@ -1492,6 +1494,8 @@ export const HomePage = () => {
             <QRSection />
 
             <ColaborateSection />
+
+            <ResourcesSection />
         </>
     );
 };

@@ -107,7 +107,6 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
             }}
         >
             <CardContent sx={{ flexGrow: 1, minWidth: 0, padding: '0 !important' }}>
-                {/* ENCABEZADO - REGIÓN PRIMERO, ENCARGADO SEGUNDO */}
                 <Box
                     sx={{
                         display: 'flex',
@@ -119,7 +118,6 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
                         border: `1px solid ${alpha(regionColor, 0.1)}`,
                     }}
                 >
-                    {/* REGIÓN - ELEMENTO PRINCIPAL */}
                     <Box sx={{ mb: 1.5 }}>
                         <Typography
                             variant="h6"
@@ -135,7 +133,6 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
                         </Typography>
                     </Box>
 
-                    {/* ENCARGADO - ELEMENTO SECUNDARIO */}
                     <Box
                         sx={{
                             display: 'flex',
@@ -181,7 +178,6 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
                     </Box>
                 </Box>
 
-                {/* Sección de mapa y provincias */}
                 <Box padding={1}>
                     <Box
                         sx={{
@@ -206,7 +202,6 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
                             {t("regions.provinces")}
                         </Typography>
 
-                        {/* Mapa SVG */}
                         <Box
                             sx={{
                                 height: 120,
@@ -233,7 +228,6 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
                             </Box>
                         </Box>
 
-                        {/* Chips de provincias */}
                         <Box
                             sx={{
                                 px: 1,
@@ -560,7 +554,7 @@ const BossesCardsComponent: React.FC = () => {
     };
 
     return (
-        <Box sx={{ px: { xs: 2, sm: 3 } }}>
+        <Box sx={{ width: '100%' }}>
             <HeaderComponent
                 title={t("regions.bossesTitle")}
                 subtitle={t("regions.bossesSubtitle")}

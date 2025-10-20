@@ -71,7 +71,7 @@ export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ card }) 
         >
             <CardContent sx={{
                 flexGrow: 1,
-                p: 3,
+                p: 1,
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%'

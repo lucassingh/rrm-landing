@@ -208,7 +208,8 @@
         "usefulLinks": "USEFUL LINKS",
         "news": "News",
         "regions": "Regions",
-        "resources": "Resources",
+        "resources": "Forums",
+        "entities": "Entities",
         "contact": "Contact",
         "socialNetworks": "SOCIAL NETWORKS",
         "newsletter": "Subscribe to our newsletter",
@@ -219,5 +220,21 @@
         "location": "WHERE ARE WE?",
         "address": "Address",
         "openMaps": "Open in Google maps"
+    },
+    "resources": {
+        "title": "Resources",
+        "subtitle": "Tools and materials to enrich your missionary work",
+        "discover": "Discover Resources",
+        "visitWebsite": "Visit Website",
+        "resourcesList": {
+            "missionaryResources": {
+                "title": "Missionary Resources",
+                "description": "Digital library with materials, books and tools for missionaries"
+            },
+            "muslimWorld": {
+                "title": "Muslim World",
+                "description": "Specialized resources for missionary work in Muslim contexts"
+            }
+        }
     }
 }

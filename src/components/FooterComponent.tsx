@@ -69,7 +69,7 @@ export const FooterComponent = () => {
                         marginTop: isMobile ? '30px' : '0'
                     }}>
                         <a href='https://redmisionesmundiales.org/' target='_blank' rel='noopener noreferrer'>
-                            <img src={logo} alt="Logo" width="80px" style={{ marginBottom: '16px' }} />
+                            <img src={logo} alt="Logo" width="70px" style={{ marginBottom: '16px' }} />
                         </a>
 
                         <Typography
@@ -145,7 +145,18 @@ export const FooterComponent = () => {
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                                     <Typography
                                         component="a"
-                                        href="#section0"
+                                        href="/"
+                                        sx={{
+                                            color: '#fff',
+                                            textDecoration: 'none',
+                                            '&:hover': { color: '#b63e81' }
+                                        }}
+                                    >
+                                        Home
+                                    </Typography>
+                                    <Typography
+                                        component="a"
+                                        href="/news"
                                         sx={{
                                             color: '#fff',
                                             textDecoration: 'none',
@@ -156,7 +167,7 @@ export const FooterComponent = () => {
                                     </Typography>
                                     <Typography
                                         component="a"
-                                        href="#section1"
+                                        href="/regions"
                                         sx={{
                                             color: '#fff',
                                             textDecoration: 'none',
@@ -167,7 +178,7 @@ export const FooterComponent = () => {
                                     </Typography>
                                     <Typography
                                         component="a"
-                                        href="#section2"
+                                        href="/forums"
                                         sx={{
                                             color: '#fff',
                                             textDecoration: 'none',
@@ -175,6 +186,17 @@ export const FooterComponent = () => {
                                         }}
                                     >
                                         {t('footer.resources')}
+                                    </Typography>
+                                    <Typography
+                                        component="a"
+                                        href="/entities"
+                                        sx={{
+                                            color: '#fff',
+                                            textDecoration: 'none',
+                                            '&:hover': { color: '#b63e81' }
+                                        }}
+                                    >
+                                        {t('footer.entities')}
                                     </Typography>
                                     <Typography
                                         component="a"

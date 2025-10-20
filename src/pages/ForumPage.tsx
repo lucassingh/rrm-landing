@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material"
+import { Container } from "@mui/material"
 import { CardDashboardComponent, ForumCardsGridComponent, HeaderComponent, JumbotronComponent } from "../components"
 import { useTranslation } from "react-i18next";
 import forumsBG from '../assets/bgs/forums-bg.jpg';
@@ -22,15 +22,13 @@ export const ForumPage = () => {
             />
             <Container maxWidth="lg" sx={{ py: 4 }}>
                 <CardDashboardComponent>
-                    <Box sx={{ px: { xs: 2, sm: 3 } }}>
-                        <HeaderComponent
-                            title={t("forums.titleGralCards")}
-                            subtitle={t("forums.subtitleGralCards")}
-                            titleVariant='h2'
-                            align="left"
-                            spacing={6}
-                        />
-                    </Box>
+                    <HeaderComponent
+                        title={t("forums.titleGralCards")}
+                        subtitle={t("forums.subtitleGralCards")}
+                        titleVariant='h2'
+                        align="left"
+                        spacing={6}
+                    />
                     <ForumCardsGridComponent cards={forumsData} />
                 </CardDashboardComponent>
             </Container>

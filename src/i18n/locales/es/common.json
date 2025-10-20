@@ -208,7 +208,8 @@
         "usefulLinks": "LINKS ÚTILES",
         "news": "Noticias",
         "regions": "Regiones",
-        "resources": "Recursos",
+        "resources": "Foros",
+        "entities": "Entidades",
         "contact": "Contacto",
         "socialNetworks": "REDES SOCIALES",
         "newsletter": "Suscribite a nuestro newsletter",
@@ -219,5 +220,21 @@
         "location": "¿DÓNDE ESTAMOS?",
         "address": "Dirección",
         "openMaps": "Abrir en Google maps"
+    },
+    "resources": {
+        "title": "Recursos",
+        "subtitle": "Herramientas y materiales para enriquecer tu labor misionera",
+        "discover": "Descubrir Recursos",
+        "visitWebsite": "Visitar Sitio",
+        "resourcesList": {
+            "missionaryResources": {
+                "title": "Recursos Misioneros",
+                "description": "Biblioteca digital con materiales, libros y herramientas para misioneros"
+            },
+            "muslimWorld": {
+                "title": "Mundo Musulmán",
+                "description": "Recursos especializados para el trabajo misionero en contextos musulmanes"
+            }
+        }
     }
 }

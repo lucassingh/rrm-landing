@@ -9,7 +9,7 @@ interface CardDashboardComponentProps extends CardProps {
 
 export const CardDashboardComponent: React.FC<CardDashboardComponentProps> = ({
     children,
-    padding = 2,
+    padding = 0,
     borderRadius = 2,
     sx = {},
     ...props

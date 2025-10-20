@@ -286,7 +286,13 @@ export const RegionsPage = () => {
                 titleColor="#ffffff"
                 subtitleColor="#f0f0f0"
             />
-            <Container maxWidth="lg" sx={{ py: 4 }}>
+            <Container
+                maxWidth="lg"
+                sx={{
+                    py: 2,
+                    px: { xs: 2, sm: 3, md: 4 }
+                }}
+            >
                 <CardDashboardComponent>
                     <Grid container spacing={3}>
                         {/* Mapa */}

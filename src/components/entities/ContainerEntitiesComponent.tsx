@@ -68,7 +68,7 @@ export const ContainerEntitiesComponent: React.FC<ContainerEntitiesProps> = ({
                 backgroundColor: theme.palette.background.paper,
                 borderRadius: '10px',
                 boxShadow: theme.shadows[3],
-                p: 3,
+                p: { xs: 2, sm: 3 },
                 mb: 4
             }}
         >

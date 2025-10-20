@@ -10,7 +10,7 @@ interface ForumCardsGridComponentProps {
 
 export const ForumCardsGridComponent: React.FC<ForumCardsGridComponentProps> = ({ cards }) => {
     return (
-        <Box sx={{ width: '100%', p: 3 }}>
+        <Box sx={{ width: '100%' }}>
             <Grid container spacing={3}>
                 {cards.map((card) => (
                     <Grid

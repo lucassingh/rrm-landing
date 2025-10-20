@@ -13,6 +13,7 @@ interface LayoutContentProps {
     sectionPadding?: string | { xs?: string; sm?: string; md?: string; lg?: string };
     id?: string;
     style?: React.CSSProperties;
+    reverseOnMobile?: boolean;
 }
 
 export const LayoutContentComponent = React.forwardRef<HTMLDivElement, LayoutContentProps>(
@@ -26,6 +27,7 @@ export const LayoutContentComponent = React.forwardRef<HTMLDivElement, LayoutCon
             sectionPadding = '6%',
             id,
             style,
+            reverseOnMobile = false,
         },
         ref
     ) => {
@@ -48,6 +50,10 @@ export const LayoutContentComponent = React.forwardRef<HTMLDivElement, LayoutCon
         const responsivePadding = getResponsiveValue(sectionPadding, '6%');
 
         if (layoutType === 'full' || isMobile) {
+            // Para mobile, aplicamos el reverseOnMobile si es necesario
+            const childrenArray = React.Children.toArray(children);
+            const orderedChildren = reverseOnMobile ? childrenArray.reverse() : childrenArray;
+
             return (
                 <Box
                     component="section"
@@ -79,12 +85,13 @@ export const LayoutContentComponent = React.forwardRef<HTMLDivElement, LayoutCon
                             boxSizing: 'border-box',
                         }}
                     >
-                        {children}
+                        {orderedChildren}
                     </Container>
                 </Box>
             );
         }
 
+        // Para desktop con layout split
         return (
             <Box
                 ref={ref}
@@ -96,7 +103,13 @@ export const LayoutContentComponent = React.forwardRef<HTMLDivElement, LayoutCon
                 }}
                 id={id}
             >
-                <Grid container sx={{ height: '100%' }}>
+                <Grid container sx={{
+                    height: '100%',
+                    flexDirection: reverseOnMobile ? {
+                        xs: 'column-reverse',
+                        md: 'row'
+                    } : 'row'
+                }}>
                     <Grid
                         size={{ xs: 12, md: 6 }}
                         sx={{

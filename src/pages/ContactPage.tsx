@@ -629,7 +629,7 @@ export const ContactPage = () => {
                                                         px: 4,
                                                         fontSize: '1rem',
                                                         fontWeight: 600,
-                                                        background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+                                                        background: theme.palette.primary.main,
                                                         boxShadow: '0 3px 5px 2px rgba(76, 175, 80, .2)'
                                                     }}
                                                 >
