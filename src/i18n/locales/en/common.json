@@ -159,17 +159,20 @@
         "titleGralCards": "Forum Managers",
         "subtitleGralCards": "Contact the coordinators of each forum to collaborate and participate.",
         "coordinators": "Coordinators",
-        "joinGroup": "Join the Group",
+        "joinGroup": "Talk now",
         "forumsList": {
             "pastors": "Pastors",
             "sendingChurches": "Sending Churches",
-            "agencies": "Agencies and Ministries",
+            "agencies": "Agencies and Mobilization Ministries",
             "training": "Training",
             "crossCultural": "Cross-Cultural Missionaries",
             "care": "Comprehensive Missionary Care",
             "work": "Work and Mission",
+            "originPeople": "Indigenous Peoples",
             "mobilizers": "Mobilizers",
-            "intercession": "Intercession"
+            "intercession": "Intercession",
+            "public": "Public Management and Mission",
+            "capellan": "Chaplaincy and Mission"
         }
     },
     "news": {

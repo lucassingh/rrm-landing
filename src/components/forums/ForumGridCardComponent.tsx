@@ -18,7 +18,7 @@ export const ForumCardsGridComponent: React.FC<ForumCardsGridComponentProps> = (
                         key={card.id}
                         sx={{
                             display: 'flex',
-                            minHeight: '400px',
+                            minHeight: 'auto',
                             '& > *': {
                                 width: '100%'
                             }

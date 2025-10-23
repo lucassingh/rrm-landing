@@ -1,4 +1,3 @@
-// services/news.service.ts
 import type { News, NewsApiResponse } from "../interfaces/news";
 
 export const fetchNews = async (): Promise<News[]> => {
@@ -18,11 +17,11 @@ export const fetchNews = async (): Promise<News[]> => {
 
         const data: NewsApiResponse = await response.json();
 
-        // Si la API devuelve directamente un array
-        return data || [];
+        console.log('API Response:', data);
+        const count = Array.isArray(data) ? data.length : (data as any)?.data?.length ?? 0;
+        console.log('Number of news received:', count);
 
-        // Si la API devuelve { data: News[], error?: string }
-        // return data.data || [];
+        return (Array.isArray(data) ? data : (data as any)?.data) || [];
 
     } catch (error) {
         console.error('Error fetching news:', error);

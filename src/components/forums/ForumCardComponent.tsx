@@ -43,7 +43,7 @@ export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ card }) 
     return (
         <Card
             sx={{
-                height: '100%',
+                height: '320px',
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'all 0.3s ease-in-out',

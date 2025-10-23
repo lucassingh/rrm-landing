@@ -1,6 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Box, Typography, useTheme, useMediaQuery, keyframes, Button, Card, CardContent } from '@mui/material';
-import { FaHandHoldingHeart, FaShieldAlt, FaGlobeAmericas, FaGlobe } from 'react-icons/fa';
+import {
+    Box,
+    Typography,
+    useTheme,
+    useMediaQuery,
+    keyframes,
+    Button,
+    Card,
+    CardContent,
+    IconButton,
+    Snackbar,
+    Alert
+} from '@mui/material';
+import { FaHandHoldingHeart, FaShieldAlt, FaGlobeAmericas, FaGlobe, FaCopy } from 'react-icons/fa';
 import { LayoutContentComponent } from './LayoutContentComponent';
 import { darkPalette, lightPalette } from '../theme/palettes';
 import { useTranslation } from 'react-i18next';
@@ -14,12 +26,6 @@ const floatAnimation = keyframes`
   0% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-10px) rotate(2deg); }
   100% { transform: translateY(0px) rotate(0deg); }
-`;
-
-const pulseAnimation = keyframes`
-  0% { transform: scale(1); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-  50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
-  100% { transform: scale(1); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 `;
 
 const gradientBackground = keyframes`
@@ -38,14 +44,36 @@ const ColaborateSection = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [copiedText, setCopiedText] = useState('');
     const { t } = useTranslation();
 
     useEffect(() => {
         setIsDarkMode(theme.palette.mode === 'dark');
     }, [theme]);
 
-    const mercadoPagoUrl = "#";
-    const paypalUrl = "#";
+    const mercadoPagoInfo = {
+        titular: "Daniel Mariano Russo",
+        cuit: "20-26472631-0",
+        cvu: "0000003100063059343371",
+        alias: "rmm.ar"
+    };
+
+    const paypalUrl = "https://www.paypal.com/ncp/payment/M7WJ8VQ3MX4UC";
+
+    const copyToClipboard = async (text: string, label: string) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            setCopiedText(label);
+            setSnackbarOpen(true);
+        } catch (err) {
+            console.error('Error al copiar: ', err);
+        }
+    };
+
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
+    };
 
     return (
         <LayoutContentComponent
@@ -177,10 +205,6 @@ const ColaborateSection = () => {
                             overflow: 'hidden',
                             animation: `${floatAnimation} 8s ease-in-out infinite`,
                             transition: 'all 0.3s ease',
-                            '&:hover': {
-                                transform: 'translateY(-5px)',
-                                animation: `${pulseAnimation} 2s ease-in-out infinite`,
-                            }
                         }}
                     >
                         <Box
@@ -196,7 +220,7 @@ const ColaborateSection = () => {
 
                         <CardContent sx={{ p: 0, '&:last-child': { pb: 0 } }}>
                             {/* Header de la tarjeta */}
-                            <Box sx={{ textAlign: 'center', mb: 3 }}>
+                            <Box sx={{ textAlign: 'center', mb: 0 }}>
                                 <Box
                                     sx={{
                                         display: 'inline-flex',
@@ -206,7 +230,8 @@ const ColaborateSection = () => {
                                         height: '60px',
                                         borderRadius: '50%',
                                         background: `linear-gradient(135deg, ${isDarkMode ? darkPalette.primary.main : lightPalette.primary.main}, ${isDarkMode ? darkPalette.extra2.main : lightPalette.extra2.main})`,
-                                        mb: 2,
+                                        mb: 0,
+                                        mt: 5,
                                     }}
                                 >
                                     <FaGlobeAmericas
@@ -237,25 +262,149 @@ const ColaborateSection = () => {
                                 </Typography>
                             </Box>
 
-                            {/* Descripción */}
-                            <Typography
-                                variant="body1"
-                                sx={{
-                                    color: isDarkMode ? darkPalette.text.primary : lightPalette.text.primary,
-                                    textAlign: 'center',
-                                    mb: 3,
-                                    lineHeight: 1.6,
-                                }}
-                            >
-                                {t('donate.argentinaDescription')}
-                            </Typography>
+                            {/* Información de Mercado Pago */}
+                            <Box sx={{ mb: 3 }}>
+                                {/* Titular */}
+                                <Box sx={{ mb: 1 }}>
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            color: isDarkMode ? darkPalette.text.secondary : lightPalette.text.secondary,
+                                            fontWeight: 600,
+                                            display: 'block',
+                                            mb: 0.5,
+                                        }}
+                                    >
+                                        Titular
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        sx={{
+                                            color: isDarkMode ? darkPalette.text.primary : lightPalette.text.primary,
+                                            fontWeight: 500,
+                                        }}
+                                    >
+                                        {mercadoPagoInfo.titular}
+                                    </Typography>
+                                </Box>
+
+                                {/* CUIT/CUIL */}
+                                <Box sx={{ mb: 2 }}>
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            color: isDarkMode ? darkPalette.text.secondary : lightPalette.text.secondary,
+                                            fontWeight: 600,
+                                            display: 'block',
+                                            mb: 0.5,
+                                        }}
+                                    >
+                                        CUIT/CUIL
+                                    </Typography>
+                                    <Typography
+                                        variant="body2"
+                                        sx={{
+                                            color: isDarkMode ? darkPalette.text.primary : lightPalette.text.primary,
+                                            fontWeight: 500,
+                                        }}
+                                    >
+                                        {mercadoPagoInfo.cuit}
+                                    </Typography>
+                                </Box>
+
+                                {/* CVU - Resaltado */}
+                                <Box sx={{ mb: 2 }}>
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            color: isDarkMode ? darkPalette.primary.main : lightPalette.primary.main,
+                                            fontWeight: 700,
+                                            display: 'block',
+                                            mb: 0.5,
+                                        }}
+                                    >
+                                        CVU
+                                    </Typography>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{
+                                                color: isDarkMode ? darkPalette.text.primary : lightPalette.text.primary,
+                                                fontWeight: 600,
+                                                backgroundColor: isDarkMode ? darkPalette.primary.main + '20' : lightPalette.primary.main + '15',
+                                                padding: '4px 8px',
+                                                borderRadius: '4px',
+                                                flexGrow: 1,
+                                                fontFamily: 'monospace',
+                                            }}
+                                        >
+                                            {mercadoPagoInfo.cvu}
+                                        </Typography>
+                                        <IconButton
+                                            size="small"
+                                            onClick={() => copyToClipboard(mercadoPagoInfo.cvu, 'CVU')}
+                                            sx={{
+                                                color: isDarkMode ? darkPalette.primary.main : lightPalette.primary.main,
+                                                '&:hover': {
+                                                    backgroundColor: isDarkMode ? darkPalette.primary.main + '20' : lightPalette.primary.main + '20',
+                                                }
+                                            }}
+                                        >
+                                            <FaCopy size={14} />
+                                        </IconButton>
+                                    </Box>
+                                </Box>
+
+                                {/* Alias - Resaltado */}
+                                <Box sx={{ mb: 2 }}>
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            color: isDarkMode ? darkPalette.primary.main : lightPalette.primary.main,
+                                            fontWeight: 700,
+                                            display: 'block',
+                                            mb: 0.5,
+                                        }}
+                                    >
+                                        Alias
+                                    </Typography>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{
+                                                color: isDarkMode ? darkPalette.text.primary : lightPalette.text.primary,
+                                                fontWeight: 600,
+                                                backgroundColor: isDarkMode ? darkPalette.primary.main + '20' : lightPalette.primary.main + '15',
+                                                padding: '4px 8px',
+                                                borderRadius: '4px',
+                                                flexGrow: 1,
+                                                fontFamily: 'monospace',
+                                            }}
+                                        >
+                                            {mercadoPagoInfo.alias}
+                                        </Typography>
+                                        <IconButton
+                                            size="small"
+                                            onClick={() => copyToClipboard(mercadoPagoInfo.alias, 'Alias')}
+                                            sx={{
+                                                color: isDarkMode ? darkPalette.primary.main : lightPalette.primary.main,
+                                                '&:hover': {
+                                                    backgroundColor: isDarkMode ? darkPalette.primary.main + '20' : lightPalette.primary.main + '20',
+                                                }
+                                            }}
+                                        >
+                                            <FaCopy size={14} />
+                                        </IconButton>
+                                    </Box>
+                                </Box>
+                            </Box>
 
                             {/* Logo Mercado Pago */}
                             <Box
                                 sx={{
                                     display: 'flex',
                                     justifyContent: 'center',
-                                    mb: 3,
+                                    mb: 2,
                                     animation: `${floatAnimation} 4s ease-in-out infinite`,
                                 }}
                             >
@@ -284,75 +433,31 @@ const ColaborateSection = () => {
                                 </Box>
                             </Box>
 
-                            {/* Botón de donación */}
-                            <Box sx={{ textAlign: 'center' }}>
-                                <Button
-                                    variant="contained"
-                                    href={mercadoPagoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    sx={{
-                                        background: '#4972b2',
-                                        color: 'white',
-                                        fontWeight: 'bold',
-                                        fontSize: isMobile ? '1rem' : '1.1rem',
-                                        padding: isMobile ? '10px 24px' : '12px 32px',
-                                        borderRadius: '12px',
-                                        textTransform: 'none',
-                                        position: 'relative',
-                                        overflow: 'hidden',
-                                        minWidth: '160px',
-                                        '&:before': {
-                                            content: '""',
-                                            position: 'absolute',
-                                            top: 0,
-                                            left: '-100%',
-                                            width: '100%',
-                                            height: '100%',
-                                            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-                                            transition: 'left 0.5s',
-                                        },
-                                        '&:hover': {
-                                            background: `linear-gradient(135deg, ${isDarkMode ? darkPalette.primary.main : lightPalette.primary.main}, ${isDarkMode ? darkPalette.extra2.main : lightPalette.extra2.main})`,
-                                            transform: 'translateY(-2px)',
-                                            boxShadow: `0 8px 25px ${isDarkMode ? darkPalette.primary.main : lightPalette.primary.main}50`,
-                                            '&:before': {
-                                                left: '100%',
-                                            },
-                                        },
-                                        transition: 'all 0.3s ease',
+                            {/* Texto seguro */}
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: 1,
+                                    mt: 2,
+                                }}
+                            >
+                                <FaShieldAlt
+                                    style={{
+                                        color: isDarkMode ? darkPalette.extra2.main : lightPalette.extra2.main,
+                                        fontSize: '14px'
                                     }}
-                                    startIcon={<FaHandHoldingHeart />}
-                                >
-                                    {t('donate.donateButton')}
-                                </Button>
-
-                                {/* Texto seguro */}
-                                <Box
+                                />
+                                <Typography
+                                    variant="caption"
                                     sx={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        gap: 1,
-                                        mt: 2,
+                                        color: isDarkMode ? darkPalette.text.secondary : lightPalette.text.secondary,
+                                        fontWeight: 500,
                                     }}
                                 >
-                                    <FaShieldAlt
-                                        style={{
-                                            color: isDarkMode ? darkPalette.extra2.main : lightPalette.extra2.main,
-                                            fontSize: '14px'
-                                        }}
-                                    />
-                                    <Typography
-                                        variant="caption"
-                                        sx={{
-                                            color: isDarkMode ? darkPalette.text.secondary : lightPalette.text.secondary,
-                                            fontWeight: 500,
-                                        }}
-                                    >
-                                        {t('donate.securePayment')}
-                                    </Typography>
-                                </Box>
+                                    {t('donate.securePayment')}
+                                </Typography>
                             </Box>
                         </CardContent>
                     </Card>
@@ -368,10 +473,6 @@ const ColaborateSection = () => {
                             overflow: 'hidden',
                             animation: `${floatAnimation} 8s ease-in-out infinite 1s`,
                             transition: 'all 0.3s ease',
-                            '&:hover': {
-                                transform: 'translateY(-5px)',
-                                animation: `${pulseAnimation} 2s ease-in-out infinite`,
-                            }
                         }}
                     >
                         <Box
@@ -387,7 +488,7 @@ const ColaborateSection = () => {
 
                         <CardContent sx={{ p: 0, '&:last-child': { pb: 0 } }}>
                             {/* Header de la tarjeta */}
-                            <Box sx={{ textAlign: 'center', mb: 3 }}>
+                            <Box sx={{ textAlign: 'center', mb: 0 }}>
                                 <Box
                                     sx={{
                                         display: 'inline-flex',
@@ -397,7 +498,8 @@ const ColaborateSection = () => {
                                         height: '60px',
                                         borderRadius: '50%',
                                         background: `linear-gradient(135deg, ${isDarkMode ? darkPalette.secondary.main : lightPalette.secondary.main}, ${isDarkMode ? darkPalette.extra1.main : lightPalette.extra1.main})`,
-                                        mb: 2,
+                                        mb: 0,
+                                        mt: 5,
                                     }}
                                 >
                                     <FaGlobe
@@ -446,6 +548,7 @@ const ColaborateSection = () => {
                                 sx={{
                                     display: 'flex',
                                     justifyContent: 'center',
+                                    mt: 12,
                                     mb: 3,
                                     animation: `${floatAnimation} 4s ease-in-out infinite 0.5s`,
                                 }}
@@ -475,7 +578,7 @@ const ColaborateSection = () => {
                                 </Box>
                             </Box>
 
-                            {/* Botón de donación */}
+                            {/* Botón de donación PayPal */}
                             <Box sx={{ textAlign: 'center' }}>
                                 <Button
                                     variant="contained"
@@ -483,12 +586,12 @@ const ColaborateSection = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     sx={{
-                                        background: '#4972b2',
+                                        background: '#0070ba',
                                         color: 'white',
                                         fontWeight: 'bold',
                                         fontSize: isMobile ? '1rem' : '1.1rem',
                                         padding: isMobile ? '10px 24px' : '12px 32px',
-                                        borderRadius: '7px',
+                                        borderRadius: '12px',
                                         textTransform: 'none',
                                         position: 'relative',
                                         overflow: 'hidden',
@@ -504,9 +607,9 @@ const ColaborateSection = () => {
                                             transition: 'left 0.5s',
                                         },
                                         '&:hover': {
-                                            background: `linear-gradient(135deg, ${isDarkMode ? darkPalette.secondary.main : lightPalette.secondary.main}, ${isDarkMode ? darkPalette.extra1.main : lightPalette.extra1.main})`,
+                                            background: `linear-gradient(135deg, #0070ba, #005ea6)`,
                                             transform: 'translateY(-2px)',
-                                            boxShadow: `0 8px 25px ${isDarkMode ? darkPalette.secondary.main : lightPalette.secondary.main}50`,
+                                            boxShadow: `0 8px 25px rgba(0, 112, 186, 0.5)`,
                                             '&:before': {
                                                 left: '100%',
                                             },
@@ -576,6 +679,21 @@ const ColaborateSection = () => {
                     </Typography>
                 </Box>
             </Box>
+
+            <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={3000}
+                onClose={handleSnackbarClose}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            >
+                <Alert
+                    onClose={handleSnackbarClose}
+                    severity="success"
+                    sx={{ width: '100%' }}
+                >
+                    {copiedText} copiado al portapapeles
+                </Alert>
+            </Snackbar>
         </LayoutContentComponent>
     );
 };

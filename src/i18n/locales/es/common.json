@@ -159,17 +159,20 @@
         "titleGralCards": "Encargados de Foros",
         "subtitleGralCards": "Contactate con los coordinadores de cada foro para colaborar y participar.",
         "coordinators": "Coordinadores",
-        "joinGroup": "Unirse al Grupo",
+        "joinGroup": "Hablar ahora",
         "forumsList": {
             "pastors": "Pastores",
             "sendingChurches": "Iglesias Enviadoras",
-            "agencies": "Agencias y Ministerios",
+            "agencies": "Agencias y ministerios de movilización",
             "training": "Capacitación",
             "crossCultural": "Misioneros Transculturales",
             "care": "Cuidado Integral del Misionero",
             "work": "Trabajo y Misión",
+            "originPeople": "Pueblos Originarios",
             "mobilizers": "Movilizadores",
-            "intercession": "Intercesión"
+            "intercession": "Intercesión",
+            "public": "Gestión Pública y Misión",
+            "capellan": "Capellanía y Misión"
         }
     },
     "news": {
