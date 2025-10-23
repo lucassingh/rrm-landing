@@ -71,4 +71,11 @@ export const getForumCardsData = (t: any): ForumCard[] => [
         whatsappGroup: 'https://wa.me/5491140434906',
         forumColor: '#b63e81'
     },
+    {
+        id: '11',
+        forumName: t("forums.forumsList.intercession"), // 12
+        coordinators: ['Marisel Rojas'],
+        whatsappGroup: 'https://wa.me/5491153384722',
+        forumColor: '#4972b2'
+    },
 ];
