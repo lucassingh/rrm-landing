@@ -150,7 +150,8 @@
             "buenos-aires-cerca": "Región Bs. As. (hasta 100 km)",
             "buenos-aires-lejos": "Región Bs. As. (más de 100 km)",
             "south": "Región Sur (General Roca)",
-            "south2": "Región Sur (Neuquén)"
+            "south2": "Región Sur",
+            "austral": "Región Austral"
         }
     },
     "forums": {
@@ -237,6 +238,32 @@
             "muslimWorld": {
                 "title": "Mundo Musulmán",
                 "description": "Recursos especializados para el trabajo misionero en contextos musulmanes"
+            }
+        }
+    },
+    "programs": {
+        "title": "Programas",
+        "subtitle": "Iniciativas estratégicas para expandir el reino de Dios",
+        "tabs": {
+            "alcance": "Alcance una Etnia",
+            "pcmb": "PCMB"
+        },
+        "aueArgentina": {
+            "title": "AUE - Argentina",
+            "subtitle": "Llegando a las etnias no alcanzadas",
+            "description": "Una herramienta estratégica para movilizar a la iglesia hacia los grupos étnicos menos evangelizados del país. Con información actualizada, recursos prácticos y un llamado claro a la acción.",
+            "buttons": {
+                "visitWebsite": "Visitar Sitio",
+                "downloadCatalog": "Descargar Catálogo",
+                "downloadApp": "Descargar App"
+            }
+        },
+        "pcmb": {
+            "title": "PCMB",
+            "subtitle": "Programa de Capacitación Misionera Básica",
+            "description": "Un programa integral de formación misionera diseñado para equipar a creyentes con los fundamentos bíblicos, prácticos y espirituales necesarios para el trabajo en el campo misionero. Desarrollado para preparar obreros comprometidos con la gran comisión.",
+            "buttons": {
+                "join": "Unirse"
             }
         }
     }

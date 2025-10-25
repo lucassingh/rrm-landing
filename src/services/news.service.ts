@@ -17,9 +17,9 @@ export const fetchNews = async (): Promise<News[]> => {
 
         const data: NewsApiResponse = await response.json();
 
-        console.log('API Response:', data);
-        const count = Array.isArray(data) ? data.length : (data as any)?.data?.length ?? 0;
-        console.log('Number of news received:', count);
+        //console.log('API Response:', data);
+        //const count = Array.isArray(data) ? data.length : (data as any)?.data?.length ?? 0;
+        //console.log('Number of news received:', count);
 
         return (Array.isArray(data) ? data : (data as any)?.data) || [];
 

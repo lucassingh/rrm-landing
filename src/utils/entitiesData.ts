@@ -34,8 +34,10 @@ import igmLogo from '../assets/entities/entidades_movilizacion/iglesias-en-misio
 import movLogo from '../assets/entities/entidades_movilizacion/logo-movida-remolino.png'
 import nerLogo from '../assets/entities/entidades_movilizacion/cropped-ner-cabeza-1-768x172.png'
 import raimLogo from '../assets/entities/entidades_movilizacion/RAIM-768x640.png'
-import noImg from '../assets/entities/placeholder.jpg'
+//import noImg from '../assets/entities/placeholder.jpg'
 import jornadasLogo from '../assets/entities/entidades_movilizacion/logo_JM_fondo_blanco_op1.svg'
+import parlamento from '../assets/entities/entidades_movilizacion/parlamento.png'
+
 
 export interface Entity {
     id: string;
@@ -82,10 +84,10 @@ export const sendEntities: Entity[] = [
     },
     {
         id: '5',
-        name: 'Pueblos Musulmanes Internacional',
+        name: 'Pueblos en Misión Internacional',
         logo: pmLogo,
-        webUrl: 'https://pmiargentina.org/',
-        facebookUrl: 'https://web.facebook.com/pmiarg',
+        webUrl: 'https://pminternacional.org',
+        facebookUrl: 'https://web.facebook.com/pminternacional',
         whatappUrl: 'https://api.whatsapp.com/send?phone=5491151229265'
     },
     {
@@ -273,11 +275,11 @@ export const movilizationEntities: Entity[] = [
     },
     {
         id: '8',
-        name: 'Agencia Misionera Internacional',
-        logo: noImg,
-        webUrl: '',
-        facebookUrl: 'https://www.facebook.com/?_rdc=1&_rdr#',
-        whatappUrl: ''
+        name: 'Parlamento y Fe Internacional',
+        logo: parlamento,
+        webUrl: 'https://www.instagram.com/parlamentoyfe?igsh=amVxMDFtaTMzeDlh&utm_source=qr',
+        facebookUrl: 'https://www.facebook.com/share/16uVxzx9yf/?mibextid=wwXIfr',
+        whatappUrl: 'https://wa.me/5493512404204'
     },
     {
         id: '9',

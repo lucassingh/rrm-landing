@@ -4,8 +4,8 @@ export const getForumCardsData = (t: any): ForumCard[] => [
     {
         id: '1',
         forumName: t("forums.forumsList.agencies"), // 1
-        coordinators: ['Alfredo Yovanoni'],
-        whatsappGroup: 'https://wa.me/5493415695816',
+        coordinators: ['Roberto Warton'],
+        whatsappGroup: 'https://wa.me/5492974030189',
         forumColor: '#39b54a'
     },
     {

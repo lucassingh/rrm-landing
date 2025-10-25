@@ -150,7 +150,8 @@
             "buenos-aires-cerca": "Buenos Aires (up to 100 km)",
             "buenos-aires-lejos": "Buenos Aires (over 100 km)",
             "south": "South Region (General Roca)",
-            "south2": "South Region (Neuquén)"
+            "south2": "South Region",
+            "austral": "Austral Region"
         }
     },
     "forums": {
@@ -237,6 +238,32 @@
             "muslimWorld": {
                 "title": "Muslim World",
                 "description": "Specialized resources for missionary work in Muslim contexts"
+            }
+        }
+    },
+    "programs": {
+        "title": "Programs",
+        "subtitle": "Strategic initiatives to expand God's kingdom",
+        "tabs": {
+            "alcance": "Reach an Ethnic Group",
+            "pcmb": "PCMB"
+        },
+        "aueArgentina": {
+            "title": "AUE - Argentina",
+            "subtitle": "Reaching the unreached ethnic groups",
+            "description": "A strategic tool to mobilize the church towards the least evangelized ethnic groups in the country. With updated information, practical resources and a clear call to action.",
+            "buttons": {
+                "visitWebsite": "Visit Website",
+                "downloadCatalog": "Download Catalog",
+                "downloadApp": "Download App"
+            }
+        },
+        "pcmb": {
+            "title": "PCMB",
+            "subtitle": "Basic Missionary Training Program",
+            "description": "A comprehensive missionary training program designed to equip believers with the biblical, practical and spiritual foundations necessary for work in the mission field. Developed to prepare workers committed to the great commission.",
+            "buttons": {
+                "join": "Join"
             }
         }
     }

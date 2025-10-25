@@ -60,12 +60,6 @@ export const NavBarComponent = () => {
 
     const mainMenuItems: MenuItem[] = [
         {
-            titleKey: 'navbar.news',
-            path: '/news',
-            descriptionKey: 'navbar.newsDescription',
-            image: news
-        },
-        {
             titleKey: 'navbar.regions',
             path: '/regions',
             descriptionKey: 'navbar.regionsDescription',
@@ -82,6 +76,12 @@ export const NavBarComponent = () => {
             path: '/entities',
             descriptionKey: 'navbar.entitiesDescription',
             image: entities
+        },
+        {
+            titleKey: 'navbar.news',
+            path: '/news',
+            descriptionKey: 'navbar.newsDescription',
+            image: news
         },
         {
             titleKey: 'navbar.contact',

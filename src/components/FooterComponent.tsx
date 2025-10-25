@@ -247,7 +247,7 @@ export const FooterComponent = () => {
                                     </Box>
                                     <Box
                                         component="a"
-                                        href="https://www.instagram.com/rmm_argentina/"
+                                        href="https://www.instagram.com/redmisionesmundiales/"
                                         target="_blank"
                                         sx={{
                                             width: '40px',

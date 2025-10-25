@@ -16,6 +16,7 @@ import QRSection from '../components/QRSection';
 import { Link } from 'react-router-dom';
 import ColaborateSection from '../components/ColaborateSection';
 import ResourcesSection from '../components/ResourcesSection';
+import ProgramsSection from '../components/ProgramsSection';
 
 export const HomePage = () => {
 
@@ -1496,6 +1497,8 @@ export const HomePage = () => {
             <ColaborateSection />
 
             <ResourcesSection />
+
+            <ProgramsSection />
         </>
     );
 };

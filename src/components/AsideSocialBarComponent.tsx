@@ -30,7 +30,6 @@ export const AsideSocialBarComponent = () => {
             const footerRect = footerSection.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
 
-            // Ocultar cuando el footer está visible en la pantalla
             if (footerRect.top < viewportHeight * 0.8) {
                 setIsVisible(false);
             } else {
@@ -42,7 +41,6 @@ export const AsideSocialBarComponent = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // No mostrar en dispositivos móviles para no saturar la interfaz
     if (isMobile) {
         return null;
     }
@@ -56,7 +54,7 @@ export const AsideSocialBarComponent = () => {
         },
         {
             icon: <FaInstagram />,
-            href: "https://www.instagram.com/rmm_argentina/",
+            href: "https://www.instagram.com/redmisionesmundiales/",
             label: t('asideSocial.insta'),
             color: "#E4405F"
         },

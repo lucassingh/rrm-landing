@@ -39,6 +39,7 @@ import img7 from '../assets/bosses/img7.png';
 import img8 from '../assets/bosses/img8.png';
 import img9 from '../assets/bosses/img9.png';
 import HeaderComponent from "./HeaderComponent";
+import { AUSMapComponent } from "./regions/AUSMapComponent";
 
 // Definición de interfaces
 interface Boss {
@@ -479,8 +480,8 @@ const BossesCardsComponent: React.FC = () => {
             id: 4,
             nameRegion: t("regions.cardBossesRegions.lito"),
             provinces: ["ARS", "ARE"],
-            nameBoss: "Pablo Lucas Andrada",
-            telephone: "+54 9 351 2664660",
+            nameBoss: "Alfredo Yovanoni",
+            telephone: "+549 341 569-5816",
             email: "litoral@redmisionesmundiales.org",
             imgAvatar: img4,
             regionMap: <LIMapComponent />
@@ -499,8 +500,8 @@ const BossesCardsComponent: React.FC = () => {
             id: 6,
             nameRegion: t("regions.cardBossesRegions.buenos-aires-cerca"),
             provinces: ["ARC"],
-            nameBoss: "Daniel Russo",
-            telephone: "+54 9 11 32119184",
+            nameBoss: "Nelly Wisniewski",
+            telephone: "+549 11 5975-4137",
             email: "region1@redmisionesmundiales.org",
             imgAvatar: img6,
             regionMap: <BSCMapComponent />
@@ -515,16 +516,16 @@ const BossesCardsComponent: React.FC = () => {
             imgAvatar: img7,
             regionMap: <BSLMapComponent />
         },
-        {
-            id: 8,
-            nameRegion: t("regions.cardBossesRegions.south"),
-            provinces: ["ARL", "ARQ", "ARR", "ARU"],
-            nameBoss: "Evangelina Salazar",
-            telephone: "+54 9 2984572821",
-            email: "sur@redmisionesmundiales.org",
-            imgAvatar: img8,
-            regionMap: <SUMapComponent />
-        },
+        // {
+        //     id: 8,
+        //     nameRegion: t("regions.cardBossesRegions.south"),
+        //     provinces: ["ARL", "ARQ", "ARR", "ARU"],
+        //     nameBoss: "Evangelina Salazar",
+        //     telephone: "+54 9 2984572821",
+        //     email: "sur@redmisionesmundiales.org",
+        //     imgAvatar: img8,
+        //     regionMap: <SUMapComponent />
+        // },
         {
             id: 9,
             nameRegion: t("regions.cardBossesRegions.south2"),
@@ -534,7 +535,18 @@ const BossesCardsComponent: React.FC = () => {
             email: "neuquen@redmisionesmundiales.org",
             imgAvatar: img9,
             regionMap: <SUMapComponent />
+        },
+        {
+            id: 10,
+            nameRegion: t("regions.cardBossesRegions.austral"),
+            provinces: ["ARZ", "ARV"],
+            nameBoss: "José Falbo",
+            telephone: "+54 9 2964 62-0684",
+            email: "austral@redmisionesmundiales.org",
+            imgAvatar: img8,
+            regionMap: <AUSMapComponent />
         }
+
     ];
 
     const cardVariants: Variants = {
