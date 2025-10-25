@@ -8,8 +8,6 @@ import {
     Button,
     Card,
     CardContent,
-    Snackbar,
-    Alert
 } from '@mui/material';
 import { FaHandHoldingHeart, FaShieldAlt, FaGlobeAmericas, FaGlobe } from 'react-icons/fa';
 import { LayoutContentComponent } from './LayoutContentComponent';
@@ -43,8 +41,6 @@ const ColaborateSection = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [isDarkMode, setIsDarkMode] = useState(false);
-    const [snackbarOpen, setSnackbarOpen] = useState(false);
-    const [copiedText, setCopiedText] = useState('');
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -60,10 +56,6 @@ const ColaborateSection = () => {
     };
 
     const paypalUrl = "https://www.paypal.com/ncp/payment/M7WJ8VQ3MX4UC";
-
-    const handleSnackbarClose = () => {
-        setSnackbarOpen(false);
-    };
 
     return (
         <LayoutContentComponent
@@ -588,21 +580,6 @@ const ColaborateSection = () => {
                     </Typography>
                 </Box>
             </Box>
-
-            <Snackbar
-                open={snackbarOpen}
-                autoHideDuration={3000}
-                onClose={handleSnackbarClose}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-            >
-                <Alert
-                    onClose={handleSnackbarClose}
-                    severity="success"
-                    sx={{ width: '100%' }}
-                >
-                    {copiedText} copiado al portapapeles
-                </Alert>
-            </Snackbar>
         </LayoutContentComponent>
     );
 };
