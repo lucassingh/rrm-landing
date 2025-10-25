@@ -46,7 +46,8 @@ export const FooterComponent = () => {
                     padding: '20px',
                     background: '#1E1E1E',
                     borderTopLeftRadius: '30px',
-                    borderTopRightRadius: '30px'
+                    borderTopRightRadius: '30px',
+                    paddingBottom: isMobile ? '80px' : '20px' // 👈 Añadido espacio para el copyright en móvil
                 }}
             >
                 <Grid
@@ -431,47 +432,51 @@ export const FooterComponent = () => {
                         </Box>
                     </Grid>
                 </Grid>
-            </motion.div>
-            <Box
-                sx={{
-                    position: 'absolute',
-                    bottom: '30px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: '100%',
-                    textAlign: 'center',
-                    color: 'white',
-                    fontSize: '12px',
-                    zIndex: 10
-                }}
-            >
-                <Typography
-                    variant="body2"
+                {/* Texto de copyright - Mejorado para móvil */}
+                <Box
                     sx={{
+                        position: isMobile ? 'static' : 'absolute',
+                        bottom: isMobile ? 'auto' : '30px',
+                        left: isMobile ? 'auto' : '50%',
+                        transform: isMobile ? 'none' : 'translateX(-50%)',
+                        width: '100%',
+                        textAlign: 'center',
                         color: 'white',
                         fontSize: '12px',
-                        opacity: 0.8
+                        zIndex: 10,
+                        padding: isMobile ? '20px 16px' : '0',
+                        backgroundColor: isMobile ? '#1E1E1E' : 'transparent',
+                        marginTop: isMobile ? '0' : 'auto'
                     }}
                 >
-                    Red Misiones Mundiales © 2025 - sitio diseñado por{' '}
                     <Typography
-                        component="a"
-                        href="https://lucassingh.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        variant="body2"
                         sx={{
-                            fontSize: '12px',
-                            color: '#50bbafff',
-                            textDecoration: 'none',
-                            '&:hover': {
-                                textDecoration: 'underline'
-                            }
+                            color: 'white',
+                            fontSize: isMobile ? '13px' : '12px',
+                            opacity: 0.8
                         }}
                     >
-                        Lucas Singh
+                        Red Misiones Mundiales © 2025 - sitio diseñado por{' '}
+                        <Typography
+                            component="a"
+                            href="https://lucassingh.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{
+                                fontSize: isMobile ? '13px' : '12px',
+                                color: '#50bbafff',
+                                textDecoration: 'none',
+                                '&:hover': {
+                                    textDecoration: 'underline'
+                                }
+                            }}
+                        >
+                            Lucas Singh
+                        </Typography>
                     </Typography>
-                </Typography>
-            </Box>
+                </Box>
+            </motion.div>
         </Box>
     );
 };
