@@ -737,7 +737,7 @@ export const HomePage = () => {
                                             fontSize: isMobile ? '1rem' : '1.1rem',
                                             lineHeight: 1.6
                                         }}>
-                                            La RMM está dividida en{' '}
+                                            La RMM está distribuida en 9{' '}
                                             <Link
                                                 to="/regions"
                                                 style={{
@@ -1151,7 +1151,7 @@ export const HomePage = () => {
                                             fontSize: isMobile ? '1rem' : '1.1rem',
                                             lineHeight: 1.6
                                         }}>
-                                            The RMM is divided into{' '}
+                                            The RMM is distributed into 9{' '}
                                             <Link
                                                 to="/regions"
                                                 style={{

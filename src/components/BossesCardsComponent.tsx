@@ -162,7 +162,7 @@ export const BossCard: React.FC<BossCardProps> = ({ boss, provinceNames }) => {
                                     mb: 0.5
                                 }}
                             >
-                                Encargado Regional
+                                {t('regions.bossCharge')}
                             </Typography>
                             <Typography
                                 variant="subtitle1"

@@ -254,10 +254,9 @@ export const AUEArgentina: React.FC = () => {
                                         src={mockup}
                                         alt="AUE App Mockup"
                                         style={{
-                                            width: '100%',
+                                            width: '50%',
                                             height: 'auto',
                                             borderRadius: '40px',
-                                            boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
                                         }}
                                     />
                                 </Box>

@@ -432,6 +432,46 @@ export const FooterComponent = () => {
                     </Grid>
                 </Grid>
             </motion.div>
+            <Box
+                sx={{
+                    position: 'absolute',
+                    bottom: '30px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '100%',
+                    textAlign: 'center',
+                    color: 'white',
+                    fontSize: '12px',
+                    zIndex: 10
+                }}
+            >
+                <Typography
+                    variant="body2"
+                    sx={{
+                        color: 'white',
+                        fontSize: '12px',
+                        opacity: 0.8
+                    }}
+                >
+                    Red Misiones Mundiales © 2025 - sitio diseñado por{' '}
+                    <Typography
+                        component="a"
+                        href="https://lucassingh.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                            fontSize: '12px',
+                            color: '#50bbafff',
+                            textDecoration: 'none',
+                            '&:hover': {
+                                textDecoration: 'underline'
+                            }
+                        }}
+                    >
+                        Lucas Singh
+                    </Typography>
+                </Typography>
+            </Box>
         </Box>
     );
 };
