@@ -5,7 +5,8 @@ import {
     Button,
     Grid,
     useTheme,
-    Container
+    Container,
+    useMediaQuery
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +16,7 @@ import { FaFacebook } from 'react-icons/fa';
 export const PCMBArgentina: React.FC = () => {
     const theme = useTheme();
     const { t } = useTranslation();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleJoinFacebook = () => {
         window.open('https://www.facebook.com/capacitacion.misionerapcmb/', '_blank', 'noopener,noreferrer');
@@ -50,6 +52,7 @@ export const PCMBArgentina: React.FC = () => {
         >
             <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
                 <Grid container spacing={6} alignItems="center">
+                    {/* Columna de contenido - Siempre visible */}
                     <Grid size={{ xs: 12, md: 6 }}>
                         <motion.div
                             variants={containerVariants}
@@ -163,36 +166,39 @@ export const PCMBArgentina: React.FC = () => {
                         </motion.div>
                     </Grid>
 
-                    <Grid size={{ xs: 12, md: 6 }} sx={{ paddingBottom: '30px' }}>
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            <Box
-                                sx={{
-                                    position: 'relative',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    minHeight: 500,
-                                    padding: { xs: 3, md: 6 }
-                                }}
+                    {/* Columna de la imagen - Oculto en mobile */}
+                    {!isMobile && (
+                        <Grid size={{ xs: 12, md: 6 }} sx={{ paddingBottom: '30px' }}>
+                            <motion.div
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                <img
-                                    src={pcmb}
-                                    alt="PCMB Programa"
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        borderRadius: '30px',
-                                        boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
+                                <Box
+                                    sx={{
+                                        position: 'relative',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        minHeight: 500,
+                                        padding: { xs: 3, md: 6 }
                                     }}
-                                />
-                            </Box>
-                        </motion.div>
-                    </Grid>
+                                >
+                                    <img
+                                        src={pcmb}
+                                        alt="PCMB Programa"
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '30px',
+                                            boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
+                                        }}
+                                    />
+                                </Box>
+                            </motion.div>
+                        </Grid>
+                    )}
                 </Grid>
             </Container>
         </Box>

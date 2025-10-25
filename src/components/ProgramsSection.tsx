@@ -68,6 +68,14 @@ export const ProgramsSection: React.FC = () => {
         }
     };
 
+    // Función para truncar el texto de la primera tab en mobile
+    const getTabLabel = (label: string, isFirstTab: boolean = false) => {
+        if (isMobile && isFirstTab && label.length > 20) {
+            return `${label.substring(0, 20)}...`;
+        }
+        return label;
+    };
+
     return (
         <Box
             component="section"
@@ -144,8 +152,8 @@ export const ProgramsSection: React.FC = () => {
                                         fontSize: '1.1rem',
                                         fontWeight: 600,
                                         textTransform: 'none',
-                                        maxWidth: '400px',
-                                        minWidth: '400px',
+                                        maxWidth: isMobile ? 'none' : '400px',
+                                        minWidth: isMobile ? 'auto' : '400px',
                                         minHeight: 60,
                                         color: 'text.secondary',
                                         '&.Mui-selected': {
@@ -158,7 +166,7 @@ export const ProgramsSection: React.FC = () => {
                                     }
                                 }}
                             >
-                                <Tab label={t('programs.tabs.alcance')} />
+                                <Tab label={getTabLabel(t('programs.tabs.alcance'), true)} />
                                 <Tab label={t('programs.tabs.pcmb')} />
                             </Tabs>
                         </Box>

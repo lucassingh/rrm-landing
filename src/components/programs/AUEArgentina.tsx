@@ -6,7 +6,8 @@ import {
     Grid,
     useTheme,
     alpha,
-    Container
+    Container,
+    useMediaQuery
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +17,7 @@ import googlePlay from '../../assets/programs/Google_Play_Store_badge_IT.svg 1.p
 export const AUEArgentina: React.FC = () => {
     const theme = useTheme();
     const { t } = useTranslation();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleVisitWebsite = () => {
         window.open('https://alcanceunaetnia.org/', '_blank', 'noopener,noreferrer');
@@ -59,6 +61,7 @@ export const AUEArgentina: React.FC = () => {
         >
             <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
                 <Grid container spacing={6} alignItems="center">
+                    {/* Columna de contenido - Siempre visible */}
                     <Grid size={{ xs: 12, md: 6 }}>
                         <motion.div
                             variants={containerVariants}
@@ -228,35 +231,39 @@ export const AUEArgentina: React.FC = () => {
                             </motion.div>
                         </motion.div>
                     </Grid>
-                    <Grid size={{ xs: 12, md: 6 }} sx={{ paddingBottom: '30px' }}>
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            <Box
-                                sx={{
-                                    position: 'relative',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    minHeight: 500
-                                }}
+
+                    {/* Columna de la imagen - Oculto en mobile */}
+                    {!isMobile && (
+                        <Grid size={{ xs: 12, md: 6 }} sx={{ paddingBottom: '30px' }}>
+                            <motion.div
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                <img
-                                    src={mockup}
-                                    alt="AUE App Mockup"
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        borderRadius: '40px',
-                                        boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
+                                <Box
+                                    sx={{
+                                        position: 'relative',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        minHeight: 500
                                     }}
-                                />
-                            </Box>
-                        </motion.div>
-                    </Grid>
+                                >
+                                    <img
+                                        src={mockup}
+                                        alt="AUE App Mockup"
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '40px',
+                                            boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
+                                        }}
+                                    />
+                                </Box>
+                            </motion.div>
+                        </Grid>
+                    )}
                 </Grid>
             </Container>
         </Box>
