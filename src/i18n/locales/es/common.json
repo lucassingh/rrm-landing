@@ -125,7 +125,7 @@
     },
     "regions": {
         "title": "Regiones",
-        "subtitle": "La Red de Misiones Mundiales esta distribuida en nueve regiones a lo largo y ancho del país.",
+        "subtitle": "La Red de Misiones Mundiales está distribuida en nueve regiones a lo largo y ancho del país.",
         "legend": "Regiones",
         "noro": "Región Noroeste",
         "nore": "Región Noreste",
@@ -252,7 +252,7 @@
         "aueArgentina": {
             "title": "AUE - Argentina",
             "subtitle": "Llegando a las etnias no alcanzadas",
-            "description": "Una herramienta estratégica para movilizar a la iglesia hacia los grupos étnicos menos evangelizados del país. Con información actualizada, recursos prácticos y un llamado claro a la acción.",
+            "description": "Una herramienta estratégica para movilizar a la iglesia hacia los grupos étnicos menos evangelizados del mundo. Con información actualizada, recursos prácticos y un llamado claro a la acción.",
             "buttons": {
                 "visitWebsite": "Visitar Sitio",
                 "downloadCatalog": "Descargar Catálogo",
