@@ -65,6 +65,13 @@ export const getForumCardsData = (t: any): ForumCard[] => [
         forumColor: '#1e6f2f'
     },
     {
+        id: '12',
+        forumName: t("forums.forumsList.sendingChurches"), // 3
+        coordinators: ['José Marcantoni'],
+        whatsappGroup: 'https://wa.me/5491121858757',
+        forumColor: '#7b5ba1'
+    },
+    {
         id: '10',
         forumName: t("forums.forumsList.capellan"), // 12
         coordinators: ['Roberto Dominguez'],
