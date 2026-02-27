@@ -184,6 +184,10 @@
     "entities": {
         "title": "Participating Entities",
         "subtitle": "Learn about the entities that participate in our network.",
+        "formCta": {
+            "message": "Complete the form so that your ministry, organization or church is listed among the entities that participate and form the Red Misiones Mundiales.",
+            "button": "Go to form"
+        },
         "section1": "Sending Agencies",
         "section2": "Denominational Sending Agencies",
         "section3": "Training Entities",

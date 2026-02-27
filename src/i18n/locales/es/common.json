@@ -184,6 +184,10 @@
     "entities": {
         "title": "Entidades Participantes",
         "subtitle": "Conoce que entidades participan en nuestra red.",
+        "formCta": {
+            "message": "Completá el formulario para que tu ministerio, organización o iglesia figure en la nomina de entidades que participan y forman la Red Misiones Mundiales.",
+            "button": "Ir al formulario"
+        },
         "section1": "Agencias enviadoras",
         "section2": "Agencias de envío denominacionales",
         "section3": "Entidades de capacitación",

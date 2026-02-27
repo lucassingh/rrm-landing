@@ -193,7 +193,7 @@ export const capacitationAgenciesEntities: Entity[] = [
         logo: perspLogo,
         webUrl: 'https://perspectivas.ar/',
         facebookUrl: 'https://www.facebook.com/perspectivasargentina/',
-        whatappUrl: 'https://api.whatsapp.com/send?phone=5492614717959'
+        whatappUrl: 'https://api.whatsapp.com/send?phone=5491154110092'
     },
     {
         id: '9',
