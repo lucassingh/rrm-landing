@@ -1,16 +1,37 @@
+import { useState, useEffect } from 'react';
 import { Box, Button, Container, Typography, useTheme, alpha } from "@mui/material"
 import { Launch as LaunchIcon } from "@mui/icons-material"
 import { ContainerEntitiesComponent, JumbotronComponent } from "../components"
+import { LoadingComponent, ErrorComponent } from "../components"
 import { useTranslation } from "react-i18next";
 import entitiesBG from '../assets/bgs/entities-bg.jpg'
-import { capacitationAgenciesEntities, movilizationEntities, sendChurchEntities, sendDenominationEntities, sendEntities } from "../utils/entitiesData";
+import { fetchEntities } from '../services/entities.service';
+import type { EntityCategory } from '../interfaces/entity';
 
 const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdNUhyDMDgwbNoCBvc76cA2MXxUHdm98bo_SqRd4Lgf-U0w5A/viewform';
 
 export const EntitiesPage = () => {
-
     const { t } = useTranslation();
     const theme = useTheme();
+    const [categories, setCategories] = useState<EntityCategory[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const loadEntities = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+                const data = await fetchEntities();
+                setCategories(data);
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'Error al cargar las entidades');
+            } finally {
+                setLoading(false);
+            }
+        };
+        loadEntities();
+    }, []);
 
     return (
         <>
@@ -78,30 +99,17 @@ export const EntitiesPage = () => {
                     </Button>
                 </Box>
 
-                <ContainerEntitiesComponent
-                    entities={sendEntities}
-                    title={t('entities.section1')}
-                />
+                {loading && <LoadingComponent />}
 
-                <ContainerEntitiesComponent
-                    entities={sendDenominationEntities}
-                    title={t('entities.section2')}
-                />
+                {error && <ErrorComponent message={error} />}
 
-                <ContainerEntitiesComponent
-                    entities={capacitationAgenciesEntities}
-                    title={t('entities.section3')}
-                />
-
-                <ContainerEntitiesComponent
-                    entities={sendChurchEntities}
-                    title={t('entities.section4')}
-                />
-
-                <ContainerEntitiesComponent
-                    entities={movilizationEntities}
-                    title={t('entities.section5')}
-                />
+                {!loading && !error && categories.map((category) => (
+                    <ContainerEntitiesComponent
+                        key={category.id}
+                        entities={category.entities}
+                        title={category.name}
+                    />
+                ))}
             </Container>
         </>
     )
