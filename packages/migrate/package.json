@@ -1,0 +1,23 @@
+{
+  "name": "@rrm/migrate",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "migrate:users": "tsx src/migrate-users.ts",
+    "migrate:content": "tsx src/migrate-content.ts"
+  },
+  "dependencies": {
+    "@clerk/backend": "^1.21.0",
+    "@rrm/db": "workspace:*",
+    "cloudinary": "^2.5.1",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/pg": "^8.11.10",
+    "dotenv": "^16.4.7",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
