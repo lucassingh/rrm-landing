@@ -80,6 +80,15 @@ export const entitiesRelations = relations(entities, ({ one }) => ({
   }),
 }));
 
+export const forums = pgTable("forums", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 200 }).notNull(),
+  coordinatorName: varchar("coordinator_name", { length: 200 }).notNull(),
+  whatsappUrl: text("whatsapp_url").notNull(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
 export type Profile = typeof profiles.$inferSelect;
 export type NewProfile = typeof profiles.$inferInsert;
 export type News = typeof news.$inferSelect;
@@ -88,3 +97,5 @@ export type EntityCategory = typeof entityCategories.$inferSelect;
 export type NewEntityCategory = typeof entityCategories.$inferInsert;
 export type Entity = typeof entities.$inferSelect;
 export type NewEntity = typeof entities.$inferInsert;
+export type Forum = typeof forums.$inferSelect;
+export type NewForum = typeof forums.$inferInsert;

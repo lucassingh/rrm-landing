@@ -4,20 +4,20 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/material';
 import { ForumCardComponent } from './ForumCardComponent';
-import type { ForumCard } from '@/interfaces/forum';
+import type { Forum } from '@/interfaces/forum';
 
 interface ForumCardsGridComponentProps {
-    cards: ForumCard[];
+    forums: Forum[];
 }
 
-export const ForumCardsGridComponent: React.FC<ForumCardsGridComponentProps> = ({ cards }) => {
+export const ForumCardsGridComponent: React.FC<ForumCardsGridComponentProps> = ({ forums }) => {
     return (
         <Box sx={{ width: '100%' }}>
             <Grid container spacing={3}>
-                {cards.map((card) => (
+                {forums.map((forum) => (
                     <Grid
                         size={{ xs: 12, md: 6 }}
-                        key={card.id}
+                        key={forum.id}
                         sx={{
                             display: 'flex',
                             minHeight: 'auto',
@@ -26,7 +26,7 @@ export const ForumCardsGridComponent: React.FC<ForumCardsGridComponentProps> = (
                             }
                         }}
                     >
-                        <ForumCardComponent card={card} />
+                        <ForumCardComponent forum={forum} />
                     </Grid>
                 ))}
             </Grid>

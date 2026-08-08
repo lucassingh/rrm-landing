@@ -15,22 +15,27 @@ import {
     Groups,
     Person
 } from '@mui/icons-material';
-import type { ForumCard } from '@/interfaces/forum';
+import type { Forum } from '@/interfaces/forum';
 import { useTranslation } from 'react-i18next';
 
 interface ForumCardComponentProps {
-    card: ForumCard;
+    forum: Forum;
 }
 
-export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ card }) => {
+// Rotating brand-color accent, same approach as NewsCardComponent — the DB
+// row has no color field (kept the admin form to just the 3 fields that
+// matter), so the card color is derived deterministically from the id.
+const ACCENT_COLORS = ['#39b54a', '#fcb040', '#7b5ba1', '#ff5733', '#bd634f', '#4972b2', '#49a6a6', '#1e6f2f', '#b63e81'];
+
+export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ forum }) => {
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === 'dark';
     const { t } = useTranslation();
 
-    const forumColor = card.forumColor || theme.palette.primary.main;
+    const forumColor = ACCENT_COLORS[forum.id % ACCENT_COLORS.length];
 
     const handleWhatsAppClick = () => {
-        window.open(card.whatsappGroup, '_blank', 'noopener,noreferrer');
+        window.open(forum.whatsappUrl, '_blank', 'noopener,noreferrer');
     };
 
     const getInitials = (name: string) => {
@@ -95,11 +100,11 @@ export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ card }) 
                         }}
                     >
                         <Groups sx={{ fontSize: '1.5rem' }} />
-                        {card.forumName}
+                        {forum.name}
                     </Typography>
                 </Box>
 
-                {/* COORDINADORES - ELEMENTO SECUNDARIO */}
+                {/* COORDINADOR - ELEMENTO SECUNDARIO */}
                 <Box sx={{ mb: 3 }}>
                     <Typography
                         variant="subtitle2"
@@ -117,49 +122,44 @@ export const ForumCardComponent: React.FC<ForumCardComponentProps> = ({ card }) 
                         {t("forums.coordinators")}
                     </Typography>
 
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                        {card.coordinators.map((coordinator, index) => (
-                            <Box
-                                key={index}
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    p: 1,
-                                    borderRadius: 1,
-                                    backgroundColor: alpha(forumColor, 0.05),
-                                    border: `1px solid ${alpha(forumColor, 0.1)}`,
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                        width: 32,
-                                        height: 32,
-                                        borderRadius: '50%',
-                                        bgcolor: alpha(forumColor, 0.2),
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        mr: 1.5,
-                                        color: forumColor,
-                                        fontWeight: 'bold',
-                                        fontSize: '0.8rem',
-                                        flexShrink: 0
-                                    }}
-                                >
-                                    {getInitials(coordinator)}
-                                </Box>
-                                <Typography
-                                    variant="body2"
-                                    sx={{
-                                        fontWeight: 'medium',
-                                        color: 'text.primary',
-                                        fontSize: '0.9rem'
-                                    }}
-                                >
-                                    {coordinator}
-                                </Typography>
-                            </Box>
-                        ))}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            p: 1,
+                            borderRadius: 1,
+                            backgroundColor: alpha(forumColor, 0.05),
+                            border: `1px solid ${alpha(forumColor, 0.1)}`,
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                width: 32,
+                                height: 32,
+                                borderRadius: '50%',
+                                bgcolor: alpha(forumColor, 0.2),
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                mr: 1.5,
+                                color: forumColor,
+                                fontWeight: 'bold',
+                                fontSize: '0.8rem',
+                                flexShrink: 0
+                            }}
+                        >
+                            {getInitials(forum.coordinatorName)}
+                        </Box>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                fontWeight: 'medium',
+                                color: 'text.primary',
+                                fontSize: '0.9rem'
+                            }}
+                        >
+                            {forum.coordinatorName}
+                        </Typography>
                     </Box>
                 </Box>
 

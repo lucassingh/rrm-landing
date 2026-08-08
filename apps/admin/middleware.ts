@@ -14,9 +14,11 @@ const isPublicRoute = createRouteMatcher([
 const isAdminRoute = createRouteMatcher([
   "/entities(.*)",
   "/entity-categories(.*)",
+  "/forums(.*)",
   "/users(.*)",
   "/api/entities(.*)",
   "/api/entity-categories(.*)",
+  "/api/forums(.*)",
   "/api/users(.*)",
 ]);
 

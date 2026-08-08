@@ -1,50 +1,8 @@
-"use client";
+import { asc } from "drizzle-orm";
+import { db, forums } from "@rrm/db";
+import { ForumsPageClient } from "@/components/forums/ForumsPageClient";
 
-import { Card, Container } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { JumbotronComponent } from "@/components/JumbotronComponent";
-import { HeaderComponent } from "@/components/HeaderComponent";
-import { ForumCardsGridComponent } from "@/components/forums/ForumGridCardComponent";
-import { getForumCardsData } from "@/components/forums/forumCardsData";
-
-const forumsBG = '/assets/bgs/forums-bg.jpg';
-
-export default function ForumPage() {
-    const { t } = useTranslation();
-
-    const forumsData = getForumCardsData(t);
-
-    return (
-        <>
-            <JumbotronComponent
-                title={t("forums.title")}
-                subtitle={t("forums.subtitle")}
-                background={forumsBG}
-                overlay={true}
-                titleColor="#ffffff"
-                subtitleColor="#f0f0f0"
-            />
-            <Container maxWidth="lg" sx={{ py: 4 }}>
-                <Card
-                    sx={{
-                        p: 0,
-                        borderRadius: 2,
-                        boxShadow: 3,
-                        backgroundColor: 'background.paper',
-                        position: 'relative',
-                        marginBottom: '15px'
-                    }}
-                >
-                    <HeaderComponent
-                        title={t("forums.titleGralCards")}
-                        subtitle={t("forums.subtitleGralCards")}
-                        titleVariant='h2'
-                        align="left"
-                        spacing={6}
-                    />
-                    <ForumCardsGridComponent cards={forumsData} />
-                </Card>
-            </Container>
-        </>
-    );
+export default async function ForumPage() {
+    const rows = await db.query.forums.findMany({ orderBy: asc(forums.id) });
+    return <ForumsPageClient forums={rows} />;
 }

@@ -1,7 +1,1 @@
-export interface ForumCard {
-    id: string;
-    forumName: string;
-    coordinators: string[];
-    whatsappGroup: string;
-    forumColor?: string;
-}
+export type { Forum } from "@rrm/db";

@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Newspaper, Building2, FolderTree, Users } from "lucide-react";
+import { Newspaper, Building2, FolderTree, MessageCircle, Users } from "lucide-react";
 
 export type NavItem = {
   label: string;
@@ -20,5 +20,6 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "Categorías", path: "/entity-categories", icon: FolderTree, adminOnly: true },
     ],
   },
+  { label: "Foros", path: "/forums", icon: MessageCircle, adminOnly: true },
   { label: "Usuarios", path: "/users", icon: Users, adminOnly: true },
 ];
